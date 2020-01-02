@@ -19,5 +19,10 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'generator-star-spacing': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'comma-dangle': ['error', 'always-multiline'],
+    'standard/object-curly-even-spacing': 'off',
+    'object-curly-spacing': 'off'
   }
 }
