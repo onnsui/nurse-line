@@ -53,6 +53,7 @@ export default {
    ** Build configuration
    */
   build: {
+    hardSource: true,
     transpile: [/^element-ui/],
     /*
      ** You can extend webpack config here

@@ -69,7 +69,6 @@ export default {
           userName = fetchedUser.name
           avatarUrls = fetchedUser.avatar_urls
         }
-        console.log('hello')
       }
       const user = {
         name: userName,
