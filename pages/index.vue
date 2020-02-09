@@ -7,11 +7,10 @@
     <div class="main-wrapper">
       <div class="main-content">
         <ArticleItem
-          v-for="(article, index) in SampleArticle"
+          v-for="(article, index) in articles"
           :key="index"
           :article="article"
-        >
-        </ArticleItem>
+        ></ArticleItem>
       </div>
       <div class="sub-content"></div>
     </div>
@@ -20,7 +19,7 @@
 
 <script>
 import ArticleItem from '~/components/ArticleItem'
-import SampleArticle from '~/assets/SampleArticle.js'
+// import SampleArticle from '~/assets/SampleArticle.js'
 
 export default {
   components: {
@@ -28,8 +27,35 @@ export default {
   },
   data() {
     return {
-      SampleArticle,
+      articles: this.articles,
     }
+  },
+  async asyncData({ $axios }) {
+    const pageNum = 1
+    const fetchedArticle = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
+    )
+    const articles = []
+    for (let i = 0; i < fetchedArticle.length; i++) {
+      const article = fetchedArticle[i]
+
+      let coverImage = 'http://placehold.jp/200x150.png'
+      const featuredMedia = article._embedded['wp:featuredmedia']
+
+      if (featuredMedia !== undefined && featuredMedia.length > 0) {
+        coverImage = featuredMedia[0].source_url
+      }
+
+      articles.push({
+        url: '/' + article.id,
+        content: article.title.rendered,
+        image_url: coverImage,
+        category: article.tags,
+      })
+    }
+
+    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
+    return { articles, tags }
   },
 }
 </script>
