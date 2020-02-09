@@ -1,21 +1,28 @@
 <template>
   <div class="container">
     <div>
+      <header>
+        <div class="cover browed">
+          <span
+            :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"
+          ></span>
+        </div>
+        <div style="position:relative; top:0;">
+          <img :src="article.cover_image" style="height: 250px" />
+        </div>
+      </header>
       <article>
         <!-- {{fetchedArticle}} -->
 
-        <h1>
-          {{ article.title }}
-        </h1>
+        <h1>{{ article.title }}</h1>
 
         <div>日付: {{ article.date_str }}</div>
         <div>著者: {{ article.author }}</div>
         <div>アイコンURL:{{ article.author_avatar_img_96px }}</div>
+        <br />
+        <br />
 
-        <div>
-          記事内容:
-          {{ article.content }}
-        </div>
+        <div v-html="articleHTML"></div>
       </article>
     </div>
 
@@ -45,9 +52,10 @@ export default {
       )
     }
 
+    // Date型の日付を記事上の文字列(例: 2020.01.01)に変換する関数
     const getArticleDateStr = (date) => {
       const year = date.getFullYear()
-      const month = date.getMonth() + 1
+      const month = date.getMonth()
       const day = date.getDate()
       return year + '.' + month + '.' + day
     }
@@ -82,8 +90,20 @@ export default {
     const articleAuthorId = fetchedArticle.author
     const articleAuthor = getAuthorUser(articleAuthorId, fetchedUsers)
 
+    // デフォルトのカバー画像URLをセット
+    let featuredMediaRESTUrl = ''
+    const featuredMedia = fetchedArticle._links['wp:featuredmedia']
+
+    if (featuredMedia !== undefined && featuredMedia.length > 0) {
+      featuredMediaRESTUrl = featuredMedia[0].href
+    }
+    const featuredMediaInfo = await $axios.$get(featuredMediaRESTUrl)
+    const featuredMediaURL = featuredMediaInfo.guid.rendered
+
     const article = {
+      fetched_article: fetchedArticle,
       title: fetchedArticle.title.rendered,
+      cover_image: featuredMediaURL,
       date: articleDate,
       date_str: articleDateStr,
       author: articleAuthor.name,
@@ -91,7 +111,12 @@ export default {
       content: fetchedArticle.content.rendered,
     }
 
-    return { fetchedArticle, article, users: fetchedUsers }
+    return {
+      fetchedArticle,
+      article,
+      users: fetchedUsers,
+      articleHTML: article.content,
+    }
   },
   methods: {
     getTagName(id) {
@@ -112,6 +137,38 @@ export default {
 </script>
 
 <style>
+.cover span {
+  width: 100%;
+  height: 250px;
+  display: block;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  filter: alpha(opacity=70);
+  opacity: 0.7;
+}
+
+.browed {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+}
+
+.cover image {
+  height: 250px;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -141,5 +198,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+blockquote {
+  background-color: #f3f3f3;
 }
 </style>

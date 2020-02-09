@@ -79,6 +79,7 @@ export default {
     for (let i = 0; i < fetchedArticle.length; i++) {
       const article = fetchedArticle[i]
 
+      // デフォルトのカバー画像URLをセット
       let coverImage = 'http://placehold.jp/200x150.png'
       const featuredMedia = article._embedded['wp:featuredmedia']
 
