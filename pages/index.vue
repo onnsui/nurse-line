@@ -1,68 +1,63 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nurse-line
-      </h1>
-      <h2 class="subtitle">
-        My world-class Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
+    <div class="hero">
+      <img src="http://placehold.jp/1200x150.png" alt="hero" />
+    </div>
+    <hr class="section-border" />
+    <div class="main-wrapper">
+      <div class="main-content">
+        <ArticleItem
+          v-for="(article, index) in SampleArticle"
+          :key="index"
+          :article="article"
         >
-          GitHub
-        </a>
+        </ArticleItem>
       </div>
+      <div class="sub-content"></div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import ArticleItem from '~/components/ArticleItem'
+import SampleArticle from '~/assets/SampleArticle.js'
 
 export default {
   components: {
-    Logo
-  }
+    ArticleItem,
+  },
+  data() {
+    return {
+      SampleArticle,
+    }
+  },
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
+  margin: 0 10rem;
+}
+.hero {
+  width: 100%;
   margin: 0 auto;
-  min-height: 100vh;
+}
+.section-border {
+  width: 100%;
+  margin: 0 1rem;
+  border: 0;
+  border-top: double 4px #5f5d5d;
+}
+.main-wrapper {
+  margin-top: 3rem;
+}
+.main-content {
+  width: 72%;
+  margin-right: 2.25rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-wrap: wrap;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.sub-content {
+  width: 28%;
 }
 </style>
