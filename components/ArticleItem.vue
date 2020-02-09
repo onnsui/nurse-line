@@ -56,12 +56,14 @@ export default {
   display: flex;
 }
 .article-keywords {
-  top: 9.4rem;
   padding: 0.5rem 1.25rem;
   margin-left: 0.5rem;
   background-color: #61b5a7;
   font-size: 0.7rem;
   color: #fff;
+}
+.article-keywords:first-child {
+  margin-left: 0;
 }
 .article-content {
   height: 2.85rem;

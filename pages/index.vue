@@ -18,7 +18,7 @@
         <div class="keywords-wrapper">
           <div class="keywords-content">
             <p v-for="(keyword, index) in tags" :key="index">
-              {{ keyword.name }}
+              #{{ keyword.name }}
             </p>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default {
       }
 
       articles.push({
-        url: '/' + article.id,
+        url: '/page/' + article.id,
         content: article.title.rendered,
         image_url: coverImage,
         keywords: tagNames,
