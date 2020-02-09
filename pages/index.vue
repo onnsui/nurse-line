@@ -10,9 +10,19 @@
           v-for="(article, index) in articles"
           :key="index"
           :article="article"
-        ></ArticleItem>
+        >
+        </ArticleItem>
       </div>
-      <div class="sub-content"></div>
+      <div class="sub-content">
+        <h1>キーワード</h1>
+        <div class="keywords-wrapper">
+          <div class="keywords-content">
+            <p v-for="(keyword, index) in keywords" :key="index">
+              {{ keyword.name }}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -54,8 +64,10 @@ export default {
       })
     }
 
-    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
-    return { articles, tags }
+    const keywords = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wp/v2/tags',
+    )
+    return { articles, keywords }
   },
 }
 </script>
