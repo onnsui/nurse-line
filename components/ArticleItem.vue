@@ -2,8 +2,16 @@
   <div class="wrapper">
     <div class="article-thumbnail">
       <img :src="article.image_url" alt="article-thumbnail" />
+      <div class="article-keywords-wrapper">
+        <div
+          v-for="(keyword, index) in article.keywords"
+          :key="index"
+          class="article-keywords"
+        >
+          {{ keyword }}
+        </div>
+      </div>
     </div>
-    <div class="article-category">{{ article.category }}</div>
     <div class="article-content">
       {{ article.content }}
     </div>
@@ -44,11 +52,13 @@ export default {
     width: 100%;
   }
 }
-.article-category {
-  position: absolute;
+.article-keywords-wrapper {
+  display: flex;
+}
+.article-keywords {
   top: 9.4rem;
-  left: 1rem;
   padding: 0.5rem 1.25rem;
+  margin-left: 0.5rem;
   background-color: #61b5a7;
   font-size: 0.7rem;
   color: #fff;
