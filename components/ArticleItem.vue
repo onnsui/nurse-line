@@ -1,14 +1,14 @@
 <template>
   <div class="wrapper">
     <div class="article-thumbnail">
-      <img src="http://placehold.jp/200x150.png" alt="article-thumbnail" />
+      <img :src="article.image_url" alt="article-thumbnail" />
     </div>
-    <div class="article-category">インタビュー</div>
+    <div class="article-category">{{ article.category }}</div>
     <div class="article-content">
-      看護師3年目で職を転々としていた私が自分の軸を決め、未経験で訪問看護に転職した話
+      {{ article.content }}
     </div>
     <div class="article-read-button">
-      <a href="">
+      <a v-bind:href="article.url">
         <img src="~/static/read-button.png" alt="article-read-button" />
       </a>
     </div>
