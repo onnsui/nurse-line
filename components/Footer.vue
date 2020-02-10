@@ -2,8 +2,8 @@
   <footer>
     <div class="separater"></div>
 
-    <div class="page-top" style="margin: 10px;">
-      <img src="/icon/arrow_up.png" style="height:14px" />
+    <div class="scroll-top-button">
+      <img src="/icon/arrow_up.png" />
       <br />
     </div>
     <img src="http://placehold.jp/100x80.png" style="height:80px; width: 100px" />
@@ -18,6 +18,13 @@ footer {
   width: 100%;
   margin: 10px auto 25px 0;
   text-align: center;
+}
+
+.scroll-top-button {
+  margin: 10px;
+  img {
+    height: 14px;
+  }
 }
 
 .separater {

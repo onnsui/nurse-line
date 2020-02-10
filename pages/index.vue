@@ -1,37 +1,40 @@
 <template>
   <div class="container">
     <div class="hero">
-      <img src="http://placehold.jp/1200x150.png" alt="hero" />
+      <img src="http://placehold.jp/1000x400.png" alt="hero" />
     </div>
     <hr class="section-border" />
     <div class="main-wrapper">
       <div class="main-content">
-        <ArticleItem
-          v-for="(article, index) in articles"
-          :key="index"
-          :article="article"
-        >
-        </ArticleItem>
+        <ArticleItem v-for="(article, index) in articles" :key="index" :article="article"></ArticleItem>
       </div>
-      <div class="sub-content">
-        <h1>キーワード</h1>
-        <div class="keywords-wrapper">
-          <div class="keywords-content">
-            <p v-for="(keyword, index) in tags" :key="index">
-              #{{ keyword.name }}
-            </p>
-          </div>
+      <div class="sidebar">
+        <a href="#">
+          <img src="http://placehold.jp/250x100.png" alt="運営スタッフ募集中" />
+        </a>
+        <div class="sidebar-header">
+          <h1>公式アカウント</h1>
+          <p>
+            最新記事やイベント情報を配信中
+            <br />フォローして最新情報をGET
+          </p>
+          <a href="#">
+            <img src="http://placehold.jp/250x100.png" alt="看護師がサポート、転職支援" />
+          </a>
         </div>
-        <h1>人気の記事</h1>
-        <div class="keywords-wrapper">
-          <div class="keywords-content">
-            <ArticleItem
-              v-for="(article, index) in articles"
-              :key="index"
-              :article="article"
-            >
-            </ArticleItem>
-          </div>
+      </div>
+    </div>
+    <div class="under-content">
+      <h1>キーワード</h1>
+      <div class="keywords-wrapper">
+        <div class="keywords-content">
+          <p v-for="(keyword, index) in tags" :key="index">#{{ keyword.name }}</p>
+        </div>
+      </div>
+      <h1>人気の記事</h1>
+      <div class="keywords-wrapper">
+        <div class="keywords-content">
+          <ArticleItem v-for="(article, index) in articles" :key="index" :article="article"></ArticleItem>
         </div>
       </div>
     </div>
@@ -43,6 +46,7 @@ import ArticleItem from '~/components/ArticleItem'
 // import SampleArticle from '~/assets/SampleArticle.js'
 
 export default {
+  layout: 'top',
   components: {
     ArticleItem,
   },
@@ -125,11 +129,12 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin: 0 10rem;
+  margin: 0 7.5rem;
 }
 .hero {
   width: 100%;
   margin: 0 auto;
+  text-align: center;
 }
 .section-border {
   width: 100%;
@@ -138,15 +143,32 @@ export default {
   border-top: double 4px #5f5d5d;
 }
 .main-wrapper {
+  display: flex;
   margin-top: 3rem;
+  width: 100%;
 }
 .main-content {
-  width: 72%;
-  margin-right: 2.25rem;
+  width: 73%;
   display: flex;
   flex-wrap: wrap;
 }
-.sub-content {
-  width: 28%;
+.sidebar {
+  width: 23%;
+  text-align: center;
+  margin: 0;
+}
+.sidebar-header {
+  margin: 0 auto;
+  width: 100%;
+  h1 {
+    font-size: 1.4rem;
+    letter-spacing: 0.3rem;
+  }
+  p {
+    font-size: 0.88rem;
+    letter-spacing: 0.1rem;
+  }
+}
+.under-content {
 }
 </style>

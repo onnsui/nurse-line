@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   margin-right: 1.1rem;
-  width: 16rem;
+  width: 14rem;
   padding: 1rem;
   position: relative;
   border: 1px solid #ccc;
@@ -46,10 +46,13 @@ export default {
   align-items: center;
 }
 .article-thumbnail {
-  width: 14rem;
+  width: 15rem;
   height: 10.7rem;
+  text-align: center;
   img {
-    width: 100%;
+    height: 9rem;
+    width: 12rem;
+    object-fit: cover;
   }
 }
 .article-keywords-wrapper {
@@ -66,6 +69,7 @@ export default {
   margin-left: 0;
 }
 .article-content {
+  font-size: 0.9rem;
   height: 2.85rem;
   margin: 1.5rem 0 1rem 0;
   text-overflow: ellipsis;
