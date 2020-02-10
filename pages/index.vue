@@ -225,7 +225,7 @@ export default {
 }
 .under-content-wrapper {
   text-align: center;
-  width: 73%;
+  width: 76%;
 }
 
 .under-content {
