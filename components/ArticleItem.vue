@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="article-thumbnail">
       <img :src="article.image_url" alt="article-thumbnail" />
-      <div class="article-keywords-wrapper">
+      <!-- <div class="article-keywords-wrapper">
         <div
           v-for="(keyword, index) in article.keywords"
           :key="index"
@@ -10,10 +10,10 @@
         >
           {{ keyword }}
         </div>
-      </div>
+      </div>-->
     </div>
-    <div class="article-content">
-      {{ article.content }}
+    <div class="article-title">
+      <p>{{ article.content }}</p>
     </div>
     <div class="article-read-button">
       <a v-bind:href="article.url">
@@ -37,6 +37,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   margin-right: 1.1rem;
+  height: 17rem;
   width: 14rem;
   padding: 1rem;
   position: relative;
@@ -44,10 +45,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .article-thumbnail {
   width: 15rem;
-  height: 10.7rem;
+  height: 9.5rem;
   text-align: center;
   img {
     height: 9rem;
@@ -74,6 +76,17 @@ export default {
   margin: 1.5rem 0 1rem 0;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+.article-title {
+  font-size: 0.9rem;
+  text-align: left;
+  overflow: hidden;
+  width: 100%;
+  p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
 }
 .article-read-button {
   align-self: flex-end;

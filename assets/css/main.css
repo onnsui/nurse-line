@@ -18,3 +18,8 @@ html {
     box-sizing: border-box;
     margin: 0;
 }
+
+.articles-content {
+    display: flex;
+    flex-wrap: wrap;
+}
