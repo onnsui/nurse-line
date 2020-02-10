@@ -2,15 +2,11 @@
   <div class="wrapper">
     <div class="article-thumbnail">
       <img :src="article.image_url" alt="article-thumbnail" />
-      <!-- <div class="article-keywords-wrapper">
-        <div
-          v-for="(keyword, index) in article.keywords"
-          :key="index"
-          class="article-keywords"
-        >
-          {{ keyword }}
+      <div class="article-keywords-wrapper">
+        <div class="article-keywords">
+          {{ article.keywords[0] }}
         </div>
-      </div>-->
+      </div>
     </div>
     <div class="article-title">
       <p>{{ article.content }}</p>
@@ -47,10 +43,20 @@ export default {
   align-items: center;
   margin-bottom: 1rem;
 }
+
+.article-content {
+  font-size: 0.9rem;
+  height: 2.85rem;
+  margin: 1.5rem 0 1rem 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .article-thumbnail {
   width: 15rem;
   height: 9.5rem;
   text-align: center;
+  vertical-align: bottom;
   img {
     height: 9rem;
     width: 12rem;
@@ -59,9 +65,13 @@ export default {
 }
 .article-keywords-wrapper {
   display: flex;
+  position: relative;
+  width: 100%;
+  top: -1.85rem;
+  left: 0.3rem;
 }
 .article-keywords {
-  padding: 0.5rem 1.25rem;
+  padding: 0.2rem 0.7rem;
   margin-left: 0.5rem;
   background-color: #61b5a7;
   font-size: 0.7rem;
@@ -70,13 +80,7 @@ export default {
 .article-keywords:first-child {
   margin-left: 0;
 }
-.article-content {
-  font-size: 0.9rem;
-  height: 2.85rem;
-  margin: 1.5rem 0 1rem 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
+
 .article-title {
   font-size: 0.9rem;
   text-align: left;
