@@ -30,6 +30,7 @@
 
         <div v-html="articleHTML"></div>
       </article>
+      <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" />
     </div>
 
     <h2></h2>
@@ -359,5 +360,12 @@ user agent stylesheet div {
 
 blockquote {
   background-color: #f3f3f3;
+}
+
+.wp-block-separator {
+  border-width: 1px 0px 0px 0px; /* 太さ */
+  border-style: solid; /* 線種 */
+  border-color: #d3d3d3; /* 線色 */
+  margin: 30px 0;
 }
 </style>
