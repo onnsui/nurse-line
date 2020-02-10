@@ -1,24 +1,30 @@
 <template>
   <div class="container">
     <div>
+      <!-- {{ article.fetched_article }} -->
       <header>
         <div class="cover browed">
-          <span
-            :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"
-          ></span>
+          <span :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"></span>
         </div>
         <div style="position:relative; top:0;">
           <img :src="article.cover_image" style="height: 250px" />
         </div>
       </header>
-      <article>
+      <article style="width: 680px;">
         <!-- {{fetchedArticle}} -->
 
-        <h1>{{ article.title }}</h1>
+        <h1 style="font-size: 34px; font-weight: bold; letter-spacing: 0.01em;">{{ article.title }}</h1>
 
-        <div>日付: {{ article.date_str }}</div>
-        <div>著者: {{ article.author }}</div>
-        <div>アイコンURL:{{ article.author_avatar_img_96px }}</div>
+        <div style="display:flex; width: 200px; margin: 20px 0">
+          <div style="width: 30px; margin: 0 20px;">
+            <img :src="article.author_avatar_img_48px" style="height: 30px;" />
+          </div>
+          <div>
+            <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
+            <div style="font-size: 12px;">{{ article.date_str }}</div>
+          </div>
+        </div>
+
         <br />
         <br />
 
@@ -107,6 +113,7 @@ export default {
       date: articleDate,
       date_str: articleDateStr,
       author: articleAuthor.name,
+      author_avatar_img_48px: articleAuthor.avatar_img_48px,
       author_avatar_img_96px: articleAuthor.avatar_img_96px,
       content: fetchedArticle.content.rendered,
     }
@@ -137,6 +144,107 @@ export default {
 </script>
 
 <style>
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  font-weight: normal;
+  /* font-family: Hiragino Kaku Gothic ProN,Hiragino Sans,ヒラギノ角ゴ ProN W3,Arial,メイリオ,Meiryo,sans-serif !important; */
+}
+
+h1 {
+  font-weight: normal;
+}
+
+.wp-block-image > img {
+  width: 100%;
+}
+
+.w_b_w100 {
+  width: 100%;
+  text-align: left;
+}
+
+.w_b_flex {
+  display: -webkit-flex;
+  display: flex;
+}
+.w_b_box {
+  margin: 20px 0;
+}
+
+.w_b_flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.w_b_box *,
+.w_b_box *:before,
+.w_b_box *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.w_b_ava_box {
+  z-index: 3;
+}
+.w_b_f_n {
+  flex: none;
+}
+.w_b_relative {
+  position: relative;
+}
+
+.w_b_relative {
+  position: relative;
+}
+.w_b_box *,
+.w_b_box *:before,
+.w_b_box *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.w_b_size_M {
+  width: 96px;
+  height: 96px;
+}
+
+.w_b_radius {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.w_b_ava_effect {
+  text-align: center;
+}
+
+.w_b_ava_img {
+  /* height: auto; */
+  width: 75px !important;
+  height: 75px !important;
+  min-height: 1px;
+  min-width: 1px;
+  max-width: 100%;
+}
+.w_b_w100 {
+  width: 100%;
+}
+
+.w_b_ava_L {
+  width: 90px;
+}
+
+.w_b_name {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.w_b_space {
+  padding: 0 !important;
+}
+
 .cover span {
   width: 100%;
   height: 250px;
@@ -154,7 +262,56 @@ export default {
   filter: alpha(opacity=70);
   opacity: 0.7;
 }
+.w_b_bal_box.w_b_inclass.w_b_inview:not(.w_b_inview_solo):not(.w_b_inview_unset) {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 500ms;
+}
+.w_b_bal_box.w_b_outview:not(.w_b_inview_solo):not(.w_b_inview_unset).w_b_direction_L {
+  transform: translate(-100%, 0);
+}
+.w_b_bal_box.w_b_outview:not(.w_b_inview_solo):not(.w_b_inview_unset) {
+  opacity: 0;
+  transition: all 500ms;
+  box-shadow: 0 0 rgba(0, 0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.w_b_w100 {
+  width: 100%;
+}
+.w_b_relative {
+  position: relative;
+}
 
+.w_b_quote {
+  margin-left: 20px;
+}
+
+.w_b_box *,
+.w_b_box *:before,
+.w_b_box *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+user agent stylesheet div {
+  display: block;
+}
+@media (min-width: 700px) .entry-content {
+  font-size: 2.1rem;
+}
+
+.entry-content {
+  line-height: 1.5;
+}
 .browed {
   width: 100%;
   height: 250px;
