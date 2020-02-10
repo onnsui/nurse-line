@@ -213,7 +213,7 @@ export default {
 .social-area {
   margin: 0.8rem 0 1rem 0;
   h1 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     letter-spacing: 0.3rem;
   }
 }
