@@ -1,10 +1,24 @@
 <template>
   <div>
+    <MyHeader />
     <nuxt />
+    <MyFooter />
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import MyHeader from '~/components/Header.vue'
+import MyFooter from '~/components/Footer.vue'
+
+export default {
+  components: {
+    MyHeader,
+    MyFooter,
+  },
+}
+</script>
+
+<style lang="scss" scoped>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;

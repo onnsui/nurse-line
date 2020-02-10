@@ -1,39 +1,47 @@
 <template>
-  <div class="container">
-    <div>
-      <!-- {{ article.fetched_article }} -->
-      <header>
-        <div class="cover browed">
-          <span :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"></span>
-        </div>
-        <div style="position:relative; top:0;">
-          <img :src="article.cover_image" style="height: 250px" />
-        </div>
-      </header>
-      <article style="width: 680px;">
-        <!-- {{fetchedArticle}} -->
-
-        <h1 style="font-size: 34px; font-weight: bold; letter-spacing: 0.01em;">{{ article.title }}</h1>
-
-        <div style="display:flex; width: 200px; margin: 20px 0">
-          <div style="width: 30px; margin: 0 20px;">
-            <img :src="article.author_avatar_img_48px" style="height: 30px;" />
+  <div>
+    <div class="container">
+      <div>
+        <!-- {{ article.fetched_article }} -->
+        <div class="article-header">
+          <div class="cover browed">
+            <span :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"></span>
           </div>
-          <div>
-            <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
-            <div style="font-size: 12px;">{{ article.date_str }}</div>
+          <div style="position:relative; top:0;">
+            <img :src="article.cover_image" style="height: 250px" />
           </div>
         </div>
+        <article style="width: 700px;">
+          <!-- {{fetchedArticle}} -->
 
-        <br />
-        <br />
+          <h1
+            style="font-size: 34px; font-weight: bold; letter-spacing: 0.01em;"
+          >{{ article.title }}</h1>
 
-        <div v-html="articleHTML"></div>
-      </article>
-      <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" />
+          <div style="display:flex; width: 200px; margin: 20px 0">
+            <div style="width: 30px; margin: 0 20px;">
+              <img :src="article.author_avatar_img_48px" style="height: 30px;" />
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
+              <div style="font-size: 12px;">{{ article.date_str }}</div>
+            </div>
+          </div>
+
+          <br />
+          <br />
+
+          <div v-html="articleHTML"></div>
+        </article>
+        <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" />
+        <div class="article-tags">
+          <span>#転職支援</span>
+          <span>#インタビュー</span>
+        </div>
+
+        <h2>人気の記事</h2>
+      </div>
     </div>
-
-    <h2></h2>
   </div>
 </template>
 
@@ -318,7 +326,6 @@ user agent stylesheet div {
   height: 250px;
   overflow: hidden;
   position: absolute;
-  top: 0;
   left: 0;
   background: #000;
 }
@@ -365,7 +372,7 @@ blockquote {
 .wp-block-separator {
   border-width: 1px 0px 0px 0px; /* 太さ */
   border-style: solid; /* 線種 */
-  border-color: #d3d3d3; /* 線色 */
+  border-color: #dad7d7; /* 線色 */
   margin: 30px 0;
 }
 </style>
