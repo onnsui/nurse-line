@@ -172,7 +172,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin: 0 8.5rem;
+  margin: 0 10rem;
 }
 .hero {
   width: 100%;
@@ -186,7 +186,7 @@ export default {
 }
 .main-wrapper {
   display: flex;
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: 100%;
 }
 
@@ -196,7 +196,7 @@ export default {
 }
 
 .sidebar {
-  width: 23%;
+  width: 24%;
   text-align: center;
   margin: 0;
 }

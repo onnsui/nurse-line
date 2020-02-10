@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper {
   margin-right: 1.1rem;
-  height: 16rem;
+  height: 17rem;
   width: 14.5rem;
   padding: 1rem;
   position: relative;
