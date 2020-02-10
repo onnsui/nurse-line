@@ -3,7 +3,7 @@
     <div class="separater"></div>
 
     <div class="scroll-top-button">
-      <img src="/icon/arrow_up.png" />
+      <a v-scroll-to="'#top'" href="#"><img src="/icon/arrow_up.png" /></a>
       <br />
     </div>
     <img src="http://placehold.jp/100x80.png" style="height:80px; width: 100px" />

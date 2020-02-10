@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui'],
+  plugins: ['@/plugins/element-ui', '~/plugins/vue-scrollto.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -43,6 +43,7 @@ export default {
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    'vue-scrollto/nuxt',
   ],
   /*
    ** Axios module configuration

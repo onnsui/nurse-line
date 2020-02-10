@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="top">
     <div class="hero">
       <img src="http://placehold.jp/1000x350.png" alt="hero" />
     </div>
