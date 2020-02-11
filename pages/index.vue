@@ -75,7 +75,7 @@
         <div class="keywords-wrapper">
           <div class="keywords-content">
             <div class="articles-content">
-              <ArticleItem v-for="(article, index) in articles" :key="index" :article="article"></ArticleItem>
+              <ArticleItem v-for="(article, index) in popularArticles" :key="index" :article="article"></ArticleItem>
             </div>
           </div>
         </div>
@@ -96,6 +96,7 @@ export default {
   data() {
     return {
       articles: this.articles,
+      popularArticles: this.popularArticles,
     }
   },
   methods: {
@@ -126,7 +127,7 @@ export default {
     for (let i = 0; i < fetchedArticle.length; i++) {
       const article = fetchedArticle[i]
 
-      // デフォルトのカバー画像URLをセット
+      // カバー画像がない場合の画像URLをセット
       let coverImage = 'http://placehold.jp/200x150.png'
       const featuredMedia = article._embedded['wp:featuredmedia']
 
@@ -165,7 +166,57 @@ export default {
       })
     }
 
-    return { articles, tags }
+    // 人気記事の取得
+    const fetchedPopularArticle = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wpp/posts',
+    )
+    const popularArticles = []
+
+    for (let i = 0; i < fetchedPopularArticle.length; i++) {
+      const article = fetchedPopularArticle[i]
+
+      // カバー画像がない場合の画像URLをセット
+      let coverImage = 'http://placehold.jp/200x150.png'
+      const featuredMedia = article._embedded['wp:featuredmedia']
+
+      if (featuredMedia !== undefined && featuredMedia.length > 0) {
+        coverImage = featuredMedia[0].source_url
+      }
+
+      // WordPressのタグIDからタグ名を取得する
+      const getTagName = (id, tags) => {
+        let tagName = ''
+
+        for (let i = 0; i < tags.length; i++) {
+          const tag = tags[i]
+          const tagId = tag.id
+          if (id === tagId) {
+            tagName = tag.name
+          }
+        }
+        return tagName
+      }
+
+      // 記事のタグID一覧を取得し、タグ名のリストを作成する。
+      const tagNames = []
+      const articleTagIds = article.tags
+      for (let i = 0; i < articleTagIds.length; i++) {
+        const tagId = articleTagIds[i]
+        const tagName = getTagName(tagId, tags)
+        tagNames.push(tagName)
+      }
+
+      popularArticles.push({
+        url: '/page/' + article.id,
+        content: article.title.rendered,
+        image_url: coverImage,
+        keywords: tagNames,
+      })
+    }
+
+    console.log(popularArticles)
+
+    return { articles, popularArticles, tags }
   },
 }
 </script>
