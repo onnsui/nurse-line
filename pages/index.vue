@@ -6,7 +6,7 @@
     <hr class="section-border" />
     <div class="main-wrapper">
       <div class="articles-content">
-        <ArticleItem v-for="(article, index) in articles" :key="index" :article="article"></ArticleItem>
+        <ArticleItem v-for="(article, index) in latestArticles" :key="index" :article="article"></ArticleItem>
         <div class="next-article">
           <a href="#">
             <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
@@ -86,7 +86,7 @@
 
 <script>
 import ArticleItem from '~/components/ArticleItem'
-// import SampleArticle from '~/assets/SampleArticle.js'
+import GetArticles from '~/assets/GetArticles.js'
 
 export default {
   layout: 'top',
@@ -95,7 +95,7 @@ export default {
   },
   data() {
     return {
-      articles: this.articles,
+      latestArticles: this.latestArticles,
       popularArticles: this.popularArticles,
     }
   },
@@ -115,108 +115,23 @@ export default {
     },
   },
   async asyncData({ $axios }) {
-    const pageNum = 1
-
-    const fetchedArticle = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
-    )
-    const articles = []
-
+    // WordPressからタグの一覧を取得する
     const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
 
-    for (let i = 0; i < fetchedArticle.length; i++) {
-      const article = fetchedArticle[i]
+    // 最新の記事をWordPressから取得する
+    const pageNum = 1
+    const fetchedWpLatestArticles = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
+    )
+    const latestArticles = GetArticles(fetchedWpLatestArticles, tags)
 
-      // カバー画像がない場合の画像URLをセット
-      let coverImage = 'http://placehold.jp/200x150.png'
-      const featuredMedia = article._embedded['wp:featuredmedia']
-
-      if (featuredMedia !== undefined && featuredMedia.length > 0) {
-        coverImage = featuredMedia[0].source_url
-      }
-
-      // WordPressのタグIDからタグ名を取得する
-      const getTagName = (id, tags) => {
-        let tagName = ''
-
-        for (let i = 0; i < tags.length; i++) {
-          const tag = tags[i]
-          const tagId = tag.id
-          if (id === tagId) {
-            tagName = tag.name
-          }
-        }
-        return tagName
-      }
-
-      // 記事のタグID一覧を取得し、タグ名のリストを作成する。
-      const tagNames = []
-      const articleTagIds = article.tags
-      for (let i = 0; i < articleTagIds.length; i++) {
-        const tagId = articleTagIds[i]
-        const tagName = getTagName(tagId, tags)
-        tagNames.push(tagName)
-      }
-
-      articles.push({
-        url: '/page/' + article.id,
-        content: article.title.rendered,
-        image_url: coverImage,
-        keywords: tagNames,
-      })
-    }
-
-    // 人気記事の取得
-    const fetchedPopularArticle = await $axios.$get(
+    // 人気記事をWordPressから取得する
+    const fetchedWPPopularArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wpp/posts',
     )
-    const popularArticles = []
+    const popularArticles = GetArticles(fetchedWPPopularArticles, tags)
 
-    for (let i = 0; i < fetchedPopularArticle.length; i++) {
-      const article = fetchedPopularArticle[i]
-
-      // カバー画像がない場合の画像URLをセット
-      let coverImage = 'http://placehold.jp/200x150.png'
-      const featuredMedia = article._embedded['wp:featuredmedia']
-
-      if (featuredMedia !== undefined && featuredMedia.length > 0) {
-        coverImage = featuredMedia[0].source_url
-      }
-
-      // WordPressのタグIDからタグ名を取得する
-      const getTagName = (id, tags) => {
-        let tagName = ''
-
-        for (let i = 0; i < tags.length; i++) {
-          const tag = tags[i]
-          const tagId = tag.id
-          if (id === tagId) {
-            tagName = tag.name
-          }
-        }
-        return tagName
-      }
-
-      // 記事のタグID一覧を取得し、タグ名のリストを作成する。
-      const tagNames = []
-      const articleTagIds = article.tags
-      for (let i = 0; i < articleTagIds.length; i++) {
-        const tagId = articleTagIds[i]
-        const tagName = getTagName(tagId, tags)
-        tagNames.push(tagName)
-      }
-
-      popularArticles.push({
-        url: '/page/' + article.id,
-        content: article.title.rendered,
-        image_url: coverImage,
-        keywords: tagNames,
-      })
-    }
-
-    console.log(popularArticles)
-
-    return { articles, popularArticles, tags }
+    return { latestArticles, popularArticles, tags }
   },
 }
 </script>
