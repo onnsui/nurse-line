@@ -69,9 +69,9 @@
         <div class="keywords-wrapper">
           <div class="keywords-content">
             <a
-              href="#"
               v-for="(keyword, index) in tags"
               :key="index"
+              href="#"
               class="keyword-link"
             >
               #{{ keyword.name }}
