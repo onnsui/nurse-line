@@ -122,12 +122,14 @@ export default {
     const fetchedWpLatestArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
     )
+    // 記事表示コンポーネントへ渡すデータに整形
     const latestArticles = GetArticlesForWpAPI(fetchedWpLatestArticles, tags)
 
     // 人気記事をWordPressから取得する
     const fetchedWPPopularArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wpp/posts',
     )
+    // 記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
     return { latestArticles, popularArticles, tags }
