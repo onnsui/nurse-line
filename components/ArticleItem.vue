@@ -3,9 +3,7 @@
     <div class="article-thumbnail">
       <img :src="article.image_url" alt="article-thumbnail" />
       <div class="article-keywords-wrapper">
-        <div class="article-keywords">
-          {{ article.keywords[0] }}
-        </div>
+        <div class="article-keywords">{{ article.keywords[0] }}</div>
       </div>
     </div>
     <div class="article-title">
@@ -47,6 +45,7 @@ export default {
 .article-content {
   font-size: 0.9rem;
   height: 2.85rem;
+  width: 70%;
   margin: 1.5rem 0 1rem 0;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -94,5 +93,53 @@ export default {
 }
 .article-read-button {
   align-self: flex-end;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* スマホ用のCSS */
+
+  .wrapper {
+    border: 0;
+    padding: 0.8em;
+  }
+
+  .wrapper:first-child {
+    .article-thumbnail {
+      text-align: center;
+      height: 10rem;
+      width: 100%;
+      img {
+        height: 10rem;
+        width: 20rem;
+        margin: 0 auto;
+      }
+    }
+    .article-keywords-wrapper {
+      left: 0.95rem;
+    }
+    .article-title {
+      padding: 0.2em 0.4em;
+    }
+  }
+
+  .wrapper {
+    .article-keywords-wrapper {
+      left: 5.25rem;
+    }
+  }
+
+  .article-thumbnail {
+    width: 20rem;
+    height: 9.5rem;
+    img {
+      height: 6.5rem;
+      width: 9.5rem;
+      object-fit: cover;
+    }
+  }
+
+  .article-keywords-wrapper {
+    left: 1.7rem;
+  }
 }
 </style>

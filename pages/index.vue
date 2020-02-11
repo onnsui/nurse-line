@@ -5,15 +5,9 @@
         <img src="http://placehold.jp/1000x350.png" alt="hero" />
       </nuxt-link>
     </div>
-    <hr class="section-border" />
     <div class="main-wrapper">
       <div class="articles-content">
-        <ArticleItem
-          v-for="(article, index) in latestArticles"
-          :key="index"
-          :article="article"
-        >
-        </ArticleItem>
+        <ArticleItem v-for="(article, index) in latestArticles" :key="index" :article="article"></ArticleItem>
         <div class="next-article">
           <a href="#">
             <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
@@ -50,10 +44,7 @@
             </div>
           </div>
           <a href="#">
-            <img
-              src="http://placehold.jp/250x120.png"
-              alt="看護師がサポート、転職支援"
-            />
+            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" />
           </a>
           <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
           <div>
@@ -63,35 +54,30 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="under-content-wrapper">
-      <div class="under-content">
-        <div class="vertical-separator"></div>
-        <h1>キーワード</h1>
-        <div class="keywords-wrapper">
-          <div class="keywords-content">
-            <a
-              v-for="(keyword, index) in tags"
-              :key="index"
-              href="#"
-              class="keyword-link"
-            >
-              #{{ keyword.name }}
-            </a>
+      <div class="under-content-wrapper">
+        <div class="under-content">
+          <div class="vertical-separator"></div>
+          <h1>キーワード</h1>
+          <div class="keywords-wrapper">
+            <div class="keywords-content">
+              <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
+                <a href="#" class="keyword-link">#{{ keyword.name }}</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="under-content">
-        <div class="vertical-separator"></div>
-        <h1>人気の記事</h1>
-        <div class="keywords-wrapper">
-          <div class="keywords-content">
-            <div class="articles-content">
-              <ArticleItem
-                v-for="(article, index) in popularArticles"
-                :key="index"
-                :article="article"
-              ></ArticleItem>
+        <div class="under-content">
+          <div class="vertical-separator"></div>
+          <h1>人気の記事</h1>
+          <div class="keywords-wrapper">
+            <div class="keywords-content">
+              <div class="articles-content">
+                <ArticleItem
+                  v-for="(article, index) in popularArticles"
+                  :key="index"
+                  :article="article"
+                ></ArticleItem>
+              </div>
             </div>
           </div>
         </div>
@@ -163,6 +149,7 @@ export default {
   margin: 0 auto;
   text-align: center;
 }
+
 .section-border {
   margin: 0 1rem;
   border: 0;
@@ -170,8 +157,13 @@ export default {
 }
 .main-wrapper {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 2rem;
   width: 100%;
+}
+
+.articles-content {
+  width: 75%;
 }
 
 .next-article {
@@ -180,7 +172,7 @@ export default {
 }
 
 .sidebar {
-  width: 24%;
+  width: 22%;
   text-align: center;
   margin: 0;
 }
@@ -209,7 +201,7 @@ export default {
 }
 .under-content-wrapper {
   text-align: center;
-  width: 76%;
+  min-width: 75%;
 }
 
 .under-content {
@@ -237,5 +229,68 @@ export default {
   height: 1.5rem;
   margin: 0 auto 0.6rem auto;
   width: 1px;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* スマホ用のCSS */
+
+  .hero img {
+    height: 12rem;
+    width: 100%;
+  }
+
+  .articles-content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .main-wrapper {
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+
+  .keywords-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .keyword-content {
+    padding: 1em 0.3em;
+  }
+
+  .keyword-link {
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .wrapper:first-child {
+    width: 100%;
+  }
+
+  .sidebar {
+    order: 3;
+  }
+
+  .wrapper {
+    width: 47%;
+    margin: 0 auto;
+  }
+
+  .article-content {
+    width: 100%;
+  }
+  .sidebar {
+    width: 100%;
+  }
 }
 </style>
