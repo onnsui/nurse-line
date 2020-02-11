@@ -4,10 +4,11 @@ const GetArticles = (fetchedArticles, tags) => {
   for (let i = 0; i < fetchedArticles.length; i++) {
     const article = fetchedArticles[i]
 
-    // カバー画像がない場合の画像URLをセット
+    // アイキャッチ画像がない場合の画像URLをセットする。
     let coverImage = 'http://placehold.jp/200x150.png'
-    const featuredMedia = article._embedded['wp:featuredmedia']
 
+    // アイキャッチ画像のURLが記事中にあった場合、変数にセットする。
+    const featuredMedia = article._embedded['wp:featuredmedia']
     if (featuredMedia !== undefined && featuredMedia.length > 0) {
       coverImage = featuredMedia[0].source_url
     }
@@ -37,7 +38,7 @@ const GetArticles = (fetchedArticles, tags) => {
 
     articles.push({
       url: '/page/' + article.id,
-      content: article.title.rendered,
+      title: article.title.rendered,
       image_url: coverImage,
       keywords: tagNames,
     })

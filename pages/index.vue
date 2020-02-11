@@ -1,7 +1,9 @@
 <template>
-  <div class="container" id="top">
+  <div id="top" class="container">
     <div class="hero">
-      <img src="http://placehold.jp/1000x350.png" alt="hero" />
+      <nuxt-link to="/">
+        <img src="http://placehold.jp/1000x350.png" alt="hero" />
+      </nuxt-link>
     </div>
     <hr class="section-border" />
     <div class="main-wrapper">
@@ -122,14 +124,14 @@ export default {
     const fetchedWpLatestArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
     )
-    // 記事表示コンポーネントへ渡すデータに整形
+    // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const latestArticles = GetArticlesForWpAPI(fetchedWpLatestArticles, tags)
 
     // 人気記事をWordPressから取得する
     const fetchedWPPopularArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wpp/posts',
     )
-    // 記事表示コンポーネントへ渡すデータに整形
+    // 取得記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
     return { latestArticles, popularArticles, tags }
@@ -154,7 +156,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin: 0 10rem;
+  margin: 0 10%;
 }
 .hero {
   width: 100%;

@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="article-title">
-      <p>{{ article.content }}</p>
+      <p>{{ article.title }}</p>
     </div>
     <div class="article-read-button">
       <a v-bind:href="article.url">
