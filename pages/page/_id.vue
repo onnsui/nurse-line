@@ -52,6 +52,12 @@ export default {
       'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.id,
     )
 
+    // WordPress PopularPostの閲覧数をカウントアップする
+    $axios.$post(
+      'http://blog.igz0.net/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' +
+        params.id,
+    )
+
     // ISO8601形式の日付をDate型に変換する関数
     const convIso8601DateStr = (isoDateStr) => {
       const parse = isoDateStr.match(
