@@ -6,7 +6,12 @@
     <hr class="section-border" />
     <div class="main-wrapper">
       <div class="articles-content">
-        <ArticleItem v-for="(article, index) in latestArticles" :key="index" :article="article"></ArticleItem>
+        <ArticleItem
+          v-for="(article, index) in latestArticles"
+          :key="index"
+          :article="article"
+        >
+        </ArticleItem>
         <div class="next-article">
           <a href="#">
             <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
@@ -43,7 +48,10 @@
             </div>
           </div>
           <a href="#">
-            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" />
+            <img
+              src="http://placehold.jp/250x120.png"
+              alt="看護師がサポート、転職支援"
+            />
           </a>
           <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
           <div>
@@ -65,7 +73,9 @@
               v-for="(keyword, index) in tags"
               :key="index"
               class="keyword-link"
-            >#{{ keyword.name }}</a>
+            >
+              #{{ keyword.name }}
+            </a>
           </div>
         </div>
       </div>
@@ -75,7 +85,11 @@
         <div class="keywords-wrapper">
           <div class="keywords-content">
             <div class="articles-content">
-              <ArticleItem v-for="(article, index) in popularArticles" :key="index" :article="article"></ArticleItem>
+              <ArticleItem
+                v-for="(article, index) in popularArticles"
+                :key="index"
+                :article="article"
+              ></ArticleItem>
             </div>
           </div>
         </div>
@@ -86,7 +100,7 @@
 
 <script>
 import ArticleItem from '~/components/ArticleItem'
-import GetArticles from '~/assets/GetArticles.js'
+import GetArticlesForWpAPI from '~/assets/GetArticlesForWpAPI.js'
 
 export default {
   layout: 'top',
@@ -98,6 +112,25 @@ export default {
       latestArticles: this.latestArticles,
       popularArticles: this.popularArticles,
     }
+  },
+  async asyncData({ $axios }) {
+    // WordPressからタグの一覧を取得する
+    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
+
+    // 最新の記事をWordPressから取得する
+    const pageNum = 1
+    const fetchedWpLatestArticles = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
+    )
+    const latestArticles = GetArticlesForWpAPI(fetchedWpLatestArticles, tags)
+
+    // 人気記事をWordPressから取得する
+    const fetchedWPPopularArticles = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wpp/posts',
+    )
+    const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
+
+    return { latestArticles, popularArticles, tags }
   },
   methods: {
     getTagName(id) {
@@ -113,25 +146,6 @@ export default {
       }
       return tagName
     },
-  },
-  async asyncData({ $axios }) {
-    // WordPressからタグの一覧を取得する
-    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
-
-    // 最新の記事をWordPressから取得する
-    const pageNum = 1
-    const fetchedWpLatestArticles = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
-    )
-    const latestArticles = GetArticles(fetchedWpLatestArticles, tags)
-
-    // 人気記事をWordPressから取得する
-    const fetchedWPPopularArticles = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wpp/posts',
-    )
-    const popularArticles = GetArticles(fetchedWPPopularArticles, tags)
-
-    return { latestArticles, popularArticles, tags }
   },
 }
 </script>
