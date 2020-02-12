@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container" style="width: 750px; margin:0 auto;">
+    <div class="container">
       <div>
         <!-- {{ article.fetched_article }} -->
         <div class="article-header">
@@ -15,13 +15,13 @@
           <!-- {{fetchedArticle}} -->
 
           <h1 class="article-title">{{ article.title }}</h1>
-            <div class="article-info">
-              <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
-              <div>
-                <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
-                <div style="font-size: 12px;">{{ article.date_str }}</div>
-              </div>
+          <div class="article-info">
+            <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
+            <div>
+              <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
+              <div style="font-size: 12px;">{{ article.date_str }}</div>
             </div>
+          </div>
 
           <div v-html="articleHTML" class="article-content"></div>
         </article>
@@ -150,7 +150,7 @@ export default {
     }
 
     // WordPressの記事HTMLに目次のタグを埋め込む
-    article.content = AddIndexHeadingHTML(article.content);
+    article.content = AddIndexHeadingHTML(article.content)
 
     return {
       fetchedArticle,
@@ -182,6 +182,11 @@ export default {
 <style lang="scss">
 h1 {
   font-weight: normal;
+}
+
+.container {
+  width: 750px;
+  margin: 0 auto;
 }
 
 .article-title {
@@ -444,5 +449,32 @@ blockquote {
   border-style: solid; /* 線種 */
   border-color: #dad7d7; /* 線色 */
   margin: 30px 0;
+}
+
+@media only screen and (max-device-width: 768px) {
+  div {
+    width: 100%;
+  }
+
+  .article-title {
+    font-size: 1.4rem;
+    margin: 0 auto;
+    padding: 0 1.1rem;
+    width: 100%;
+  }
+
+  article {
+    margin: 0 0.5rem;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  /* スマホ用のCSS */
+  .article-title {
+    margin: 0 0.5rem;
+    width: 100%;
+  }
 }
 </style>
