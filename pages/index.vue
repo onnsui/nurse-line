@@ -6,13 +6,11 @@
       </nuxt-link>
     </div>
     <div class="main-wrapper">
-      <div class="articles-content">
-        <ArticleItem v-for="(article, index) in latestArticles" :key="index" :article="article"></ArticleItem>
-        <div class="next-article">
-          <a href="#">
-            <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
-          </a>
-        </div>
+      <ArticleItem :articles="latestArticles"></ArticleItem>
+      <div class="next-article">
+        <a href="#">
+          <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
+        </a>
       </div>
       <div class="sidebar">
         <a href="#">
@@ -71,13 +69,7 @@
           <h1>人気の記事</h1>
           <div class="keywords-wrapper">
             <div class="keywords-content">
-              <div class="articles-content">
-                <ArticleItem
-                  v-for="(article, index) in popularArticles"
-                  :key="index"
-                  :article="article"
-                ></ArticleItem>
-              </div>
+              <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
             </div>
           </div>
         </div>
@@ -88,12 +80,14 @@
 
 <script>
 import ArticleItem from '~/components/ArticleItem'
+import ArticleRankingItem from '~/components/ArticleRankingItem'
 import GetArticlesForWpAPI from '~/assets/GetArticlesForWpAPI.js'
 
 export default {
   layout: 'top',
   components: {
     ArticleItem,
+    ArticleRankingItem,
   },
   data() {
     return {
@@ -148,6 +142,9 @@ export default {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  img {
+    width: 100%;
+  }
 }
 
 .section-border {
@@ -162,17 +159,13 @@ export default {
   width: 100%;
 }
 
-.articles-content {
-  width: 75%;
-}
-
 .next-article {
   text-align: center;
   width: 100%;
 }
 
 .sidebar {
-  width: 22%;
+  width: 27%;
   text-align: center;
   margin: 0;
 }
@@ -213,6 +206,11 @@ export default {
   }
 }
 
+.keywords-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .keyword-link {
   border: 1px solid #b4b2b2;
   border-radius: 4px;
@@ -235,13 +233,8 @@ export default {
   /* スマホ用のCSS */
 
   .hero img {
-    height: 12rem;
+    height: auto;
     width: 100%;
-  }
-
-  .articles-content {
-    width: 100%;
-    margin: 0 auto;
   }
 
   .container {
@@ -254,11 +247,7 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     margin: 0 auto;
-  }
-
-  .keywords-content {
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
   }
 
   .keyword-content {
