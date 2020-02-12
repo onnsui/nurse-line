@@ -452,6 +452,7 @@ blockquote {
 }
 
 @media only screen and (max-device-width: 768px) {
+  /* スマホ用のCSS */
   div {
     width: 100%;
   }
@@ -464,17 +465,48 @@ blockquote {
   }
 
   article {
-    margin: 0 0.5rem;
+    margin: 0 0.8rem;
+  }
+
+  .cover browed {
+    display: none;
   }
 
   .container {
+    color: #222;
     width: 100%;
   }
 
-  /* スマホ用のCSS */
   .article-title {
     margin: 0 0.5rem;
     width: 100%;
+  }
+
+  .article-content {
+    font-size: 1.08rem;
+  }
+
+  .article-keywords {
+    width: auto;
+    left: 2rem;
+  }
+
+  .article-keywords:first-child {
+    margin-left: 1.5rem !important;
+  }
+
+  .w_b_size_M {
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0 auto;
+    img {
+      height: 2.8rem !important;
+      width: 2.8rem !important;
+    }
+  }
+
+  .w_b_quote {
+    margin: 0;
   }
 }
 </style>
