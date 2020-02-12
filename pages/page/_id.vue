@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" style="width: 750px; margin:0 auto;">
       <div>
         <!-- {{ article.fetched_article }} -->
         <div class="article-header">
@@ -11,27 +11,19 @@
             <img :src="article.cover_image" style="height: 250px" />
           </div>
         </div>
-        <article style="width: 700px;">
+        <article>
           <!-- {{fetchedArticle}} -->
 
-          <h1
-            style="font-size: 34px; font-weight: bold; letter-spacing: 0.01em;"
-          >{{ article.title }}</h1>
-
-          <div style="display:flex; width: 200px; margin: 20px 0">
-            <div style="width: 30px; margin: 0 20px;">
-              <img :src="article.author_avatar_img_48px" style="height: 30px;" />
+          <h1 class="article-title">{{ article.title }}</h1>
+            <div class="article-info">
+              <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
+              <div>
+                <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
+                <div style="font-size: 12px;">{{ article.date_str }}</div>
+              </div>
             </div>
-            <div>
-              <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
-              <div style="font-size: 12px;">{{ article.date_str }}</div>
-            </div>
-          </div>
 
-          <br />
-          <br />
-
-          <div v-html="articleHTML"></div>
+          <div v-html="articleHTML" class="article-content"></div>
         </article>
         <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" />
         <div class="article-tags">
@@ -40,14 +32,38 @@
         </div>
 
         <h2>人気の記事</h2>
+        <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import GetArticlesForWpAPI from '~/assets/GetArticlesForWpAPI.js'
+import AddIndexHeadingHTML from '~/assets/AddIndexHeadingHTML.js'
+import ArticleRankingItem from '~/components/ArticleRankingItem'
+
 export default {
+  components: {
+    ArticleRankingItem,
+  },
+  data() {
+    return {
+      popularArticles: this.popularArticles,
+    }
+  },
   async asyncData({ $axios, params }) {
+    // WordPressからタグの一覧を取得する
+    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
+
+    // 人気記事をWordPressから取得する
+    const fetchedWPPopularArticles = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wpp/posts',
+    )
+    // 人気記事を記事表示コンポーネントへ渡すデータに整形
+    const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
+
+    // 記事内容を取得
     const fetchedArticle = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.id,
     )
@@ -133,9 +149,14 @@ export default {
       content: fetchedArticle.content.rendered,
     }
 
+    // WordPressの記事HTMLに目次のタグを埋め込む
+    article.content = AddIndexHeadingHTML(article.content);
+
     return {
       fetchedArticle,
+      popularArticles,
       article,
+      tags,
       users: fetchedUsers,
       articleHTML: article.content,
     }
@@ -158,17 +179,67 @@ export default {
 }
 </script>
 
-<style>
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 18px;
-  font-weight: normal;
-  /* font-family: Hiragino Kaku Gothic ProN,Hiragino Sans,ヒラギノ角ゴ ProN W3,Arial,メイリオ,Meiryo,sans-serif !important; */
-}
-
+<style lang="scss">
 h1 {
   font-weight: normal;
+}
+
+.article-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 1rem;
+  text-align: left;
+}
+
+.article-info {
+  display: flex;
+  width: 200px;
+  margin: 1.5rem 0.5rem;
+  text-align: left;
+  color: #454545;
+}
+
+.article-avatar-icon {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  margin: 0 1em 0 0.5em;
+}
+
+.article-content {
+  font-size: 1.15rem;
+  line-height: 2.4rem;
+  text-align: initial;
+  h2 {
+    margin: 1.8em 0;
+  }
+}
+
+.index-heading {
+  background-color: #f8f8f8;
+  width: 75%;
+  margin: 2rem auto;
+  padding: 1.3rem 2rem 2rem 2rem;
+
+  ol {
+    padding: 0;
+  }
+
+  // 目次の項目に下線を入れる
+  li {
+    border-bottom: 1px solid #cecece;
+    list-style: none;
+  }
+
+  // 最終行には下線を引かない
+  li:last-child {
+    border-bottom: 0;
+  }
+  a {
+    color: #6e6e6e;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
 }
 
 .wp-block-image > img {
@@ -221,8 +292,13 @@ h1 {
 }
 
 .w_b_size_M {
-  width: 96px;
-  height: 96px;
+  width: 4em;
+  height: 4em;
+  margin: 0 auto;
+  img {
+    height: 4em !important;
+    width: 4em !important;
+  }
 }
 
 .w_b_radius {
@@ -309,20 +385,6 @@ h1 {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  -webkit-font-smoothing: antialiased;
-  word-break: break-word;
-  word-wrap: break-word;
-}
-user agent stylesheet div {
-  display: block;
-}
-@media (min-width: 700px) .entry-content {
-  font-size: 2.1rem;
-}
 
 .entry-content {
   line-height: 1.5;
@@ -373,6 +435,8 @@ user agent stylesheet div {
 
 blockquote {
   background-color: #f3f3f3;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .wp-block-separator {
