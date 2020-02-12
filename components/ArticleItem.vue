@@ -44,6 +44,10 @@ export default {
   margin-bottom: 1rem;
 }
 
+.articles-content {
+  width: 75%;
+}
+
 .article-content {
   font-size: 0.9rem;
   height: 2.85rem;

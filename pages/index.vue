@@ -7,11 +7,11 @@
     </div>
     <div class="main-wrapper">
       <ArticleItem :articles="latestArticles"></ArticleItem>
-      <div class="next-article">
+      <!-- <div class="next-article">
         <a href="#">
           <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
         </a>
-      </div>
+      </div> -->
       <div class="sidebar">
         <a href="#">
           <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" />
@@ -165,7 +165,7 @@ export default {
 }
 
 .sidebar {
-  width: 27%;
+  width: 24%;
   text-align: center;
   margin: 0;
 }
