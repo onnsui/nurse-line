@@ -67,11 +67,7 @@
         <div class="under-content">
           <div class="vertical-separator"></div>
           <h1>人気の記事</h1>
-          <div class="keywords-wrapper">
-            <div class="keywords-content">
-              <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
-            </div>
-          </div>
+          <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
         </div>
       </div>
     </div>
