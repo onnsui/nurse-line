@@ -72,7 +72,7 @@ export default {
   display: flex;
   position: relative;
   width: 100%;
-  top: -1.85rem;
+  top: -1.8rem;
   left: 0.3rem;
 }
 .article-keywords {
@@ -139,7 +139,7 @@ export default {
     width: 45%;
     margin: 0 auto;
     .article-keywords-wrapper {
-      top: -1.75em;
+      top: -1.7em;
       left: 0rem;
     }
     .article-keywords {
