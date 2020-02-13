@@ -25,13 +25,18 @@
 
           <div v-html="articleHTML" class="article-content"></div>
         </article>
-        <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" />
-        <div class="article-tags">
-          <span>#転職支援</span>
-          <span>#インタビュー</span>
+        <a href="#">
+          <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" style="margin: 2rem 0;" />
+        </a>
+        <div class="keywords-wrapper">
+          <div class="keywords-content">
+            <div class="keyword-content" v-for="(keyword, index) in article.keywords" :key="index">
+              <a href="#" class="keyword-link">#{{ keyword }}</a>
+            </div>
+          </div>
         </div>
 
-        <h2>人気の記事</h2>
+        <h2 class="popular-header">人気の記事</h2>
         <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
       </div>
     </div>
@@ -114,8 +119,32 @@ export default {
       return year + '.' + month + '.' + day
     }
 
+    // 日付フォーマットでタグを取得
     const articleDate = convIso8601DateStr(fetchedArticle.date)
     const articleDateStr = getArticleDateStr(articleDate)
+
+    // WordPressのタグIDからタグ名を取得する
+    const getTagName = (id, tags) => {
+      let tagName = ''
+
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagId = tag.id
+        if (id === tagId) {
+          tagName = tag.name
+        }
+      }
+      return tagName
+    }
+
+    // 記事のタグID一覧を取得し、タグ名のリストを作成する。
+    const tagNames = []
+    const articleTagIds = fetchedArticle.tags
+    for (let i = 0; i < articleTagIds.length; i++) {
+      const tagId = articleTagIds[i]
+      const tagName = getTagName(tagId, tags)
+      tagNames.push(tagName)
+    }
 
     const fetchedUsers = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/users',
@@ -164,6 +193,7 @@ export default {
       author_avatar_img_48px: articleAuthor.avatar_img_48px,
       author_avatar_img_96px: articleAuthor.avatar_img_96px,
       content: fetchedArticle.content.rendered,
+      keywords: tagNames,
     }
 
     // WordPressの記事HTMLに目次のタグを埋め込む
@@ -346,6 +376,10 @@ blockquote {
   border-style: solid; /* 線種 */
   border-color: #dad7d7; /* 線色 */
   margin: 30px 0;
+}
+
+.popular-header {
+  margin: 1rem 0;
 }
 
 .liquid-speech-balloon-wrap {
