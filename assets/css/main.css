@@ -23,3 +23,26 @@ html {
     display: flex;
     flex-wrap: wrap;
 }
+
+.keywords-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .keyword-link {
+    border: 1px solid #b4b2b2;
+    border-radius: 4px;
+    color: #454545;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0.2rem 0.5rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .vertical-separator {
+    border-left: 1px solid #5a5959;
+    height: 1.5rem;
+    margin: 0 auto 0.6rem auto;
+    width: 1px;
+  }
