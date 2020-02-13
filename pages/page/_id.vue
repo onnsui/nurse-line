@@ -47,9 +47,21 @@ export default {
   components: {
     ArticleRankingItem,
   },
+  head() {
+    return {
+      style: [
+        {
+          innerHTML: this.speechStyleTag.innerHTML,
+        },
+      ],
+      // styleタグのエスケープを無効にする
+      __dangerouslyDisableSanitizers: ['style'],
+    }
+  },
   data() {
     return {
       popularArticles: this.popularArticles,
+      speechStyleTag: this.speechStyleTag,
     }
   },
   async asyncData({ $axios, params }) {
@@ -67,6 +79,12 @@ export default {
     const fetchedArticle = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.id,
     )
+
+    // 会話の発言者名・アイコン名をスタイルシートとして取得する
+    const speechStyleTag = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wp/v2/liquid-speech-baloon/style-tag',
+    )
+    console.log(speechStyleTag.innerHTML)
 
     // WordPress PopularPostの閲覧数をカウントアップする
     $axios.$post(
@@ -157,6 +175,7 @@ export default {
       popularArticles,
       article,
       tags,
+      speechStyleTag,
       users: fetchedUsers,
       articleHTML: article.content,
     }
@@ -358,38 +377,6 @@ h1 {
   filter: alpha(opacity=70);
   opacity: 0.7;
 }
-.w_b_bal_box.w_b_inclass.w_b_inview:not(.w_b_inview_solo):not(.w_b_inview_unset) {
-  opacity: 1;
-  transform: translate(0, 0);
-  transition: all 500ms;
-}
-.w_b_bal_box.w_b_outview:not(.w_b_inview_solo):not(.w_b_inview_unset).w_b_direction_L {
-  transform: translate(-100%, 0);
-}
-.w_b_bal_box.w_b_outview:not(.w_b_inview_solo):not(.w_b_inview_unset) {
-  opacity: 0;
-  transition: all 500ms;
-  box-shadow: 0 0 rgba(0, 0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.w_b_w100 {
-  width: 100%;
-}
-.w_b_relative {
-  position: relative;
-}
-
-.w_b_quote {
-  margin-left: 20px;
-}
-
-.w_b_box *,
-.w_b_box *:before,
-.w_b_box *:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 .entry-content {
   line-height: 1.5;
@@ -449,6 +436,194 @@ blockquote {
   border-style: solid; /* 線種 */
   border-color: #dad7d7; /* 線色 */
   margin: 30px 0;
+}
+
+.liquid-speech-balloon-wrap {
+  margin: 2rem auto;
+  flex-direction: row;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.liquid-speech-balloon-text {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-left: 2rem;
+}
+.liquid-speech-balloon-text p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.liquid-speech-balloon-text p a {
+  color: inherit !important;
+  text-decoration: underline;
+}
+.liquid-speech-balloon-arrow {
+  display: none;
+}
+.liquid-speech-balloon-wrap:not(.liquid-speech-balloon-vertical)
+  .liquid-speech-balloon-arrow {
+  border-top: 7px solid transparent !important;
+  border-bottom: 7px solid transparent !important;
+  border-right: 10px solid rgba(0, 0, 0, 0.2);
+}
+
+.liquid-speech-balloon-avatar {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  background-position: left top;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+}
+.liquid-speech-balloon-avatar::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  left: 0;
+  top: 6rem;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.liquid-speech-balloon-bubble .liquid-speech-balloon-arrow {
+  display: none;
+}
+.liquid-speech-balloon-bubble .liquid-speech-balloon-text::before {
+  content: '.';
+  color: transparent;
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  border: inherit;
+  background-color: inherit;
+  left: -15px;
+  width: 15px;
+  height: 15px;
+  top: 20px;
+}
+.liquid-speech-balloon-bubble .liquid-speech-balloon-text::after {
+  content: '.';
+  color: transparent;
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  border: inherit;
+  background-color: inherit;
+  left: -20px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+}
+
+.liquid-speech-balloon-right {
+  flex-direction: row-reverse;
+}
+.liquid-speech-balloon-right .liquid-speech-balloon-text {
+  margin-left: 0;
+  margin-right: 20px;
+}
+.liquid-speech-balloon-right .liquid-speech-balloon-arrow {
+  left: auto;
+  right: -18px;
+  border-right: 7px solid transparent !important;
+  border-left: 10px solid rgba(0, 0, 0, 0.2);
+}
+
+.liquid-speech-balloon-right.liquid-speech-balloon-bubble
+  .liquid-speech-balloon-text::before {
+  left: auto;
+  right: -15px;
+}
+.liquid-speech-balloon-right.liquid-speech-balloon-bubble
+  .liquid-speech-balloon-text::after {
+  left: auto;
+  right: -20px;
+}
+
+.liquid-speech-balloon-square .liquid-speech-balloon-text {
+  border-radius: 0;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.liquid-speech-balloon-dashed .liquid-speech-balloon-text {
+  border: 2px dashed rgba(0, 0, 0, 0.2) !important;
+}
+
+.liquid-speech-balloon-shadow .liquid-speech-balloon-text {
+  border-radius: 0;
+  box-shadow: 3px 3px 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.liquid-speech-balloon-borderless .liquid-speech-balloon-text {
+  border: 0 none;
+  padding: 10px 5px;
+}
+.liquid-speech-balloon-borderless
+  .liquid-speech-balloon-text
+  .liquid-speech-balloon-arrow {
+  display: none;
+}
+
+.liquid-speech-balloon-small .liquid-speech-balloon-text,
+.liquid-speech-balloon-small .liquid-speech-balloon-text p {
+  font-size: 13px;
+  padding: 10px 15px;
+}
+.liquid-speech-balloon-small .liquid-speech-balloon-avatar {
+  width: 32px;
+  height: 32px;
+}
+.liquid-speech-balloon-small .liquid-speech-balloon-arrow {
+  top: 7px;
+}
+.liquid-speech-balloon-small .liquid-speech-balloon-avatar::after {
+  display: none;
+}
+
+.liquid-speech-balloon-large .liquid-speech-balloon-text,
+.liquid-speech-balloon-large .liquid-speech-balloon-text p {
+  font-size: 36px;
+}
+
+.liquid-speech-balloon-short .liquid-speech-balloon-text {
+  width: auto;
+}
+
+.liquid-speech-balloon-vertical {
+  flex-direction: column-reverse;
+}
+.liquid-speech-balloon-vertical .liquid-speech-balloon-text {
+  margin: 0 0 1rem 0;
+}
+.liquid-speech-balloon-vertical .liquid-speech-balloon-arrow {
+  top: auto;
+  bottom: -11px;
+  left: 11px !important;
+  border-top: 10px solid rgba(0, 0, 0, 0.2);
+  border-left: 7px solid transparent !important;
+  border-right: 7px solid transparent !important;
+}
+.liquid-speech-balloon-vertical .liquid-speech-balloon-text::before {
+  left: 15px !important;
+  top: auto;
+  bottom: -15px;
+}
+.liquid-speech-balloon-vertical .liquid-speech-balloon-text::after {
+  left: 20px !important;
+  top: auto;
+  bottom: -22px;
 }
 
 @media only screen and (max-device-width: 768px) {
