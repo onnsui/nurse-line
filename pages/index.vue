@@ -14,7 +14,7 @@
       </div>-->
       <div class="sidebar">
         <a href="#">
-          <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner"/>
+          <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner" />
         </a>
         <div class="sidebar-header">
           <div class="social-area">
@@ -42,7 +42,7 @@
             </div>
           </div>
           <a href="#">
-            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" class="sidebar-banner"/>
+            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" class="sidebar-banner" />
           </a>
           <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
           <div>
@@ -256,11 +256,19 @@ export default {
     width: 100%;
   }
 
+  .keywords-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .keyword-content {
-    padding: 1em 0.3em;
+    padding: 1em 0;
   }
 
   .keyword-link {
+    border: 1px solid #b4b2b2;
+    color: #454545;
+    margin: 0.2rem 0.3rem;
     border-radius: 4px;
     font-size: 0.9rem;
     font-weight: bold;
@@ -286,6 +294,27 @@ export default {
   }
   .sidebar {
     width: 100%;
+  }
+
+  .under-content-wrapper {
+    text-align: center;
+    width: 100%;
+  }
+
+  .under-content {
+    width: 100%;
+    margin: 3rem 0 6rem 0;
+    h1 {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  .vertical-separator {
+    border-left: 1px solid #5a5959;
+    height: 1.5rem;
+    margin: 0 auto 0.6rem auto;
+    width: 1px;
   }
 }
 </style>
