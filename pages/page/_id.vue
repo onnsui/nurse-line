@@ -5,10 +5,12 @@
         <!-- {{ article.fetched_article }} -->
         <div class="article-header">
           <div class="cover browed">
-            <span :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"></span>
+            <span
+              :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"
+            ></span>
           </div>
           <div style="position:relative; top:0;">
-            <img :src="article.cover_image" style="height: 250px" />
+            <img :src="article.cover_image" class="image" />
           </div>
         </div>
         <article>
@@ -16,9 +18,14 @@
 
           <h1 class="article-title">{{ article.title }}</h1>
           <div class="article-info">
-            <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
+            <img
+              :src="article.author_avatar_img_48px"
+              class="article-avatar-icon"
+            />
             <div>
-              <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
+              <div style="font-size: 14px; font-weight: bold;">
+                {{ article.author }}
+              </div>
               <div style="font-size: 12px;">{{ article.date_str }}</div>
             </div>
           </div>
@@ -26,11 +33,19 @@
           <div v-html="articleHTML" class="article-content"></div>
         </article>
         <a href="#">
-          <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" style="margin: 2rem 0;" />
+          <img
+            src="http://placehold.jp/350x60.png"
+            alt="キャリア相談をする"
+            style="margin: 2rem 0;"
+          />
         </a>
         <div class="keywords-wrapper">
           <div class="keywords-content">
-            <div class="keyword-content" v-for="(keyword, index) in article.keywords" :key="index">
+            <div
+              class="keyword-content"
+              v-for="(keyword, index) in article.keywords"
+              :key="index"
+            >
               <a href="#" class="keyword-link">#{{ keyword }}</a>
             </div>
           </div>
@@ -228,160 +243,6 @@ export default {
 </script>
 
 <style lang="scss">
-h1 {
-  font-weight: normal;
-}
-
-.container {
-  width: 750px;
-  margin: 0 auto;
-}
-
-.article-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0 1rem;
-  text-align: left;
-}
-
-.article-info {
-  display: flex;
-  width: 200px;
-  margin: 1.5rem 0.5rem;
-  text-align: left;
-  color: #454545;
-}
-
-.article-avatar-icon {
-  border-radius: 50%;
-  height: 32px;
-  width: 32px;
-  margin: 0 1em 0 0.5em;
-}
-
-.article-content {
-  font-size: 1.15rem;
-  line-height: 2.4rem;
-  text-align: initial;
-  h2 {
-    margin: 1.8em 0;
-  }
-}
-
-.index-heading {
-  background-color: #f8f8f8;
-  width: 75%;
-  margin: 2rem auto;
-  padding: 1.3rem 2rem 2rem 2rem;
-
-  ol {
-    padding: 0;
-  }
-
-  // 目次の項目に下線を入れる
-  li {
-    border-bottom: 1px solid #cecece;
-    list-style: none;
-  }
-
-  // 最終行には下線を引かない
-  li:last-child {
-    border-bottom: 0;
-  }
-  a {
-    color: #6e6e6e;
-    font-size: 0.9rem;
-    text-decoration: none;
-  }
-}
-
-.wp-block-image > img {
-  width: 100%;
-}
-
-.cover span {
-  width: 100%;
-  height: 250px;
-  display: block;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-  -moz-transform: scale(1.2, 1.2);
-  -ms-transform: scale(1.2, 1.2);
-  -webkit-transform: scale(1.2, 1.2);
-  transform: scale(1.2, 1.2);
-  filter: alpha(opacity=70);
-  opacity: 0.7;
-}
-
-.entry-content {
-  line-height: 1.5;
-}
-
-.browed {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  background: #000;
-}
-
-.cover image {
-  height: 250px;
-}
-
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-
-blockquote {
-  background-color: #f3f3f3;
-  width: 80%;
-  margin: 0 auto;
-}
-
-.wp-block-separator {
-  border-width: 1px 0px 0px 0px; /* 太さ */
-  border-style: solid; /* 線種 */
-  border-color: #dad7d7; /* 線色 */
-  margin: 30px 0;
-}
-
-.popular-header {
-  margin: 1rem 0;
-}
-
 .liquid-speech-balloon-wrap {
   margin: 2rem auto;
   flex-direction: row;
@@ -391,12 +252,7 @@ blockquote {
   display: -o-flex;
   display: flex;
 }
-.liquid-speech-balloon-text {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  margin-left: 2rem;
-}
+
 .liquid-speech-balloon-text p {
   margin: 0 !important;
   padding: 0 !important;
@@ -413,33 +269,6 @@ blockquote {
   border-top: 7px solid transparent !important;
   border-bottom: 7px solid transparent !important;
   border-right: 10px solid rgba(0, 0, 0, 0.2);
-}
-
-.liquid-speech-balloon-avatar {
-  background-image: url('http://placehold.jp/80x80');
-  position: relative;
-  width: 5rem;
-  height: 5rem;
-  line-height: 1;
-  flex-shrink: 0;
-  background-position: left top;
-  background-repeat: no-repeat;
-  -webkit-background-size: 100% auto;
-  -moz-background-size: 100% auto;
-  -ms-background-size: 100% auto;
-  -o-background-size: 100% auto;
-  background-size: 100% auto;
-}
-.liquid-speech-balloon-avatar::after {
-  position: absolute;
-  content: '';
-  display: block;
-  width: 100%;
-  left: 0;
-  top: 6rem;
-  font-size: 0.9rem;
-  text-align: center;
-  font-weight: bold;
 }
 
 .liquid-speech-balloon-bubble .liquid-speech-balloon-arrow {
@@ -571,21 +400,368 @@ blockquote {
   bottom: -22px;
 }
 
-@media only screen and (max-device-width: 768px) {
-  /* スマホ用のCSS */
-  div {
-    width: 100%;
+@media only screen and (min-device-width: 769px) {
+  h1 {
+    font-weight: normal;
+  }
+
+  .container {
+    width: 750px;
+    margin: 0 auto;
   }
 
   .article-title {
-    font-size: 1.4rem;
-    margin: 0 auto;
-    padding: 0 1.1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 1rem;
+    text-align: left;
+  }
+
+  .article-info {
+    display: flex;
+    width: 200px;
+    margin: 1.5rem 0.5rem;
+    text-align: left;
+    color: #454545;
+  }
+
+  .article-avatar-icon {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    margin: 0 1em 0 0.5em;
+  }
+
+  .article-content {
+    font-size: 1.15rem;
+    line-height: 2.4rem;
+    text-align: initial;
+    h2 {
+      margin: 1.8em 0;
+    }
+  }
+
+  .index-heading {
+    background-color: #f8f8f8;
+    width: 75%;
+    margin: 2rem auto;
+    padding: 1.3rem 2rem 2rem 2rem;
+
+    ol {
+      padding: 0;
+    }
+
+    // 目次の項目に下線を入れる
+    li {
+      border-bottom: 1px solid #cecece;
+      list-style: none;
+    }
+
+    // 最終行には下線を引かない
+    li:last-child {
+      border-bottom: 0;
+    }
+    a {
+      color: #6e6e6e;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+  }
+
+  .wp-block-image > img {
     width: 100%;
   }
 
+  .cover span {
+    width: 100%;
+    height: 250px;
+    display: block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+  }
+
+  .entry-content {
+    line-height: 1.5;
+  }
+
+  .article-header {
+    .browed {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      background: #000;
+    }
+
+    .image {
+      width: 75å0px;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    display: block;
+    font-weight: 300;
+    font-size: 100px;
+    color: #35495e;
+    letter-spacing: 1px;
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 42px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+  }
+
+  .links {
+    padding-top: 15px;
+  }
+
+  blockquote {
+    background-color: #f3f3f3;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .wp-block-separator {
+    border-width: 1px 0px 0px 0px; /* 太さ */
+    border-style: solid; /* 線種 */
+    border-color: #dad7d7; /* 線色 */
+    margin: 30px 0;
+  }
+
+  .popular-header {
+    margin: 1rem 0;
+  }
+
+  .liquid-speech-balloon-avatar {
+    background-image: url('http://placehold.jp/80x80');
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    line-height: 1;
+    flex-shrink: 0;
+    background-position: left top;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -ms-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+  }
+
+  .liquid-speech-balloon-avatar::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    left: 0;
+    top: 6rem;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .liquid-speech-balloon-text {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-left: 2rem;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* スマホ用のCSS */
+
+  h1 {
+    font-weight: normal;
+  }
+
+  .article-header{
+    .image{
+      auto: auto;
+      width: 100%
+    }
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .article-title {
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.4rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    width: 100%;
+  }
+  .article-info {
+    display: flex;
+    width: 200px;
+    margin: 1.5rem 0.5rem;
+    text-align: left;
+    color: #454545;
+  }
+
+  .article-avatar-icon {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    margin: 0 1em 0 0.5em;
+  }
+
+  .article-content {
+    font-size: 1.15rem;
+    line-height: 1.5rem;
+    text-align: initial;
+    letter-spacing: 0;
+    h2 {
+      margin: 1.8em 0;
+      font-size: 1.3rem;
+      letter-spacing: 0.05rem;
+    }
+  }
+
+  .index-heading {
+    background-color: #f8f8f8;
+    margin: 2rem auto;
+    padding: 1.3rem 2rem 2rem 2rem;
+
+    ol {
+      padding: 0;
+    }
+
+    // 目次の項目に下線を入れる
+    li {
+      border-bottom: 1px solid #cecece;
+      list-style: none;
+    }
+
+    // 最終行には下線を引かない
+    li:last-child {
+      border-bottom: 0;
+    }
+    a {
+      color: #6e6e6e;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+  }
+
+  .index-heading-title {
+    font-size: 0.9rem;
+  }
+
+  .wp-block-image > img {
+    width: 100%;
+  }
+
+  .cover span {
+    width: 100%;
+    height: 250px;
+    display: block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+  }
+
+  .entry-content {
+    line-height: 1.5;
+  }
+
+  .browed {
+    display: none;
+  }
+
+  .cover image {
+    height: 250px;
+  }
+
+  .container {
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+      sans-serif;
+    display: block;
+    font-weight: 300;
+    font-size: 100px;
+    color: #35495e;
+    letter-spacing: 1px;
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 42px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+  }
+
+  .links {
+    padding-top: 15px;
+  }
+
+  blockquote {
+    background-color: #f3f3f3;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .wp-block-separator {
+    border-width: 1px 0px 0px 0px; /* 太さ */
+    border-style: solid; /* 線種 */
+    border-color: #dad7d7; /* 線色 */
+    margin: 30px 0;
+  }
+
+  .popular-header {
+    margin: 1rem 0;
+  }
+
   article {
-    margin: 0 0.8rem;
+    padding: 0 0.8rem;
   }
 
   .cover browed {
@@ -615,18 +791,40 @@ blockquote {
     margin-left: 1.5rem !important;
   }
 
-  .w_b_size_M {
-    width: 2.8rem;
-    height: 2.8rem;
-    margin: 0 auto;
-    img {
-      height: 2.8rem !important;
-      width: 2.8rem !important;
-    }
+  .liquid-speech-balloon-avatar {
+    background-image: url('http://placehold.jp/80x80');
+    position: relative;
+    top: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 1;
+    flex-shrink: 0;
+    background-position: left top;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -ms-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
   }
 
-  .w_b_quote {
-    margin: 0;
+  .liquid-speech-balloon-avatar::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    left: 0;
+    top: 4rem;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .liquid-speech-balloon-text {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-left: 1rem;
   }
 }
 </style>

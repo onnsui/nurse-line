@@ -233,25 +233,6 @@ export default {
     width: 100%;
   }
 
-  .keywords-content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .keyword-content {
-    padding: 1em 0;
-  }
-
-  .keyword-link {
-    border: 1px solid #b4b2b2;
-    color: #454545;
-    margin: 0.2rem 0.3rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0.5rem 0.9rem;
-  }
 
   .wrapper:first-child {
     width: 100%;

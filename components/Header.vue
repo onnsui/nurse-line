@@ -13,7 +13,7 @@ header {
   font-size: 2rem;
   font-weight: bold;
   height: 3rem;
-  width: 100%;
+  width: 101%;
   margin: 0 auto;
   text-align: center;
 }

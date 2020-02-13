@@ -38,6 +38,7 @@ html {
     text-decoration: none;
     margin: 0.2rem 0.5rem;
     padding: 0.5rem 0.9rem;
+    width: auto !important;
   }
 
   .vertical-separator {
@@ -46,3 +47,5 @@ html {
     margin: 0 auto 0.6rem auto;
     width: 1px;
   }
+
+  
