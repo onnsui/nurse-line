@@ -80,11 +80,10 @@ export default {
       'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.id,
     )
 
-    // 会話の発言者名・アイコン名をスタイルシートとして取得する
+    // 会話の発言者名・アイコン名をスタイルシートのテキストとして取得する
     const speechStyleTag = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/liquid-speech-baloon/style-tag',
     )
-    console.log(speechStyleTag.innerHTML)
 
     // WordPress PopularPostの閲覧数をカウントアップする
     $axios.$post(
@@ -270,96 +269,6 @@ h1 {
   width: 100%;
 }
 
-.w_b_w100 {
-  width: 100%;
-  text-align: left;
-}
-
-.w_b_flex {
-  display: -webkit-flex;
-  display: flex;
-}
-.w_b_box {
-  margin: 20px 0;
-}
-
-.w_b_flex {
-  display: -webkit-flex;
-  display: flex;
-}
-
-.w_b_box *,
-.w_b_box *:before,
-.w_b_box *:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.w_b_ava_box {
-  z-index: 3;
-}
-.w_b_f_n {
-  flex: none;
-}
-.w_b_relative {
-  position: relative;
-}
-
-.w_b_relative {
-  position: relative;
-}
-.w_b_box *,
-.w_b_box *:before,
-.w_b_box *:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.w_b_size_M {
-  width: 4em;
-  height: 4em;
-  margin: 0 auto;
-  img {
-    height: 4em !important;
-    width: 4em !important;
-  }
-}
-
-.w_b_radius {
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-}
-
-.w_b_ava_effect {
-  text-align: center;
-}
-
-.w_b_ava_img {
-  /* height: auto; */
-  width: 75px !important;
-  height: 75px !important;
-  min-height: 1px;
-  min-width: 1px;
-  max-width: 100%;
-}
-.w_b_w100 {
-  width: 100%;
-}
-
-.w_b_ava_L {
-  width: 90px;
-}
-
-.w_b_name {
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.w_b_space {
-  padding: 0 !important;
-}
-
 .cover span {
   width: 100%;
   height: 250px;
@@ -381,6 +290,7 @@ h1 {
 .entry-content {
   line-height: 1.5;
 }
+
 .browed {
   width: 100%;
   height: 250px;
@@ -472,6 +382,7 @@ blockquote {
 }
 
 .liquid-speech-balloon-avatar {
+  background-image: url('http://placehold.jp/80x80');
   position: relative;
   width: 5rem;
   height: 5rem;

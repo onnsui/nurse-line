@@ -190,7 +190,7 @@ export default {
 }
 .under-content-wrapper {
   text-align: center;
-  min-width: 75%;
+  width: 75%;
 }
 
 .under-content {
