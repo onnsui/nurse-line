@@ -11,10 +11,10 @@
         <a href="#">
           <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
         </a>
-      </div> -->
+      </div>-->
       <div class="sidebar">
         <a href="#">
-          <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" />
+          <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner"/>
         </a>
         <div class="sidebar-header">
           <div class="social-area">
@@ -42,7 +42,7 @@
             </div>
           </div>
           <a href="#">
-            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" />
+            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" class="sidebar-banner"/>
           </a>
           <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
           <div>
@@ -134,95 +134,105 @@ export default {
 .container {
   margin: 0 10%;
 }
-.hero {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  img {
+
+@media only screen and (min-device-width: 769px) {
+  .hero {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+
+  .section-border {
+    margin: 0 1rem;
+    border: 0;
+    border-top: double 4px #5f5d5d;
+  }
+  .main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
     width: 100%;
   }
-}
 
-.section-border {
-  margin: 0 1rem;
-  border: 0;
-  border-top: double 4px #5f5d5d;
-}
-.main-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  width: 100%;
-}
+  .next-article {
+    text-align: center;
+    width: 100%;
+  }
 
-.next-article {
-  text-align: center;
-  width: 100%;
-}
+  .sidebar {
+    width: 24%;
+    text-align: center;
+    margin: 0;
+  }
 
-.sidebar {
-  width: 24%;
-  text-align: center;
-  margin: 0;
-}
-.sidebar-header {
-  margin: 0 auto;
-  width: 100%;
-  p {
+  .sidebar-header {
+    margin: 0 auto;
+    width: 100%;
+    p {
+      font-size: 0.9rem;
+      letter-spacing: 0.05rem;
+      margin: 0.4rem 0;
+    }
+  }
+
+  .sidebar-banner {
+    height: auto;
+    width: 100%;
+  }
+
+  .social-area {
+    margin: 0.8rem auto 1rem auto;
+    width: 100%;
+    h1 {
+      font-size: 1.3rem;
+      letter-spacing: 0.3rem;
+    }
+  }
+
+  .social-icon-area {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1rem 0;
+  }
+  .under-content-wrapper {
+    text-align: center;
+    width: 75%;
+  }
+
+  .under-content {
+    width: 100%;
+    margin: 3rem 0 6rem 0;
+    h1 {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  .keywords-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .keyword-link {
+    border: 1px solid #b4b2b2;
+    border-radius: 4px;
+    color: #454545;
     font-size: 0.9rem;
-    letter-spacing: 0.05rem;
-    margin: 0.4rem 0;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0.2rem 0.5rem;
+    padding: 0.5rem 0.9rem;
   }
-}
 
-.social-area {
-  margin: 0.8rem 0 1rem 0;
-  h1 {
-    font-size: 1.3rem;
-    letter-spacing: 0.3rem;
+  .vertical-separator {
+    border-left: 1px solid #5a5959;
+    height: 1.5rem;
+    margin: 0 auto 0.6rem auto;
+    width: 1px;
   }
-}
-
-.social-icon-area {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 1rem 0;
-}
-.under-content-wrapper {
-  text-align: center;
-  width: 75%;
-}
-
-.under-content {
-  width: 100%;
-  margin: 3rem 0 6rem 0;
-  h1 {
-    font-size: 1.35rem;
-    margin-bottom: 0.8rem;
-  }
-}
-
-.keywords-content {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.keyword-link {
-  border: 1px solid #b4b2b2;
-  border-radius: 4px;
-  color: #454545;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-decoration: none;
-  margin: 0.2rem 0.5rem;
-  padding: 0.5rem 0.9rem;
-}
-
-.vertical-separator {
-  border-left: 1px solid #5a5959;
-  height: 1.5rem;
-  margin: 0 auto 0.6rem auto;
-  width: 1px;
 }
 
 @media only screen and (max-device-width: 768px) {
