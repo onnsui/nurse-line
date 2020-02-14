@@ -12,7 +12,30 @@
       </div>
     </section>
 
-    <section>have fun</section>
+    <section class="have-fun">
+      <swiper :options="swiperHaveFunOption">
+        <swiper-slide>
+          <div style="display:flex;margin:0;">
+            <div style="height:100%; width: 50%;">
+              <img
+                src="http://placehold.jp/630x400.png"
+                style="height:auto; width:100%;object-fit:cover;"
+              />
+            </div>
+            <div
+              style="display:flex; align-items:center;width: 50%;text-align: left;padding: 0 5rem;margin: 0 auto;line-height: 2.3rem;"
+            >
+              看護師同士、横のつながりをつくるも良し、いろんな働き方を知るのも良し、看護師のための看護師によるイベントです
+              <br />主な参加者の年齢層は20代から40代まで。男性看護師も看護学生も多数参加しています。
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide></swiper-slide>
+        <swiper-slide></swiper-slide>
+
+        <div slot="pagination" class="swiper-pagination"></div>
+      </swiper>
+    </section>
 
     <section>
       <div>
@@ -48,19 +71,19 @@
       </div>
     </section>
 
-    <section>
+    <section style="background-color: #ccc;">
       <swiper :options="swiperOption">
-        <swiper-slide>
-          <h2>看護師に多様な価値観を</h2>
-          <br />世の中には色んな看護師がいることを伝えたい。
-          <br />自分は看護師に向いていない。
-          <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
-        </swiper-slide>
         <swiper-slide>
           <h2>看護師のサードプレイスに</h2>
           <br />看護師は精神的に大変な仕事。心休まる時間が必要。
           <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
           <br />看護師の居場所になるような場を。
+        </swiper-slide>
+        <swiper-slide>
+          <h2>看護師に多様な価値観を</h2>
+          <br />世の中には色んな看護師がいることを伝えたい。
+          <br />自分は看護師に向いていない。
+          <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
         </swiper-slide>
         <swiper-slide>
           <h2>看護師という人生に誇りを持てるように</h2>
@@ -83,6 +106,24 @@ export default {
   layout: 'top',
   data() {
     return {
+      swiperHaveFunOption: {
+        slidesPerView: 1,
+        // spaceBetween: 30,
+        // slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        // autoplay: {
+        //   delay: 5000,
+        // },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      },
       swiperOption: {
         slidesPerView: 3,
         // spaceBetween: 30,
@@ -172,26 +213,42 @@ export default {
     width: 100%;
     height: 400px;
   }
+
+  .have-fun {
+    .swiper-pagination {
+      left: 25%;
+      text-align: left !important;
+    }
+  }
+
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background-color: #fff !important;
+    background-color: #f3f3f3;
 
     // /* Center slide text vertically */
-    // // margin: 0 50px;
-    // // padding: 0 30px;
+    // margin: 0 50px;
+    // padding: 0 30px;
     // width: 30% !important;
+  }
+
+  .swiper-slide-next {
+    background-color: #fff;
   }
 
   .swiper-button-prev {
     background-image: url('http://placehold.jp/60x60.png');
     background-size: 60px 60px;
+    height: 60px;
+    width: 60px;
     left: 25%;
   }
 
   .swiper-button-next {
     background-image: url('http://placehold.jp/60x60.png');
     background-size: 60px 60px;
+    height: 60px;
+    width: 60px;
     right: 25%;
   }
 
