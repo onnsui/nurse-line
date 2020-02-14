@@ -30,8 +30,38 @@
             </div>
           </div>
         </swiper-slide>
-        <swiper-slide></swiper-slide>
-        <swiper-slide></swiper-slide>
+        <swiper-slide>
+          <div style="display:flex;margin:0;">
+            <div style="height:100%; width: 50%;">
+              <img
+                src="http://placehold.jp/630x400.png"
+                style="height:auto; width:100%;object-fit:cover;"
+              />
+            </div>
+            <div
+              style="display:flex; align-items:center;width: 50%;text-align: left;padding: 0 5rem;margin: 0 auto;line-height: 2.3rem;"
+            >
+              看護師同士、横のつながりをつくるも良し、いろんな働き方を知るのも良し、看護師のための看護師によるイベントです
+              <br />主な参加者の年齢層は20代から40代まで。男性看護師も看護学生も多数参加しています。
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div style="display:flex;margin:0;">
+            <div style="height:100%; width: 50%;">
+              <img
+                src="http://placehold.jp/630x400.png"
+                style="height:auto; width:100%;object-fit:cover;"
+              />
+            </div>
+            <div
+              style="display:flex; align-items:center;width: 50%;text-align: left;padding: 0 5rem;margin: 0 auto;line-height: 2.3rem;"
+            >
+              看護師同士、横のつながりをつくるも良し、いろんな働き方を知るのも良し、看護師のための看護師によるイベントです
+              <br />主な参加者の年齢層は20代から40代まで。男性看護師も看護学生も多数参加しています。
+            </div>
+          </div>
+        </swiper-slide>
 
         <div slot="pagination" class="swiper-pagination"></div>
       </swiper>
