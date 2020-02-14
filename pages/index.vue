@@ -13,9 +13,9 @@
         </a>
       </div>-->
       <div class="sidebar">
-        <a href="#">
+        <nuxt-link to="/event">
           <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner" />
-        </a>
+        </nuxt-link>
         <div class="sidebar-header">
           <div class="social-area">
             <h1>公式アカウント</h1>
@@ -232,7 +232,6 @@ export default {
     margin: 0 auto;
     width: 100%;
   }
-
 
   .wrapper:first-child {
     width: 100%;

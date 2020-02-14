@@ -23,11 +23,19 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css', '@/assets/css/main.css'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    '@/assets/css/main.css',
+    'swiper/dist/css/swiper.css',
+  ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui', '~/plugins/vue-scrollto.js'],
+  plugins: [
+    '@/plugins/element-ui',
+    '~/plugins/vue-scrollto.js',
+    { src: '~plugins/vue-awesome-swiper', ssr: false },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -56,9 +64,10 @@ export default {
   build: {
     hardSource: true,
     transpile: [/^element-ui/],
+    vendor: ['vue-awesome-swiper'],
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { },
+    extend(config, ctx) {},
   },
 }
