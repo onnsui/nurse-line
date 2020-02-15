@@ -1,42 +1,44 @@
 <template>
   <div>
     <div class="container">
-      <!-- {{ article.fetched_article }} -->
-      <div class="article-header">
-        <div class="cover browed">
-          <span :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"></span>
+      <div>
+        <!-- {{ article.fetched_article }} -->
+        <div class="article-header">
+          <div class="cover browed">
+            <span :style="{ backgroundImage: 'url(' + article.cover_image + ')' }"></span>
+          </div>
+          <div style="position:relative; top:0;">
+            <img :src="article.cover_image" class="image" />
+          </div>
         </div>
-        <div style="position:relative; top:0;">
-          <img :src="article.cover_image" class="image" />
-        </div>
-      </div>
-      <article>
-        <!-- {{fetchedArticle}} -->
+        <article>
+          <!-- {{fetchedArticle}} -->
 
-        <h1 class="article-title">{{ article.title }}</h1>
-        <div class="article-info">
-          <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
-          <div>
-            <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
-            <div style="font-size: 12px;">{{ article.date_str }}</div>
+          <h1 class="article-title">{{ article.title }}</h1>
+          <div class="article-info">
+            <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
+            <div>
+              <div style="font-size: 14px; font-weight: bold;">{{ article.author }}</div>
+              <div style="font-size: 12px;">{{ article.date_str }}</div>
+            </div>
+          </div>
+
+          <div v-html="articleHTML" class="article-content"></div>
+        </article>
+        <a href="#">
+          <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" style="margin: 2rem 0;" />
+        </a>
+        <div class="keywords-wrapper">
+          <div class="keywords-content">
+            <div class="keyword-content" v-for="(keyword, index) in article.keywords" :key="index">
+              <a href="#" class="keyword-link">#{{ keyword }}</a>
+            </div>
           </div>
         </div>
 
-        <div v-html="articleHTML" class="article-content"></div>
-      </article>
-      <a href="#">
-        <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" style="margin: 2rem 0;" />
-      </a>
-      <div class="keywords-wrapper">
-        <div class="keywords-content">
-          <div class="keyword-content" v-for="(keyword, index) in article.keywords" :key="index">
-            <a href="#" class="keyword-link">#{{ keyword }}</a>
-          </div>
-        </div>
+        <h2 class="popular-header">人気の記事</h2>
+        <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
       </div>
-
-      <h2 class="popular-header">人気の記事</h2>
-      <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
     </div>
   </div>
 </template>
@@ -388,6 +390,13 @@ export default {
     font-weight: normal;
   }
 
+  .article-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2rem 1rem 0 1rem;
+    text-align: left;
+  }
+
   .article-info {
     display: flex;
     width: 200px;
@@ -485,7 +494,6 @@ export default {
   .container {
     margin: 0 16rem;
     min-height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -556,7 +564,7 @@ export default {
     font-weight: bold;
   }
 
-  /deep/.liquid-speech-balloon-text {
+  .liquid-speech-balloon-text {
     position: relative;
     z-index: 1;
     width: 100%;
@@ -573,7 +581,7 @@ export default {
 
   .article-header {
     .image {
-      margin: auto;
+      auto: auto;
       width: 100%;
     }
   }
@@ -791,7 +799,7 @@ export default {
     font-weight: bold;
   }
 
-  /deep/ .liquid-speech-balloon-text {
+  .liquid-speech-balloon-text {
     position: relative;
     z-index: 1;
     width: 100%;
