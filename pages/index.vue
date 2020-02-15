@@ -7,11 +7,6 @@
     </div>
     <div class="main-wrapper">
       <ArticleItem :articles="latestArticles"></ArticleItem>
-      <!-- <div class="next-article">
-        <a href="#">
-          <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
-        </a>
-      </div>-->
       <div class="sidebar">
         <nuxt-link to="/event">
           <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner" />
@@ -52,8 +47,14 @@
           </div>
         </div>
       </div>
+
       <div class="under-content-wrapper">
         <div class="under-content">
+                    <div class="next-article">
+        <a href="#">
+          <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
+        </a>
+      </div>
           <div class="vertical-separator"></div>
           <h1>キーワード</h1>
           <div class="keywords-wrapper">
@@ -100,6 +101,7 @@ export default {
     const fetchedWpLatestArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
     )
+    console.log(fetchedWpLatestArticles)
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const latestArticles = GetArticlesForWpAPI(fetchedWpLatestArticles, tags)
 
@@ -158,14 +160,14 @@ export default {
   }
 
   .next-article {
+    margin-bottom: 2rem;
     text-align: center;
     width: 100%;
   }
 
   .sidebar {
-    width: 24%;
+    width: 25%;
     text-align: center;
-    margin: 0;
   }
 
   .sidebar-header {
@@ -231,6 +233,16 @@ export default {
     justify-content: space-around;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .social-icon-area {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+  }
+
+  .keyword-content{
+    margin: 0.5rem;
   }
 
   .wrapper:first-child {

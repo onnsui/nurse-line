@@ -405,15 +405,10 @@ export default {
     font-weight: normal;
   }
 
-  .container {
-    width: 750px;
-    margin: 0 auto;
-  }
-
   .article-title {
     font-size: 2rem;
     font-weight: bold;
-    margin: 0 1rem;
+    margin: 2rem 1rem 0 1rem;
     text-align: left;
   }
 
@@ -512,7 +507,7 @@ export default {
   }
 
   .container {
-    margin: 0 auto;
+    margin: 0 16rem;
     min-height: 100vh;
     display: flex;
     justify-content: center;

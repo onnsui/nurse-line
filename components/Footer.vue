@@ -41,7 +41,7 @@ footer {
   height: 23px;
   background-color: #212b37;
   line-height: 23px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 </style>

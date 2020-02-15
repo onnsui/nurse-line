@@ -1,20 +1,21 @@
 <template>
   <div class="articles-content">
     <div v-for="(article, index) in articles" :key="index" class="article-wrapper">
-      <div class="article-thumbnail">
-        <img :src="article.image_url" alt="article-thumbnail" />
-        <div class="article-keywords-wrapper">
-          <div class="article-keywords">{{ article.keywords[0] }}</div>
-        </div>
-      </div>
-      <div class="article-title">
-        <p>{{ article.title }}</p>
-      </div>
-      <div class="article-read-button">
-        <a v-bind:href="article.url">
-          <img src="~/static/read-button.png" alt="article-read-button" />
-        </a>
-      </div>
+          <div class="article-thumbnail">
+            <img :src="article.image_url" alt="article-thumbnail" />
+            <div class="article-keywords-wrapper">
+              <div class="article-keywords">{{ article.keywords[0] }}</div>
+            </div>
+          </div>
+          <div class="article-title">
+            <p>{{ article.title }}</p>
+          </div>
+          <div class="article-read-button">
+            <a v-bind:href="article.url">
+              <img src="~/static/read-button.png" alt="article-read-button" />
+            </a>
+          </div>
+
     </div>
   </div>
 </template>
@@ -47,6 +48,12 @@ export default {
 
   .articles-content {
     width: 75%;
+    a {
+      color: #454545;
+      text-decoration: none;
+      width: 100%;
+      margin:0;
+    }
   }
 
   .article-content {
@@ -100,6 +107,7 @@ export default {
   }
   .article-read-button {
     align-self: flex-end;
+    margin-top: 1rem;
   }
 }
 

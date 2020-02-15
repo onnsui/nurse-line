@@ -158,9 +158,11 @@ export default {
   }
 
   .article-title {
+    display: relative;
     font-size: 0.9rem;
     text-align: left;
     overflow: hidden;
+    top: -1.5rem;
     width: 100%;
     p {
       display: -webkit-box;
@@ -212,11 +214,12 @@ export default {
     overflow: hidden;
     width: 50%;
     margin: 0 auto;
+    display: relative;
+    top: -0.5rem;
     p {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 4;
-      top: -1em;
       margin: 0 auto;
       width: 90%;
     }

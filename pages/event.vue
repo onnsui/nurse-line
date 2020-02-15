@@ -2,10 +2,10 @@
   <div id="top" class="container">
     <img src="http://placehold.jp/1200x450.png" class="top-image" />
 
-    <section style="background-color: #fafafa; padding:5rem 0;">
-      <h1 style="font-size: 2rem; ">横のつながりを広がることで</h1>
+    <section style="background-color: #fafafa; padding:2rem 0;">
+      <h1 style="font-size: 1.7rem; ">横の繋がりを広がることで</h1>
       <h1 style="font-size: 3rem;">もっと看護を好きになる</h1>
-      <div style="font-size: 1.rem;">
+      <div style="font-size: 1.1rem; line-height: 2rem;margin: 1.8rem 0 1rem 0;">
         看護師にとっての
         <strong>職場と自宅以外の第三の場所=サードプレイス</strong>として
         <br />毎月オフラインイベントを開催しています。
