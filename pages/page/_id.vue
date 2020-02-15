@@ -485,14 +485,14 @@ export default {
     }
 
     .image {
-      width: 75å0px;
+      width: 750px;
       height: 250px;
       object-fit: cover;
     }
   }
 
   .container {
-    margin: 0 16rem;
+    margin: 0 15.5rem;
     min-height: 100vh;
     justify-content: center;
     align-items: center;
