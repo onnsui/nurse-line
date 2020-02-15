@@ -79,7 +79,7 @@ export default {
     display: flex;
     position: relative;
     width: 100%;
-    top: -1.83rem;
+    top: -1.85rem;
     left: 0.3rem;
   }
   .article-keywords {

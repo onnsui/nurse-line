@@ -1,10 +1,6 @@
 <template>
   <div class="articles-content">
-    <div
-      v-for="(article, index) in articles"
-      :key="index"
-      class="article-wrapper"
-    >
+    <div v-for="(article, index) in articles" :key="index" class="article-wrapper">
       <div class="article-thumbnail">
         <img :src="article.image_url" alt="article-thumbnail" />
         <div class="article-keywords-wrapper">
@@ -37,16 +33,16 @@ export default {
 <style lang="scss" scoped>
 @media only screen and (min-device-width: 769px) {
   .article-wrapper {
-    margin-right: 1.1rem;
-    height: 17rem;
-    width: 14.5rem;
-    padding: 1rem;
-    position: relative;
     border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
+    height: 17rem;
+    width: 14.5rem;
+    position: relative;
     align-items: center;
+    margin-right: 1.1rem;
     margin-bottom: 1rem;
+    padding: 1rem 1rem 0 1rem;
   }
 
   .article-content {
@@ -59,8 +55,8 @@ export default {
   }
 
   .article-thumbnail {
-    width: 15rem;
     height: 9.5rem;
+    width: 15rem;
     text-align: center;
     vertical-align: bottom;
     img {
@@ -72,16 +68,16 @@ export default {
   .article-keywords-wrapper {
     display: flex;
     position: relative;
-    width: 100%;
     top: -1.83rem;
     left: 0.3rem;
+    width: 100%;
   }
   .article-keywords {
-    padding: 0.2rem 0.7rem;
-    margin-left: 0.5rem;
     background-color: #61b5a7;
     font-size: 0.7rem;
     color: #fff;
+    padding: 0.2rem 0.7rem;
+    margin-left: 0.5rem;
   }
   .article-keywords:first-child {
     margin-left: 0;
@@ -100,6 +96,7 @@ export default {
   }
   .article-read-button {
     align-self: flex-end;
+    margin-top: 1.5rem;
   }
 }
 
