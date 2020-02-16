@@ -7,9 +7,11 @@
           <div class="article-keywords">{{ article.keywords[0] }}</div>
         </div>
       </div>
-      <div class="article-title">
-        <p>{{ article.title }}</p>
-      </div>
+      <a v-bind:href="article.url">
+        <div class="article-title">
+          <p>{{ article.title }}</p>
+        </div>
+      </a>
       <div class="article-read-button">
         <a v-bind:href="article.url">
           <img src="~/static/read-button.png" alt="article-read-button" />
@@ -124,6 +126,15 @@ export default {
     margin: 0 auto;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  .articles-content {
+    a {
+      color: #454545;
+      text-decoration: none;
+      width: 100%;
+      margin: 0;
+    }
   }
 
   .article-title {
