@@ -3,6 +3,11 @@
     <MyHeader />
     <nuxt />
     <MyFooter />
+    <div class="social-icon-area">
+      <img src="http://placehold.jp/50x50.png" />
+      <img src="http://placehold.jp/50x50.png" />
+      <img src="http://placehold.jp/50x50.png" />
+    </div>
   </div>
 </template>
 
@@ -36,5 +41,22 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+@media only screen and (min-device-width: 769px) {
+  .social-icon-area {
+    display: none;
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .social-icon-area {
+    position: sticky;
+    bottom: 2rem;
+    left: 0;
+    width: 100%;
+    img {
+      margin: 0 0.5rem;
+    }
+  }
 }
 </style>

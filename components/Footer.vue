@@ -1,14 +1,18 @@
 <template>
-  <footer>
-    <div class="separater"></div>
+  <div>
+    <footer>
+      <div class="separater"></div>
 
-    <div class="scroll-top-button">
-      <a v-scroll-to="'#top'" href="#"><img src="/icon/arrow_up.png" /></a>
-      <br />
-    </div>
-    <img src="http://placehold.jp/100x80.png" style="height:80px; width: 100px" />
-    <div class="copyright">© 2020 ROXX All Rights Reserved.</div>
-  </footer>
+      <div class="scroll-top-button">
+        <a v-scroll-to="'#top'" href="#">
+          <img src="/icon/arrow_up.png" />
+        </a>
+        <br />
+      </div>
+      <img src="http://placehold.jp/100x80.png" style="height:80px; width: 100px" />
+      <div class="copyright">© 2020 ROXX All Rights Reserved.</div>
+    </footer>
+  </div>
 </template>
 
 <script></script>
