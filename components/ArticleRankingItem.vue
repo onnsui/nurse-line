@@ -7,9 +7,11 @@
           <div class="article-keywords">{{ article.keywords[0] }}</div>
         </div>
       </div>
-      <div class="article-title">
-        <p>{{ article.title }}</p>
-      </div>
+      <a v-bind:href="article.url">
+        <div class="article-title">
+          <p>{{ article.title }}</p>
+        </div>
+      </a>
       <div class="article-read-button">
         <a v-bind:href="article.url">
           <img src="~/static/read-button.png" alt="article-read-button" />
@@ -45,6 +47,14 @@ export default {
     padding: 1rem 1rem 0 1rem;
   }
 
+  .articles-content {
+    a {
+      color: #454545;
+      text-decoration: none;
+      width: 100%;
+      margin: 0;
+    }
+  }
   .article-content {
     font-size: 0.9rem;
     height: 2.85rem;
@@ -118,6 +128,15 @@ export default {
     margin-bottom: 1rem;
   }
 
+  .articles-content {
+    a {
+      color: #454545;
+      text-decoration: none;
+      width: 100%;
+      margin: 0;
+    }
+  }
+
   .article-content {
     font-size: 0.9rem;
     height: 2.85rem;
@@ -125,6 +144,13 @@ export default {
     margin: 1.5rem 0 1rem 0;
     text-overflow: ellipsis;
     overflow: hidden;
+    a {
+      color: #454545;
+      text-decoration: none;
+      height: 100%;
+      width: 100%;
+      margin: 0 0 1rem 0;
+    }
   }
 
   .article-thumbnail {
@@ -211,10 +237,10 @@ export default {
     font-size: 0.9rem;
     text-align: left;
     overflow: hidden;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     display: relative;
-    top: -0.5rem;
+    top: -1rem;
     p {
       display: -webkit-box;
       -webkit-box-orient: vertical;
