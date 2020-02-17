@@ -8,6 +8,7 @@
 
     <div class="main-wrapper">
       <ArticleItem :articles="latestArticles"></ArticleItem>
+
       <div class="sidebar">
         <nuxt-link to="/event">
           <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner" />
@@ -56,8 +57,11 @@
               <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
             </a>
           </div>
+
           <div class="vertical-separator"></div>
+
           <h1>キーワード</h1>
+
           <div class="keywords-wrapper">
             <div class="keywords-content">
               <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
@@ -66,9 +70,12 @@
             </div>
           </div>
         </div>
+
         <div class="under-content">
           <div class="vertical-separator"></div>
+
           <h1>人気の記事</h1>
+
           <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
         </div>
       </div>
@@ -136,92 +143,92 @@ export default {
 @media only screen and (min-device-width: 769px) {
   .container {
     margin: 0 10%;
-  }
 
-  .hero {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    img {
+    .hero {
       width: 100%;
-    }
-  }
-
-  .main-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    width: 100%;
-
-    .sidebar {
-      width: 25%;
+      margin: 0 auto;
       text-align: center;
-
-      .sidebar-header {
-        margin: 0 auto;
+      img {
         width: 100%;
-        p {
-          font-size: 0.9rem;
-          letter-spacing: 0.05rem;
-          margin: 0.4rem 0;
-        }
-      }
-
-      .sidebar-banner {
-        height: auto;
-        width: 100%;
-      }
-
-      .social-area {
-        margin: 0.8rem auto 1rem auto;
-        width: 100%;
-        h1 {
-          font-size: 1.3rem;
-          letter-spacing: 0.3rem;
-        }
-
-        .social-icon-area {
-          display: flex;
-          justify-content: space-evenly;
-          margin: 1rem 0;
-        }
       }
     }
 
-    .under-content-wrapper {
-      text-align: center;
-      width: 75%;
+    .main-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      width: 100%;
 
-      .under-content {
-        width: 100%;
-        margin: 3rem 0 6rem 0;
-        h1 {
-          font-size: 1.35rem;
-          margin-bottom: 0.8rem;
-        }
+      .sidebar {
+        width: 25%;
+        text-align: center;
 
-        .keywords-content {
-          display: flex;
-          flex-wrap: wrap;
-
-          .keyword-link {
-            border: 1px solid #b4b2b2;
-            border-radius: 4px;
-            color: #454545;
+        .sidebar-header {
+          margin: 0 auto;
+          width: 100%;
+          p {
             font-size: 0.9rem;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 0.2rem 0.5rem;
-            padding: 0.5rem 0.9rem;
-            width: auto !important;
+            letter-spacing: 0.05rem;
+            margin: 0.4rem 0;
+          }
+        }
+
+        .sidebar-banner {
+          height: auto;
+          width: 100%;
+        }
+
+        .social-area {
+          margin: 0.8rem auto 1rem auto;
+          width: 100%;
+          h1 {
+            font-size: 1.3rem;
+            letter-spacing: 0.3rem;
+          }
+
+          .social-icon-area {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 1rem 0;
           }
         }
       }
 
-      .next-article-button {
-        margin-bottom: 2rem;
+      .under-content-wrapper {
         text-align: center;
-        width: 100%;
+        width: 75%;
+
+        .under-content {
+          width: 100%;
+          margin: 3rem 0 6rem 0;
+          h1 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+          }
+
+          .keywords-content {
+            display: flex;
+            flex-wrap: wrap;
+
+            .keyword-link {
+              border: 1px solid #b4b2b2;
+              border-radius: 4px;
+              color: #454545;
+              font-size: 0.9rem;
+              font-weight: bold;
+              text-decoration: none;
+              margin: 0.2rem 0.5rem;
+              padding: 0.5rem 0.9rem;
+              width: auto !important;
+            }
+          }
+        }
+
+        .next-article-button {
+          margin-bottom: 2rem;
+          text-align: center;
+          width: 100%;
+        }
       }
     }
   }

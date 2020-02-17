@@ -7,11 +7,13 @@
           <div class="article-keywords">{{ article.keywords[0] }}</div>
         </div>
       </div>
+
       <a v-bind:href="article.url">
         <div class="article-title">
           <p>{{ article.title }}</p>
         </div>
       </a>
+
       <div class="article-read-button">
         <a v-bind:href="article.url">
           <img src="~/static/read-button.png" alt="article-read-button" />
