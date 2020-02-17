@@ -70,7 +70,7 @@ export default {
     }
   },
   async asyncData({ $axios, params }) {
-    // WordPressからタグの一覧を取得する
+    // WordPressから記事のタグのリストを取得する
     const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
 
     // 人気記事をWordPressから取得する
@@ -90,7 +90,7 @@ export default {
       'http://blog.igz0.net/wp-json/wp/v2/liquid-speech-baloon/style-tag',
     )
 
-    // WordPress PopularPostの閲覧数をカウントアップする
+    // WordPress Popular Postプラグインでの閲覧数をカウントアップする
     $axios.$post(
       'http://blog.igz0.net/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' +
         params.id,
@@ -119,11 +119,11 @@ export default {
       return year + '.' + month + '.' + day
     }
 
-    // 日付フォーマットでタグを取得
+    // 記事の日付フォーマット(例: 2020.01.01)でタグを取得する
     const articleDate = convIso8601DateStr(fetchedArticle.date)
     const articleDateStr = getArticleDateStr(articleDate)
 
-    // WordPressのタグIDからタグ名を取得する
+    // WordPressのタグIDからタグ名を取得する関数
     const getTagName = (id, tags) => {
       let tagName = ''
 
@@ -146,6 +146,7 @@ export default {
       tagNames.push(tagName)
     }
 
+    // WordPressのユーザー一覧を取得
     const fetchedUsers = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/users',
     )
@@ -196,7 +197,7 @@ export default {
       keywords: tagNames,
     }
 
-    // WordPressの記事HTMLに目次のタグを埋め込む
+    // WordPressの記事(HTML)を加工し、目次のHTMLタグを埋め込む。
     article.content = AddIndexHeadingHTML(article.content)
 
     return {
@@ -228,6 +229,11 @@ export default {
 </script>
 
 <style lang="scss">
+/*---------------------------------
+
+  記事に使われる吹き出し部分のスタイルを定義
+
+---------------------------------*/
 .liquid-speech-balloon-wrap {
   margin: 2rem auto;
   flex-direction: row;
@@ -385,7 +391,34 @@ export default {
   bottom: -22px;
 }
 
+/*---------------------------------
+
+  PC対応のスタイル
+
+---------------------------------*/
 @media only screen and (min-device-width: 769px) {
+  /*---------------------------------
+
+  記事のヘッダー(サムネイル部分)のスタイルを定義
+
+---------------------------------*/
+  .article-header {
+    .browed {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      background: #000;
+    }
+
+    .image {
+      width: 750px;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+
   h1 {
     font-weight: normal;
   }
@@ -420,7 +453,11 @@ export default {
       margin: 1.8em 0;
     }
   }
+  /*---------------------------------
 
+  記事の目次部分のスタイルを定義
+
+---------------------------------*/
   .index-heading {
     background-color: #f8f8f8;
     width: 75%;
@@ -448,6 +485,7 @@ export default {
     }
   }
 
+  // WordPressから投稿された画像は全幅に
   .wp-block-image > img {
     width: 100%;
   }
@@ -472,23 +510,6 @@ export default {
 
   .entry-content {
     line-height: 1.5;
-  }
-
-  .article-header {
-    .browed {
-      width: 100%;
-      height: 250px;
-      overflow: hidden;
-      position: absolute;
-      left: 0;
-      background: #000;
-    }
-
-    .image {
-      width: 750px;
-      height: 250px;
-      object-fit: cover;
-    }
   }
 
   .container {
@@ -535,6 +556,12 @@ export default {
   .popular-header {
     margin: 1rem 0;
   }
+
+  /*---------------------------------
+
+  PC版の吹き出し部分のスタイルを定義
+
+---------------------------------*/
 
   .liquid-speech-balloon-avatar {
     background-image: url('http://placehold.jp/80x80');
@@ -584,6 +611,14 @@ export default {
       auto: auto;
       width: 100%;
     }
+  }
+
+  .browed {
+    display: none;
+  }
+
+  .cover image {
+    height: 250px;
   }
 
   .container {
@@ -682,14 +717,6 @@ export default {
     line-height: 1.5;
   }
 
-  .browed {
-    display: none;
-  }
-
-  .cover image {
-    height: 250px;
-  }
-
   .container {
     margin: 0 auto;
     min-height: 100vh;
@@ -769,6 +796,12 @@ export default {
   .article-keywords:first-child {
     margin-left: 1.5rem !important;
   }
+
+  /*---------------------------------
+
+  吹き出し部分のスタイル(スマホ版)を定義
+
+---------------------------------*/
 
   .liquid-speech-balloon-avatar {
     background-image: url('http://placehold.jp/80x80');

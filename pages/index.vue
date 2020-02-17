@@ -5,6 +5,7 @@
         <img src="http://placehold.jp/1000x350.png" alt="hero" />
       </nuxt-link>
     </div>
+
     <div class="main-wrapper">
       <ArticleItem :articles="latestArticles"></ArticleItem>
       <div class="sidebar">
@@ -50,11 +51,11 @@
 
       <div class="under-content-wrapper">
         <div class="under-content">
-                    <div class="next-article">
-        <a href="#">
-          <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
-        </a>
-      </div>
+          <div class="next-article-button">
+            <a href="#">
+              <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
+            </a>
+          </div>
           <div class="vertical-separator"></div>
           <h1>キーワード</h1>
           <div class="keywords-wrapper">
@@ -101,7 +102,6 @@ export default {
     const fetchedWpLatestArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
     )
-    console.log(fetchedWpLatestArticles)
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const latestArticles = GetArticlesForWpAPI(fetchedWpLatestArticles, tags)
 
@@ -109,7 +109,7 @@ export default {
     const fetchedWPPopularArticles = await $axios.$get(
       'http://blog.igz0.net/wp-json/wpp/posts',
     )
-    // 取得記事を記事表示コンポーネントへ渡すデータに整形
+    // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
     return { latestArticles, popularArticles, tags }
@@ -133,11 +133,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin: 0 10%;
-}
-
 @media only screen and (min-device-width: 769px) {
+  .container {
+    margin: 0 10%;
+  }
+
   .hero {
     width: 100%;
     margin: 0 auto;
@@ -147,69 +147,65 @@ export default {
     }
   }
 
-  .section-border {
-    margin: 0 1rem;
-    border: 0;
-    border-top: double 4px #5f5d5d;
-  }
   .main-wrapper {
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem;
     width: 100%;
-  }
 
-  .next-article {
-    margin-bottom: 2rem;
-    text-align: center;
-    width: 100%;
-  }
+    .sidebar {
+      width: 25%;
+      text-align: center;
 
-  .sidebar {
-    width: 25%;
-    text-align: center;
-  }
+      .sidebar-header {
+        margin: 0 auto;
+        width: 100%;
+        p {
+          font-size: 0.9rem;
+          letter-spacing: 0.05rem;
+          margin: 0.4rem 0;
+        }
+      }
 
-  .sidebar-header {
-    margin: 0 auto;
-    width: 100%;
-    p {
-      font-size: 0.9rem;
-      letter-spacing: 0.05rem;
-      margin: 0.4rem 0;
+      .sidebar-banner {
+        height: auto;
+        width: 100%;
+      }
+
+      .social-area {
+        margin: 0.8rem auto 1rem auto;
+        width: 100%;
+        h1 {
+          font-size: 1.3rem;
+          letter-spacing: 0.3rem;
+        }
+
+        .social-icon-area {
+          display: flex;
+          justify-content: space-evenly;
+          margin: 1rem 0;
+        }
+      }
     }
-  }
 
-  .sidebar-banner {
-    height: auto;
-    width: 100%;
-  }
+    .under-content-wrapper {
+      text-align: center;
+      width: 75%;
 
-  .social-area {
-    margin: 0.8rem auto 1rem auto;
-    width: 100%;
-    h1 {
-      font-size: 1.3rem;
-      letter-spacing: 0.3rem;
-    }
-  }
+      .under-content {
+        width: 100%;
+        margin: 3rem 0 6rem 0;
+        h1 {
+          font-size: 1.35rem;
+          margin-bottom: 0.8rem;
+        }
+      }
 
-  .social-icon-area {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 1rem 0;
-  }
-  .under-content-wrapper {
-    text-align: center;
-    width: 75%;
-  }
-
-  .under-content {
-    width: 100%;
-    margin: 3rem 0 6rem 0;
-    h1 {
-      font-size: 1.35rem;
-      margin-bottom: 0.8rem;
+      .next-article-button {
+        margin-bottom: 2rem;
+        text-align: center;
+        width: 100%;
+      }
     }
   }
 }
@@ -217,73 +213,58 @@ export default {
 @media only screen and (max-device-width: 768px) {
   /* スマホ用のCSS */
 
-  .hero img {
-    height: auto;
-    width: 100%;
-  }
-
   .container {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-  }
 
-  .main-wrapper {
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .social-icon-area {
-    display: flex;
-    justify-content: space-around;
-    margin: 1rem 0;
-  }
-
-  .keyword-content{
-    margin: 0.5rem;
-  }
-
-  .wrapper:first-child {
-    width: 100%;
-  }
-
-  .sidebar {
-    order: 3;
-  }
-
-  .wrapper {
-    width: 47%;
-    margin: 0 auto;
-  }
-
-  .article-content {
-    width: 100%;
-  }
-  .sidebar {
-    width: 100%;
-  }
-
-  .under-content-wrapper {
-    text-align: center;
-    width: 100%;
-  }
-
-  .under-content {
-    width: 100%;
-    margin: 3rem 0 6rem 0;
-    h1 {
-      font-size: 1.35rem;
-      margin-bottom: 0.8rem;
+    .hero {
+      img {
+        height: auto;
+        width: 100%;
+      }
     }
-  }
 
-  .vertical-separator {
-    border-left: 1px solid #5a5959;
-    height: 1.5rem;
-    margin: 0 auto 0.6rem auto;
-    width: 1px;
+    .main-wrapper {
+      flex-direction: column;
+      justify-content: space-around;
+      margin: 0 auto;
+      width: 100%;
+
+      .sidebar {
+        order: 3;
+        width: 100%;
+        .social-icon-area {
+          display: flex;
+          justify-content: space-around;
+          margin: 1rem 0;
+        }
+      }
+
+      .under-content-wrapper {
+        text-align: center;
+        width: 100%;
+
+        .under-content {
+          width: 100%;
+          margin: 3rem 0 6rem 0;
+          h1 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+          }
+          .keyword-content {
+            margin: 0.5rem;
+          }
+        }
+
+        .vertical-separator {
+          border-left: 1px solid #5a5959;
+          height: 1.5rem;
+          margin: 0 auto 0.6rem auto;
+          width: 1px;
+        }
+      }
+    }
   }
 }
 </style>
