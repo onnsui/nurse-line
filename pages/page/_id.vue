@@ -31,10 +31,8 @@
         </a>
 
         <div class="keywords-wrapper">
-          <div class="keywords-content">
-            <div class="keyword-content" v-for="(keyword, index) in article.keywords" :key="index">
-              <a href="#" class="keyword-link">#{{ keyword }}</a>
-            </div>
+          <div class="keyword-content" v-for="(keyword, index) in article.keywords" :key="index">
+            <a href="#" class="keyword-link">#{{ keyword }}</a>
           </div>
         </div>
 
@@ -403,18 +401,27 @@ export default {
       margin: 1rem 0;
     }
 
-    .keyword-link {
-      border: 1px solid #b4b2b2;
-      border-radius: 4px;
-      color: #454545;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 0.2rem 0.5rem;
-      padding: 0.5rem 0.9rem;
-      width: auto !important;
-    }
+    .keywords-wrapper {
+      display: flex;
 
+      .keyword-content {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0.5rem;
+
+        .keyword-link {
+          border: 1px solid #b4b2b2;
+          border-radius: 4px;
+          color: #454545;
+          font-size: 0.9rem;
+          font-weight: bold;
+          text-decoration: none;
+          margin: 0.2rem 0.5rem;
+          padding: 0.5rem 0.9rem;
+          width: auto !important;
+        }
+      }
+    }
     /*---------------------------------
 
   PC版の吹き出し部分のスタイルを定義
@@ -789,10 +796,6 @@ export default {
       padding: 0 0.8rem;
     }
 
-    .cover browed {
-      display: none;
-    }
-
     .article-title {
       margin: 0 0.5rem;
       width: 100%;
@@ -802,16 +805,27 @@ export default {
       font-size: 1.08rem;
     }
 
-    .keyword-link {
-      border: 1px solid #b4b2b2;
-      border-radius: 4px;
-      color: #454545;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 0.2rem 0.5rem;
-      padding: 0.5rem 0.9rem;
-      width: auto !important;
+    .keywords-wrapper {
+      display: flex;
+
+      .keyword-content {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0.5rem;
+        width: 100%;
+
+        .keyword-link {
+          border: 1px solid #b4b2b2;
+          border-radius: 4px;
+          color: #454545;
+          font-size: 0.9rem;
+          font-weight: bold;
+          text-decoration: none;
+          margin: 0.2rem 0.5rem;
+          padding: 0.5rem 0.9rem;
+          width: auto !important;
+        }
+      }
     }
 
     .article-keywords {
