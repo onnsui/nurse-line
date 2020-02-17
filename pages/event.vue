@@ -187,36 +187,31 @@ export default {
   position: relative;
   padding: 0.3em;
   text-align: center;
-}
-.brancket:before {
-  position: absolute;
-  top: 0;
-  content: '';
-  width: 4rem;
-  height: 4rem;
-  display: inline-block;
-  border-top: solid 2px #61b5a7;
-  border-left: solid 2px #61b5a7;
-}
 
-.brancket:after {
-  position: absolute;
-  bottom: 0;
-  content: '';
-  width: 4rem;
-  height: 4rem;
-  display: inline-block;
-  border-right: solid 2px #61b5a7;
-  border-bottom: solid 2px #61b5a7;
-}
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    border-top: solid 2px #61b5a7;
+    border-left: solid 2px #61b5a7;
+  }
 
-.brancket:before {
-  border-left: solid 2px #61b5a7;
-  left: 0;
-}
-.brancket:after {
-  border-right: solid 2px #61b5a7;
-  right: 0;
+  &:after {
+    position: absolute;
+    right: 0;
+
+    bottom: 0;
+    content: '';
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    border-right: solid 2px #61b5a7;
+    border-bottom: solid 2px #61b5a7;
+  }
 }
 
 @media only screen and (min-device-width: 769px) {

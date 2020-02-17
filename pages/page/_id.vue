@@ -231,168 +231,6 @@ export default {
 <style lang="scss">
 /*---------------------------------
 
-  記事に使われる吹き出し部分のスタイルを定義
-
----------------------------------*/
-.liquid-speech-balloon-wrap {
-  margin: 2rem auto;
-  flex-direction: row;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-}
-
-.liquid-speech-balloon-text p {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-.liquid-speech-balloon-text p a {
-  color: inherit !important;
-  text-decoration: underline;
-}
-.liquid-speech-balloon-arrow {
-  display: none;
-}
-.liquid-speech-balloon-wrap:not(.liquid-speech-balloon-vertical)
-  .liquid-speech-balloon-arrow {
-  border-top: 7px solid transparent !important;
-  border-bottom: 7px solid transparent !important;
-  border-right: 10px solid rgba(0, 0, 0, 0.2);
-}
-
-.liquid-speech-balloon-bubble .liquid-speech-balloon-arrow {
-  display: none;
-}
-.liquid-speech-balloon-bubble .liquid-speech-balloon-text::before {
-  content: '.';
-  color: transparent;
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-  border: inherit;
-  background-color: inherit;
-  left: -15px;
-  width: 15px;
-  height: 15px;
-  top: 20px;
-}
-.liquid-speech-balloon-bubble .liquid-speech-balloon-text::after {
-  content: '.';
-  color: transparent;
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-  border: inherit;
-  background-color: inherit;
-  left: -20px;
-  top: 10px;
-  width: 10px;
-  height: 10px;
-}
-
-.liquid-speech-balloon-right {
-  flex-direction: row-reverse;
-}
-.liquid-speech-balloon-right .liquid-speech-balloon-text {
-  margin-left: 0;
-  margin-right: 20px;
-}
-.liquid-speech-balloon-right .liquid-speech-balloon-arrow {
-  left: auto;
-  right: -18px;
-  border-right: 7px solid transparent !important;
-  border-left: 10px solid rgba(0, 0, 0, 0.2);
-}
-
-.liquid-speech-balloon-right.liquid-speech-balloon-bubble
-  .liquid-speech-balloon-text::before {
-  left: auto;
-  right: -15px;
-}
-.liquid-speech-balloon-right.liquid-speech-balloon-bubble
-  .liquid-speech-balloon-text::after {
-  left: auto;
-  right: -20px;
-}
-
-.liquid-speech-balloon-square .liquid-speech-balloon-text {
-  border-radius: 0;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-}
-
-.liquid-speech-balloon-dashed .liquid-speech-balloon-text {
-  border: 2px dashed rgba(0, 0, 0, 0.2) !important;
-}
-
-.liquid-speech-balloon-shadow .liquid-speech-balloon-text {
-  border-radius: 0;
-  box-shadow: 3px 3px 0 1px rgba(0, 0, 0, 0.1);
-}
-
-.liquid-speech-balloon-borderless .liquid-speech-balloon-text {
-  border: 0 none;
-  padding: 10px 5px;
-}
-.liquid-speech-balloon-borderless
-  .liquid-speech-balloon-text
-  .liquid-speech-balloon-arrow {
-  display: none;
-}
-
-.liquid-speech-balloon-small .liquid-speech-balloon-text,
-.liquid-speech-balloon-small .liquid-speech-balloon-text p {
-  font-size: 13px;
-  padding: 10px 15px;
-}
-.liquid-speech-balloon-small .liquid-speech-balloon-avatar {
-  width: 32px;
-  height: 32px;
-}
-.liquid-speech-balloon-small .liquid-speech-balloon-arrow {
-  top: 7px;
-}
-.liquid-speech-balloon-small .liquid-speech-balloon-avatar::after {
-  display: none;
-}
-
-.liquid-speech-balloon-large .liquid-speech-balloon-text,
-.liquid-speech-balloon-large .liquid-speech-balloon-text p {
-  font-size: 36px;
-}
-
-.liquid-speech-balloon-short .liquid-speech-balloon-text {
-  width: auto;
-}
-
-.liquid-speech-balloon-vertical {
-  flex-direction: column-reverse;
-}
-.liquid-speech-balloon-vertical .liquid-speech-balloon-text {
-  margin: 0 0 1rem 0;
-}
-.liquid-speech-balloon-vertical .liquid-speech-balloon-arrow {
-  top: auto;
-  bottom: -11px;
-  left: 11px !important;
-  border-top: 10px solid rgba(0, 0, 0, 0.2);
-  border-left: 7px solid transparent !important;
-  border-right: 7px solid transparent !important;
-}
-.liquid-speech-balloon-vertical .liquid-speech-balloon-text::before {
-  left: 15px !important;
-  top: auto;
-  bottom: -15px;
-}
-.liquid-speech-balloon-vertical .liquid-speech-balloon-text::after {
-  left: 20px !important;
-  top: auto;
-  bottom: -22px;
-}
-
-/*---------------------------------
-
   PC対応のスタイル
 
 ---------------------------------*/
@@ -449,45 +287,53 @@ export default {
     font-size: 1.15rem;
     line-height: 2.4rem;
     text-align: initial;
+
     h2 {
       margin: 1.8em 0;
     }
-  }
-  /*---------------------------------
+
+    // WordPressから投稿された画像は全幅に
+    .wp-block-image > img {
+      width: 100%;
+    }
+
+    blockquote {
+      background-color: #f3f3f3;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /*---------------------------------
 
   記事の目次部分のスタイルを定義
 
 ---------------------------------*/
-  .index-heading {
-    background-color: #f8f8f8;
-    width: 75%;
-    margin: 2rem auto;
-    padding: 1.3rem 2rem 2rem 2rem;
+    .index-heading {
+      background-color: #f8f8f8;
+      width: 75%;
+      margin: 2rem auto;
+      padding: 1.3rem 2rem 2rem 2rem;
 
-    ol {
-      padding: 0;
-    }
+      ol {
+        padding: 0;
+      }
 
-    // 目次の項目に下線を入れる
-    li {
-      border-bottom: 1px solid #cecece;
-      list-style: none;
-    }
+      // 目次の項目に下線を入れる
+      li {
+        border-bottom: 1px solid #cecece;
+        list-style: none;
+        // 最終行には下線を引かない
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
 
-    // 最終行には下線を引かない
-    li:last-child {
-      border-bottom: 0;
+      a {
+        color: #6e6e6e;
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
     }
-    a {
-      color: #6e6e6e;
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-  }
-
-  // WordPressから投稿された画像は全幅に
-  .wp-block-image > img {
-    width: 100%;
   }
 
   .cover span {
@@ -540,12 +386,6 @@ export default {
     padding-top: 15px;
   }
 
-  blockquote {
-    background-color: #f3f3f3;
-    width: 80%;
-    margin: 0 auto;
-  }
-
   .wp-block-separator {
     border-width: 1px 0px 0px 0px; /* 太さ */
     border-style: solid; /* 線種 */
@@ -557,45 +397,213 @@ export default {
     margin: 1rem 0;
   }
 
+  .keyword-link {
+    border: 1px solid #b4b2b2;
+    border-radius: 4px;
+    color: #454545;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0.2rem 0.5rem;
+    padding: 0.5rem 0.9rem;
+    width: auto !important;
+  }
+
   /*---------------------------------
 
   PC版の吹き出し部分のスタイルを定義
 
 ---------------------------------*/
 
-  .liquid-speech-balloon-avatar {
-    background-image: url('http://placehold.jp/80x80');
-    position: relative;
-    width: 5rem;
-    height: 5rem;
-    line-height: 1;
-    flex-shrink: 0;
-    background-position: left top;
-    background-repeat: no-repeat;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -ms-background-size: 100% auto;
-    -o-background-size: 100% auto;
-    background-size: 100% auto;
-  }
+  .liquid-speech-balloon-wrap {
+    margin: 2rem auto;
+    flex-direction: row;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
 
-  .liquid-speech-balloon-avatar::after {
-    position: absolute;
-    content: '';
-    display: block;
-    width: 100%;
-    left: 0;
-    top: 6rem;
-    font-size: 0.9rem;
-    text-align: center;
-    font-weight: bold;
-  }
+    .liquid-speech-balloon-text p {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .liquid-speech-balloon-text p a {
+      color: inherit !important;
+      text-decoration: underline;
+    }
+    .liquid-speech-balloon-arrow {
+      display: none;
+    }
+    .liquid-speech-balloon-wrap:not(.liquid-speech-balloon-vertical)
+      .liquid-speech-balloon-arrow {
+      border-top: 7px solid transparent !important;
+      border-bottom: 7px solid transparent !important;
+      border-right: 10px solid rgba(0, 0, 0, 0.2);
+    }
 
-  .liquid-speech-balloon-text {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    margin-left: 2rem;
+    .liquid-speech-balloon-bubble .liquid-speech-balloon-arrow {
+      display: none;
+    }
+    .liquid-speech-balloon-bubble .liquid-speech-balloon-text::before {
+      content: '.';
+      color: transparent;
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      border: inherit;
+      background-color: inherit;
+      left: -15px;
+      width: 15px;
+      height: 15px;
+      top: 20px;
+    }
+    .liquid-speech-balloon-bubble .liquid-speech-balloon-text::after {
+      content: '.';
+      color: transparent;
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      border: inherit;
+      background-color: inherit;
+      left: -20px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+    }
+
+    .liquid-speech-balloon-right {
+      flex-direction: row-reverse;
+    }
+    .liquid-speech-balloon-right .liquid-speech-balloon-text {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+    .liquid-speech-balloon-right .liquid-speech-balloon-arrow {
+      left: auto;
+      right: -18px;
+      border-right: 7px solid transparent !important;
+      border-left: 10px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .liquid-speech-balloon-right.liquid-speech-balloon-bubble
+      .liquid-speech-balloon-text::before {
+      left: auto;
+      right: -15px;
+    }
+    .liquid-speech-balloon-right.liquid-speech-balloon-bubble
+      .liquid-speech-balloon-text::after {
+      left: auto;
+      right: -20px;
+    }
+
+    .liquid-speech-balloon-square .liquid-speech-balloon-text {
+      border-radius: 0;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .liquid-speech-balloon-dashed .liquid-speech-balloon-text {
+      border: 2px dashed rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .liquid-speech-balloon-shadow .liquid-speech-balloon-text {
+      border-radius: 0;
+      box-shadow: 3px 3px 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .liquid-speech-balloon-borderless .liquid-speech-balloon-text {
+      border: 0 none;
+      padding: 10px 5px;
+    }
+    .liquid-speech-balloon-borderless
+      .liquid-speech-balloon-text
+      .liquid-speech-balloon-arrow {
+      display: none;
+    }
+
+    .liquid-speech-balloon-small .liquid-speech-balloon-text,
+    .liquid-speech-balloon-small .liquid-speech-balloon-text p {
+      font-size: 13px;
+      padding: 10px 15px;
+    }
+    .liquid-speech-balloon-small .liquid-speech-balloon-avatar {
+      width: 32px;
+      height: 32px;
+    }
+    .liquid-speech-balloon-small .liquid-speech-balloon-arrow {
+      top: 7px;
+    }
+    .liquid-speech-balloon-small .liquid-speech-balloon-avatar::after {
+      display: none;
+    }
+
+    .liquid-speech-balloon-large .liquid-speech-balloon-text,
+    .liquid-speech-balloon-large .liquid-speech-balloon-text p {
+      font-size: 36px;
+    }
+
+    .liquid-speech-balloon-short .liquid-speech-balloon-text {
+      width: auto;
+    }
+
+    .liquid-speech-balloon-vertical {
+      flex-direction: column-reverse;
+    }
+    .liquid-speech-balloon-vertical .liquid-speech-balloon-text {
+      margin: 0 0 1rem 0;
+    }
+    .liquid-speech-balloon-vertical .liquid-speech-balloon-arrow {
+      top: auto;
+      bottom: -11px;
+      left: 11px !important;
+      border-top: 10px solid rgba(0, 0, 0, 0.2);
+      border-left: 7px solid transparent !important;
+      border-right: 7px solid transparent !important;
+    }
+    .liquid-speech-balloon-vertical .liquid-speech-balloon-text::before {
+      left: 15px !important;
+      top: auto;
+      bottom: -15px;
+    }
+    .liquid-speech-balloon-vertical .liquid-speech-balloon-text::after {
+      left: 20px !important;
+      top: auto;
+      bottom: -22px;
+    }
+
+    .liquid-speech-balloon-avatar {
+      position: relative;
+      width: 5rem;
+      height: 5rem;
+      line-height: 1;
+      flex-shrink: 0;
+      background-position: left top;
+      background-repeat: no-repeat;
+      -webkit-background-size: 100% auto;
+      -moz-background-size: 100% auto;
+      -ms-background-size: 100% auto;
+      -o-background-size: 100% auto;
+      background-size: 100% auto;
+
+      &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        left: 0;
+        top: 6rem;
+        font-size: 0.9rem;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+
+    .liquid-speech-balloon-text {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin-left: 2rem;
+    }
   }
 }
 
@@ -674,12 +682,12 @@ export default {
     li {
       border-bottom: 1px solid #cecece;
       list-style: none;
+      // 最終行には下線を引かない
+      &:last-child {
+        border-bottom: 0;
+      }
     }
 
-    // 最終行には下線を引かない
-    li:last-child {
-      border-bottom: 0;
-    }
     a {
       color: #6e6e6e;
       font-size: 0.9rem;
@@ -788,55 +796,222 @@ export default {
     font-size: 1.08rem;
   }
 
+  .keyword-link {
+    border: 1px solid #b4b2b2;
+    border-radius: 4px;
+    color: #454545;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0.2rem 0.5rem;
+    padding: 0.5rem 0.9rem;
+    width: auto !important;
+  }
+
   .article-keywords {
     width: auto;
     left: 2rem;
+
+    &:first-child {
+      margin-left: 1.5rem !important;
+    }
   }
 
-  .article-keywords:first-child {
-    margin-left: 1.5rem !important;
+  .liquid-speech-balloon-wrap {
+    margin: 2rem auto;
+    flex-direction: row;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    .liquid-speech-balloon-text {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin-left: 1rem;
+
+      p {
+        margin: 0 !important;
+        padding: 0 !important;
+        a {
+          color: inherit !important;
+          text-decoration: underline;
+        }
+      }
+
+      &::before {
+        left: 15px !important;
+        top: auto;
+        bottom: -15px;
+      }
+      &::after {
+        left: 20px !important;
+        top: auto;
+        bottom: -22px;
+      }
+    }
+
+    .liquid-speech-balloon-bubble {
+      &::before {
+        content: '.';
+        color: transparent;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: inherit;
+        background-color: inherit;
+        left: -15px;
+        width: 15px;
+        height: 15px;
+        top: 20px;
+      }
+      &::after {
+        content: '.';
+        color: transparent;
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        border: inherit;
+        background-color: inherit;
+        left: -20px;
+        top: 10px;
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    .liquid-speech-balloon-right.liquid-speech-balloon-bubble {
+      &::before {
+        left: auto;
+        right: -15px;
+      }
+      &::after {
+        left: auto;
+        right: -20px;
+      }
+    }
+
+    .liquid-speech-balloon-square {
+      border-radius: 0;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .liquid-speech-balloon-dashed {
+      border: 2px dashed rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .liquid-speech-balloon-shadow {
+      border-radius: 0;
+      box-shadow: 3px 3px 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .liquid-speech-balloon-borderless {
+      border: 0 none;
+      padding: 10px 5px;
+    }
+    .liquid-speech-balloon-borderless .liquid-speech-balloon-arrow {
+      display: none;
+    }
+
+    .liquid-speech-balloon-small p {
+      font-size: 13px;
+      padding: 10px 15px;
+    }
+
+    .liquid-speech-balloon-large,
+    .liquid-speech-balloon-largep {
+      font-size: 36px;
+    }
+
+    .liquid-speech-balloon-short {
+      width: auto;
+    }
   }
 
-  /*---------------------------------
-
-  吹き出し部分のスタイル(スマホ版)を定義
-
----------------------------------*/
-
-  .liquid-speech-balloon-avatar {
-    background-image: url('http://placehold.jp/80x80');
-    position: relative;
-    top: 0.5rem;
-    width: 3rem;
-    height: 3rem;
-    line-height: 1;
-    flex-shrink: 0;
-    background-position: left top;
-    background-repeat: no-repeat;
-    -webkit-background-size: 100% auto;
-    -moz-background-size: 100% auto;
-    -ms-background-size: 100% auto;
-    -o-background-size: 100% auto;
-    background-size: 100% auto;
+  .liquid-speech-balloon-arrow {
+    display: none;
+  }
+  .liquid-speech-balloon-wrap:not(.liquid-speech-balloon-vertical)
+    .liquid-speech-balloon-arrow {
+    border-top: 7px solid transparent !important;
+    border-bottom: 7px solid transparent !important;
+    border-right: 10px solid rgba(0, 0, 0, 0.2);
   }
 
-  .liquid-speech-balloon-avatar::after {
-    position: absolute;
-    content: '';
-    display: block;
-    width: 100%;
-    left: 0;
-    top: 4rem;
-    font-size: 0.9rem;
-    text-align: center;
-    font-weight: bold;
+  .liquid-speech-balloon-bubble .liquid-speech-balloon-arrow {
+    display: none;
   }
 
-  .liquid-speech-balloon-text {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    margin-left: 1rem;
+  .liquid-speech-balloon-right {
+    flex-direction: row-reverse;
+    .liquid-speech-balloon-text {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+    .liquid-speech-balloon-arrow {
+      left: auto;
+      right: -18px;
+      border-right: 7px solid transparent !important;
+      border-left: 10px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .liquid-speech-balloon-small .liquid-speech-balloon-avatar {
+    width: 32px;
+    height: 32px;
+    &::after {
+      display: none;
+    }
+  }
+  .liquid-speech-balloon-small .liquid-speech-balloon-arrow {
+    top: 7px;
+  }
+
+  .liquid-speech-balloon-vertical {
+    flex-direction: column-reverse;
+
+    .liquid-speech-balloon-text {
+      margin: 0 0 1rem 0;
+    }
+
+    .liquid-speech-balloon-arrow {
+      top: auto;
+      bottom: -11px;
+      left: 11px !important;
+      border-top: 10px solid rgba(0, 0, 0, 0.2);
+      border-left: 7px solid transparent !important;
+      border-right: 7px solid transparent !important;
+    }
+
+    .liquid-speech-balloon-avatar {
+      position: relative;
+      top: 0.5rem;
+      width: 3rem;
+      height: 3rem;
+      line-height: 1;
+      flex-shrink: 0;
+      background-position: left top;
+      background-repeat: no-repeat;
+      -webkit-background-size: 100% auto;
+      -moz-background-size: 100% auto;
+      -ms-background-size: 100% auto;
+      -o-background-size: 100% auto;
+      background-size: 100% auto;
+
+      &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        left: 0;
+        top: 4rem;
+        font-size: 0.9rem;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
   }
 }
 </style>

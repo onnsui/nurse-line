@@ -199,6 +199,23 @@ export default {
           font-size: 1.35rem;
           margin-bottom: 0.8rem;
         }
+
+        .keywords-content {
+          display: flex;
+          flex-wrap: wrap;
+
+          .keyword-link {
+            border: 1px solid #b4b2b2;
+            border-radius: 4px;
+            color: #454545;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0.2rem 0.5rem;
+            padding: 0.5rem 0.9rem;
+            width: auto !important;
+          }
+        }
       }
 
       .next-article-button {
@@ -253,7 +270,21 @@ export default {
             margin-bottom: 0.8rem;
           }
           .keyword-content {
+            display: flex;
+            flex-wrap: wrap;
             margin: 0.5rem;
+
+            .keyword-link {
+              border: 1px solid #b4b2b2;
+              border-radius: 4px;
+              color: #454545;
+              font-size: 0.9rem;
+              font-weight: bold;
+              text-decoration: none;
+              margin: 0.2rem 0.5rem;
+              padding: 0.5rem 0.9rem;
+              width: auto !important;
+            }
           }
         }
 

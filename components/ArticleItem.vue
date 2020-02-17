@@ -1,5 +1,5 @@
 <template>
-  <div class="articles-content">
+  <div class="articles-wrapper">
     <div v-for="(article, index) in articles" :key="index" class="article-wrapper">
       <div class="article-thumbnail">
         <img :src="article.image_url" alt="article-thumbnail" />
@@ -34,197 +34,181 @@ export default {
 
 <style lang="scss" scoped>
 @media only screen and (min-device-width: 769px) {
-  .article-wrapper {
-    margin-right: 1.1rem;
-    height: 17rem;
-    width: 14.5rem;
-    padding: 1rem 1rem 0 1rem;
-    position: relative;
-    border: 1px solid #ccc;
+  .articles-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .articles-content {
+    flex-wrap: wrap;
     width: 75%;
+
     a {
       color: #454545;
       text-decoration: none;
       width: 100%;
       margin: 0;
     }
-  }
 
-  .article-content {
-    font-size: 0.9rem;
-    height: 2.85rem;
-    width: 70%;
-    margin: 1.5rem 0 1rem 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
+    .article-wrapper {
+      margin-right: 1.1rem;
+      height: 17rem;
+      width: 14.5rem;
+      padding: 1rem 1rem 0 1rem;
+      position: relative;
+      border: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
 
-  .article-thumbnail {
-    width: 15rem;
-    height: 9.5rem;
-    text-align: center;
-    vertical-align: bottom;
-    img {
-      height: 9rem;
-      width: 12rem;
-      object-fit: cover;
+      .article-thumbnail {
+        width: 15rem;
+        height: 9.5rem;
+        text-align: center;
+        vertical-align: bottom;
+        img {
+          height: 9rem;
+          width: 12rem;
+          object-fit: cover;
+        }
+        .article-keywords-wrapper {
+          display: flex;
+          position: relative;
+          width: 100%;
+          top: -1.85rem;
+          left: 0.3rem;
+        }
+        .article-keywords {
+          padding: 0.2rem 0.7rem;
+          margin-left: 0.5rem;
+          background-color: #61b5a7;
+          font-size: 0.7rem;
+          color: #fff;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+
+      .article-title {
+        font-size: 0.9rem;
+        text-align: left;
+        overflow: hidden;
+        width: 100%;
+        p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+      }
+      .article-read-button {
+        align-self: flex-end;
+        margin-top: 1.5rem;
+      }
     }
-  }
-  .article-keywords-wrapper {
-    display: flex;
-    position: relative;
-    width: 100%;
-    top: -1.85rem;
-    left: 0.3rem;
-  }
-  .article-keywords {
-    padding: 0.2rem 0.7rem;
-    margin-left: 0.5rem;
-    background-color: #61b5a7;
-    font-size: 0.7rem;
-    color: #fff;
-  }
-  .article-keywords:first-child {
-    margin-left: 0;
-  }
-
-  .article-title {
-    font-size: 0.9rem;
-    text-align: left;
-    overflow: hidden;
-    width: 100%;
-    p {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-  }
-  .article-read-button {
-    align-self: flex-end;
-    margin-top: 1.5rem;
   }
 }
 
 @media only screen and (max-device-width: 768px) {
   /* スマホ用のCSS */
 
-  .articles-content {
+  .articles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
-  }
 
-  .article-content {
-    font-size: 0.9rem;
-    height: auto;
-    width: 100%;
-    margin: 0 auto;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  .articles-content {
     a {
       color: #454545;
       text-decoration: none;
       width: 100%;
       margin: 0;
     }
-  }
 
-  .article-title {
-    font-size: 0.9rem;
-    text-align: left;
-    overflow: hidden;
-    width: 100%;
-    padding: 0.2em 0.4em;
+    .article-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 0;
+      padding: 0;
+      height: 16em;
+      width: 45%;
+      margin: 0 auto;
 
-    p {
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-  }
-  .article-read-button {
-    align-self: flex-end;
-  }
-
-  .article-wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 1.1rem;
-    margin-bottom: 1rem;
-
-    border: 0;
-    padding: 0;
-    height: 16em;
-    width: 45%;
-    margin: 0 auto;
-    .article-keywords-wrapper {
-      top: -1.7em;
-      left: 0rem;
-    }
-    .article-keywords {
-      font-size: 0.8rem;
-    }
-    .article-keywords:first-child {
-      margin-left: 0;
-    }
-  }
-
-  .article-wrapper:first-child {
-    height: 100%;
-    width: 100%;
-    .article-thumbnail {
-      text-align: center;
-      height: auto;
-      width: 100%;
-      img {
-        display: block;
-        height: auto;
+      &:first-child {
+        height: 100%;
         width: 100%;
-        margin: 0;
+        .article-thumbnail {
+          text-align: center;
+          height: auto;
+          width: 100%;
+          img {
+            display: block;
+            height: auto;
+            width: 100%;
+            margin: 0;
+          }
+        }
+        .article-keywords-wrapper {
+          top: -1.35rem;
+          left: 0rem;
+        }
+      }
+
+      .article-title {
+        font-size: 0.9rem;
+        text-align: left;
+        overflow: hidden;
+        width: 100%;
+        padding: 0.2em 0.4em;
+
+        p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+      }
+
+      .article-keywords-wrapper {
+        top: -1.7em;
+        left: 0rem;
+      }
+      .article-keywords {
+        font-size: 0.8rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      .article-thumbnail {
+        width: 9rem;
+        height: 7.3rem;
+        text-align: center;
+        vertical-align: bottom;
+        img {
+          height: 6.5rem;
+          width: 9.5rem;
+          object-fit: cover;
+        }
+        .article-keywords-wrapper {
+          display: flex;
+          position: relative;
+          width: 100%;
+          top: -1.8rem;
+          left: 1.7rem;
+        }
+
+        .article-keywords {
+          padding: 0.1em 0.3em;
+          margin-left: 0.5rem;
+          background-color: #61b5a7;
+          font-size: 0.7rem;
+          color: #fff;
+        }
+      }
+      .article-read-button {
+        align-self: flex-end;
       }
     }
-    .article-keywords-wrapper {
-      top: -1.35rem;
-      left: 0rem;
-    }
-  }
-
-  .article-thumbnail {
-    width: 9rem;
-    height: 7.3rem;
-    text-align: center;
-    vertical-align: bottom;
-    img {
-      height: 6.5rem;
-      width: 9.5rem;
-      object-fit: cover;
-    }
-  }
-
-  .article-keywords-wrapper {
-    display: flex;
-    position: relative;
-    width: 100%;
-    top: -1.8rem;
-    left: 1.7rem;
-  }
-
-  .article-keywords {
-    padding: 0.1em 0.3em;
-    margin-left: 0.5rem;
-    background-color: #61b5a7;
-    font-size: 0.7rem;
-    color: #fff;
   }
 }
 </style>
