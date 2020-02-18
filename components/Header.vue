@@ -1,7 +1,5 @@
 <template>
-  <header id="#top">
-    neize
-  </header>
+  <header id="#top">neize</header>
 </template>
 
 <script></script>

@@ -102,6 +102,7 @@ export default {
 
       .article-title {
         font-size: 0.9rem;
+        font-weight: normal;
         text-align: left;
         overflow: hidden;
         width: 100%;

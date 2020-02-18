@@ -290,7 +290,6 @@ export default {
     .article-title {
       font-size: 2rem;
       font-weight: bold;
-      margin: 2rem 1rem 0 1rem;
       text-align: left;
     }
 
@@ -305,7 +304,7 @@ export default {
         border-radius: 50%;
         height: 32px;
         width: 32px;
-        margin: 0 1em 0 0.5em;
+        margin: 0 1rem 0 0.4rem;
       }
       .article-author {
         font-size: 14px;
