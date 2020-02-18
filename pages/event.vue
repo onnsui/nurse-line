@@ -101,26 +101,39 @@
       </div>
     </section>
 
+    <section>
+      <img src="http://placehold.jp/1200x450.png" class="top-image" />
+    </section>
+
     <section style="background-color: #ccc;">
       <swiper :options="swiperOption">
         <swiper-slide>
-          <h2>看護師のサードプレイスに</h2>
-          <br />看護師は精神的に大変な仕事。心休まる時間が必要。
-          <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
-          <br />看護師の居場所になるような場を。
+          <div class="carousel-centered brancket">
+            <div class="catchphrase-en">Palace</div>
+            <h2>看護師のサードプレイスに</h2>
+            <br />看護師は精神的に大変な仕事。心休まる時間が必要。
+            <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
+            <br />看護師の居場所になるような場を。
+          </div>
         </swiper-slide>
         <swiper-slide>
-          <h2>看護師に多様な価値観を</h2>
-          <br />世の中には色んな看護師がいることを伝えたい。
-          <br />自分は看護師に向いていない。
-          <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
+          <div class="carousel-centered brancket">
+            <div class="catchphrase-en">Values</div>
+            <h2>看護師に多様な価値観を</h2>
+            <br />世の中には色んな看護師がいることを伝えたい。
+            <br />自分は看護師に向いていない。
+            <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
+          </div>
         </swiper-slide>
         <swiper-slide>
-          <h2>看護師という人生に誇りを持てるように</h2>
-          <br />看護師人生に誇りを持てるようになって欲しい。
-          <br />辛いこともたくさんある。
-          <br />ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
-          <br />看護師は尊く、素敵な仕事だ。
+          <div class="carousel-centered brancket">
+            <div class="catchphrase-en">Palace</div>
+            <h2>看護師という人生に誇りを持てるように</h2>
+            <br />看護師人生に誇りを持てるようになって欲しい。
+            <br />辛いこともたくさんある。
+            <br />ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
+            <br />看護師は尊く、素敵な仕事だ。
+          </div>
         </swiper-slide>
 
         <div slot="button-prev" class="swiper-button-prev"></div>
@@ -155,11 +168,12 @@ export default {
         },
       },
       swiperOption: {
-        slidesPerView: 3,
+        slidesPerView: 1.5,
+        centeredSlides: true,
         // spaceBetween: 30,
         // slidesPerGroup: 3,
         loop: true,
-        loopFillGroupWithBlank: true,
+        // loopFillGroupWithBlank: true,
         // autoplay: {
         //   delay: 5000,
         // },
@@ -251,14 +265,33 @@ export default {
     font-size: 18px;
     background-color: #f3f3f3;
 
-    // /* Center slide text vertically */
-    // margin: 0 50px;
-    // padding: 0 30px;
-    // width: 30% !important;
-  }
+    // アクティブなスライドの背景色を白にする
+    &.swiper-slide-active {
+      background-color: #fff;
+    }
 
-  .swiper-slide-next {
-    background-color: #fff;
+    .carousel-centered {
+      height: 85%;
+      text-align: left;
+      margin: 2rem 4rem;
+      padding: 0 6rem;
+
+      .catchphrase-en {
+        color: #d8d8d8;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: right;
+        width: 100%;
+        position: relative;
+        left: 4rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 1rem 0;
+      }
+    }
   }
 
   .swiper-button-prev {
@@ -266,7 +299,7 @@ export default {
     background-size: 60px 60px;
     height: 60px;
     width: 60px;
-    left: 25%;
+    left: 16%;
   }
 
   .swiper-button-next {
@@ -274,7 +307,7 @@ export default {
     background-size: 60px 60px;
     height: 60px;
     width: 60px;
-    right: 25%;
+    right: 16%;
   }
 
   // ディープセレクターを用いてページネーション部分のスタイルを変更できるようにする
