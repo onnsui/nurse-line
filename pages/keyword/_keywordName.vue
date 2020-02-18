@@ -6,7 +6,7 @@
       </a>
     </div>
 
-    <h1 class="keyword-name">#{{ keywordName }} の記事一覧</h1>
+    <h1 class="keyword-name">#{{ keywordName }} の記事</h1>
 
     <div class="main-wrapper">
       <ArticleItem :articles="keywordArticles"></ArticleItem>
