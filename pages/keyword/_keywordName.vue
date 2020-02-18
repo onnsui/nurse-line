@@ -1,13 +1,15 @@
 <template>
   <div id="top" class="container">
     <div class="hero">
-      <nuxt-link to="/">
+      <a href to="/">
         <img src="http://placehold.jp/1000x350.png" alt="hero" />
-      </nuxt-link>
+      </a>
     </div>
 
+    <h1 class="keyword-name">#{{ keywordName }} の記事一覧</h1>
+
     <div class="main-wrapper">
-      <ArticleItem :articles="latestArticles"></ArticleItem>
+      <ArticleItem :articles="keywordArticles"></ArticleItem>
 
       <div class="sidebar">
         <nuxt-link to="/event">
@@ -65,7 +67,7 @@
           <div class="keywords-wrapper">
             <div class="keywords-content">
               <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
-                <a v-bind:href="'/keyword/'+keyword.name" class="keyword-link">#{{ keyword.name }}</a>
+                <a href="#" class="keyword-link">#{{ keyword.name }}</a>
               </div>
             </div>
           </div>
@@ -96,21 +98,39 @@ export default {
   },
   data() {
     return {
-      latestArticles: this.latestArticles,
+      keywordArticles: this.keywordArticles,
       popularArticles: this.popularArticles,
+      keywordName: this.keywordName,
     }
   },
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, params }) {
     // WordPressからタグの一覧を取得する
     const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
 
+    const keywordName = params.keywordName
+
+    // キーワード名からWordPressでのタグIDを取得する関数
+    const getTagId = (keywordName, tags) => {
+      let tagId = -1
+
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagName = tag.name
+        if (keywordName === tagName) {
+          tagId = tag.id
+        }
+      }
+      return tagId
+    }
+
+    const tagId = getTagId(keywordName, tags)
+
     // 最新の記事をWordPressから取得する
-    const pageNum = 1
-    const fetchedWpLatestArticles = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&page=' + pageNum,
+    const fetchedWpKeywordArticles = await $axios.$get(
+      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&tags=' + tagId,
     )
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
-    const latestArticles = GetArticlesForWpAPI(fetchedWpLatestArticles, tags)
+    const keywordArticles = GetArticlesForWpAPI(fetchedWpKeywordArticles, tags)
 
     // 人気記事をWordPressから取得する
     const fetchedWPPopularArticles = await $axios.$get(
@@ -119,7 +139,7 @@ export default {
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
-    return { latestArticles, popularArticles, tags }
+    return { keywordArticles, popularArticles, tags, keywordName }
   },
   methods: {
     getTagName(id) {
@@ -151,6 +171,12 @@ export default {
       img {
         width: 100%;
       }
+    }
+
+    .keyword-name {
+      font-size: 1.5rem;
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      text-align: left;
     }
 
     .main-wrapper {
@@ -247,6 +273,12 @@ export default {
         height: auto;
         width: 100%;
       }
+    }
+
+    .keyword-name {
+      font-size: 1.5rem;
+      margin: 0.5rem 0 0.5rem 0.5rem;
+      text-align: left;
     }
 
     .main-wrapper {

@@ -32,7 +32,7 @@
 
         <div class="keywords-wrapper">
           <div class="keyword-container" v-for="(keyword, index) in article.keywords" :key="index">
-            <a href="#" class="keyword-link">#{{ keyword }}</a>
+            <a v-bind:href="'/keyword/'+keyword" class="keyword-link">#{{ keyword }}</a>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export default {
 
     // 記事内容を取得
     const fetchedArticle = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.page_id,
+      'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.pageId,
     )
 
     // 会話の発言者名・アイコン名をスタイルシートのテキストとして取得する

@@ -27,7 +27,7 @@
 export default {
   props: {
     articles: {
-      type: Object,
+      type: Array,
       require: true,
     },
   },
