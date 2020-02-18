@@ -130,7 +130,6 @@ export default {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
-
     height: auto;
     width: 100%;
     margin: 0 auto;
@@ -171,6 +170,7 @@ export default {
       .article-title {
         display: relative;
         font-size: 0.9rem;
+        font-weight: normal;
         text-align: left;
         overflow: hidden;
         width: 100%;
@@ -193,15 +193,14 @@ export default {
         .article-keywords {
           margin-left: 0.5rem;
           background-color: #61b5a7;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           color: #fff;
-          padding: 0.2rem 0.3rem;
+          padding: 0.15rem 0.3rem;
           margin-left: 0.5rem;
           background-color: #61b5a7;
-          font-size: 0.7rem;
           color: #fff;
           &:first-child {
-            margin-left: 0;
+            margin-left: 0.5rem !important;
           }
         }
 

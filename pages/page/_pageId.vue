@@ -31,9 +31,12 @@
         </a>
 
         <div class="keywords-wrapper">
-          <div class="keyword-container" v-for="(keyword, index) in article.keywords" :key="index">
-            <a v-bind:href="'/keyword/'+keyword" class="keyword-link">#{{ keyword }}</a>
-          </div>
+          <a
+            v-for="(keyword, index) in article.keywords"
+            :key="index"
+            v-bind:href="'/keyword/'+keyword"
+            class="keyword-link"
+          >#{{ keyword }}</a>
         </div>
 
         <h2 class="popular-header">人気の記事</h2>
@@ -403,23 +406,20 @@ export default {
 
     .keywords-wrapper {
       display: flex;
+      flex-wrap: wrap;
+      margin: 0.5rem;
+      width: initial;
 
-      .keyword-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0.5rem;
-
-        .keyword-link {
-          border: 1px solid #b4b2b2;
-          border-radius: 4px;
-          color: #454545;
-          font-size: 0.9rem;
-          font-weight: bold;
-          text-decoration: none;
-          margin: 0.2rem 0.5rem;
-          padding: 0.5rem 0.9rem;
-          width: auto !important;
-        }
+      .keyword-link {
+        border: 1px solid #b4b2b2;
+        border-radius: 4px;
+        color: #454545;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0.6rem 0.5rem;
+        padding: 0.3rem 0.9rem;
+        width: auto !important;
       }
     }
     /*---------------------------------
@@ -808,24 +808,20 @@ export default {
 
     .keywords-wrapper {
       display: flex;
+      flex-wrap: wrap;
+      margin: 0.5rem;
+      width: initial;
 
-      .keyword-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0.5rem;
-        width: 100%;
-
-        .keyword-link {
-          border: 1px solid #b4b2b2;
-          border-radius: 4px;
-          color: #454545;
-          font-size: 0.9rem;
-          font-weight: bold;
-          text-decoration: none;
-          margin: 0.2rem 0.5rem;
-          padding: 0.5rem 0.9rem;
-          width: auto !important;
-        }
+      .keyword-link {
+        border: 1px solid #b4b2b2;
+        border-radius: 4px;
+        color: #454545;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0.6rem 0.5rem;
+        padding: 0.3rem 0.9rem;
+        width: auto !important;
       }
     }
 
