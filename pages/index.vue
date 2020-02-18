@@ -63,11 +63,12 @@
           <h1>キーワード</h1>
 
           <div class="keywords-wrapper">
-            <div class="keywords-content">
-              <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
-                <a v-bind:href="'/keyword/'+keyword.name" class="keyword-link">#{{ keyword.name }}</a>
-              </div>
-            </div>
+            <a
+              v-for="(keyword, index) in tags"
+              :key="index"
+              v-bind:href="'/keyword/'+keyword.name"
+              class="keyword-link"
+            >#{{ keyword.name }}</a>
           </div>
         </div>
 
@@ -206,9 +207,11 @@ export default {
             margin-bottom: 0.8rem;
           }
 
-          .keywords-content {
+          .keywords-wrapper {
             display: flex;
             flex-wrap: wrap;
+            margin: 0.5rem;
+            width: initial;
 
             .keyword-link {
               border: 1px solid #b4b2b2;
@@ -217,8 +220,8 @@ export default {
               font-size: 0.9rem;
               font-weight: bold;
               text-decoration: none;
-              margin: 0.2rem 0.5rem;
-              padding: 0.5rem 0.9rem;
+              margin: 0.6rem 0.5rem;
+              padding: 0.3rem 0.9rem;
               width: auto !important;
             }
           }
@@ -276,10 +279,11 @@ export default {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;
           }
-          .keyword-content {
+          .keywords-wrapper {
             display: flex;
             flex-wrap: wrap;
             margin: 0.5rem;
+            width: initial;
 
             .keyword-link {
               border: 1px solid #b4b2b2;
@@ -288,8 +292,8 @@ export default {
               font-size: 0.9rem;
               font-weight: bold;
               text-decoration: none;
-              margin: 0.2rem 0.5rem;
-              padding: 0.5rem 0.9rem;
+              margin: 0.6rem 0.5rem;
+              padding: 0.2rem 0.9rem;
               width: auto !important;
             }
           }

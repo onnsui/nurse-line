@@ -700,9 +700,10 @@ export default {
 
     .article-content {
       font-size: 1.15rem;
-      line-height: 1.5rem;
+      line-height: 2rem;
       text-align: initial;
       letter-spacing: 0;
+      margin: 0 0.3rem;
 
       h1 {
         font-weight: normal;
@@ -845,6 +846,33 @@ export default {
       display: -ms-flex;
       display: -o-flex;
       display: flex;
+
+      .liquid-speech-balloon-avatar {
+        position: relative;
+        top: 0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 1;
+        flex-shrink: 0;
+        background-position: left top;
+        background-repeat: no-repeat;
+        -webkit-background-size: 100% auto;
+        -moz-background-size: 100% auto;
+        -ms-background-size: 100% auto;
+        -o-background-size: 100% auto;
+        background-size: 100% auto;
+
+        &:after {
+          position: absolute;
+          display: block;
+          width: 100%;
+          left: 0;
+          top: 3.5rem;
+          font-size: 0.8rem;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
 
       .liquid-speech-balloon-text {
         position: relative;
@@ -1003,34 +1031,6 @@ export default {
         border-top: 10px solid rgba(0, 0, 0, 0.2);
         border-left: 7px solid transparent !important;
         border-right: 7px solid transparent !important;
-      }
-
-      .liquid-speech-balloon-avatar {
-        position: relative;
-        top: 0.5rem;
-        width: 3rem;
-        height: 3rem;
-        line-height: 1;
-        flex-shrink: 0;
-        background-position: left top;
-        background-repeat: no-repeat;
-        -webkit-background-size: 100% auto;
-        -moz-background-size: 100% auto;
-        -ms-background-size: 100% auto;
-        -o-background-size: 100% auto;
-        background-size: 100% auto;
-
-        &::after {
-          position: absolute;
-          content: '';
-          display: block;
-          width: 100%;
-          left: 0;
-          top: 4rem;
-          font-size: 0.9rem;
-          text-align: center;
-          font-weight: bold;
-        }
       }
     }
   }

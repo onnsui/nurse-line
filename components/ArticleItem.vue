@@ -134,8 +134,8 @@ export default {
       border: 0;
       padding: 0;
       height: 16em;
-      width: 45%;
-      margin: 0 auto;
+      width: 50%;
+      margin: 0;
 
       &:first-child {
         height: 100%;
@@ -152,8 +152,8 @@ export default {
           }
         }
         .article-keywords-wrapper {
-          top: -1.35rem;
-          left: 0rem;
+          top: -1.3rem !important;
+          left: -0.5rem !important;
         }
       }
 
@@ -184,28 +184,28 @@ export default {
       }
 
       .article-thumbnail {
-        width: 9rem;
+        width: 10rem;
         height: 7.3rem;
         text-align: center;
         vertical-align: bottom;
         img {
-          height: 6.5rem;
-          width: 9.5rem;
+          height: 7rem;
+          width: 10rem;
           object-fit: cover;
         }
         .article-keywords-wrapper {
           display: flex;
           position: relative;
           width: 100%;
-          top: -1.8rem;
-          left: 1.7rem;
+          top: -1.6rem;
+          left: -0.5rem;
         }
 
         .article-keywords {
           padding: 0.1em 0.3em;
           margin-left: 0.5rem;
           background-color: #61b5a7;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           color: #fff;
         }
       }
