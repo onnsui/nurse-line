@@ -2,7 +2,9 @@
   <div class="articles-wrapper">
     <div v-for="(article, index) in articles" :key="index" class="article-wrapper">
       <div class="article-thumbnail">
-        <img :src="article.image_url" alt="article-thumbnail" />
+        <a v-bind:href="article.url">
+          <img :src="article.image_url" alt="article-thumbnail" />
+        </a>
         <div class="article-keywords-wrapper">
           <div class="article-keywords">{{ article.keywords[0] }}</div>
         </div>
