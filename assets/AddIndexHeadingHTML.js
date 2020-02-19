@@ -1,9 +1,9 @@
-// WordPressの記事HTMLを加工し、目次用のHTMLを返却する。
+// WordPressの記事HTMLを加工し、目次を付与したHTMLを返却する。
 const AddIndexHeadingHTML = (wpHTML) => {
   let count = 0
   const indexHeadings = []
 
-  // 正規表現でマッチしたH2タグに目次のIDを付与する
+  // 正規表現でマッチしたH2タグに目次のIDを付与する関数
   const tagReplacer = (match, p1, offset, string) => {
     let indexHeading = p1
 
@@ -19,12 +19,12 @@ const AddIndexHeadingHTML = (wpHTML) => {
   }
 
   const h2TagReg = /<h2>(.+?)<\/h2>/g
-  let outputHTML = wpHTML.replace(h2TagReg, tagReplacer);
+  let outputHTML = wpHTML.replace(h2TagReg, tagReplacer)
 
   // 目次のHTMLを生成する
   let indexHeadingHTML = ''
   for (let i = 0; i < indexHeadings.length; i++) {
-    const indexHeading = indexHeadings[i];
+    const indexHeading = indexHeadings[i]
     indexHeadingHTML += `<li><a href="#index-heading-${i}">${indexHeading}</a></li>`
   }
   indexHeadingHTML = `<nav class="index-heading"><h4 class="index-heading-title">もくじ</h4></b><ol>${indexHeadingHTML}</ol></nav>`

@@ -1,18 +1,20 @@
 <template>
   <div id="top" class="container">
-    <img src="http://placehold.jp/1200x450.png" class="top-image" />
+    <section class="section-1">
+      <img src="http://placehold.jp/1200x450.png" class="top-image" />
+    </section>
 
-    <section style="background-color: #fafafa; padding:2rem 0;">
-      <h1 style="font-size: 1.7rem; ">横の繋がりを広がることで</h1>
-      <h1 style="font-size: 3rem;">もっと看護を好きになる</h1>
-      <div style="font-size: 1.1rem; line-height: 2rem;margin: 1.8rem 0 1rem 0;">
+    <section class="section-2">
+      <h1 class="section2-h1-1">横の繋がりを広げることで</h1>
+      <h1 class="section2-h1-2">もっと看護を好きになる</h1>
+      <div>
         看護師にとっての
         <strong>職場と自宅以外の第三の場所=サードプレイス</strong>として
         <br />毎月オフラインイベントを開催しています。
       </div>
     </section>
 
-    <section class="have-fun">
+    <section class="section-3 have-fun">
       <swiper :options="swiperHaveFunOption">
         <swiper-slide>
           <div style="display:flex;margin:0;">
@@ -67,7 +69,7 @@
       </swiper>
     </section>
 
-    <section>
+    <section class="section-4">
       <div>
         STAFF
         <h1>運営スタッフ</h1>
@@ -101,11 +103,23 @@
       </div>
     </section>
 
-    <section>
-      <img src="http://placehold.jp/1200x450.png" class="top-image" />
+    <section class="section-5">
+      <div
+        style="display:flex;flex-direction: column;height:600px; justify-content: center;align-items: center;width:100%;margin: 0 9rem;"
+      >
+        <h2 style="font-size:1.3rem;font-weight:normal;letter-spacing: 0.2rem;">Our throughts</h2>
+        <h1 style="font-size:2rem;">想い</h1>
+        <p style="font-size: 1.3rem;line-height:3rem;text-align:left;">
+          病院や同級生以外のつながりを創るサポートを通じて、
+          <br />リアルな場でも看護師さんのプライベートが輝くように応援しています。
+          <br />「看護師になったことは間違いではなかった」
+          <br />そう想える人を増やしたい。看護師の作る、看護師が主役のサービスを。
+        </p>
+        <h1 style="font-size:2rem;text-align:right;width:100%;">看護師の日常に彩りを</h1>
+      </div>
     </section>
 
-    <section style="background-color: #ccc;">
+    <section class="section-6">
       <swiper :options="swiperOption">
         <swiper-slide>
           <div class="carousel-centered brancket">
@@ -140,7 +154,29 @@
         <div slot="button-next" class="swiper-button-next"></div>
         <div slot="pagination" class="swiper-pagination"></div>
       </swiper>
+      <div
+        style="background-color: #f3f3f3;display: flex;margin: 0 auto; padding: 2rem 0;width:100%;"
+      >
+        <img src="http://placehold.jp/350x70.png" style="display: flex;margin: 0 0.5rem 0 auto;" />
+        <img src="http://placehold.jp/350x70.png" style="display: flex;margin: 0 auto 0 0.5rem;" />
+      </div>
+      <div style="width:100%;">
+        <div
+          style="background-color: #f3f3f3;display: flex;margin: 0 auto; padding:0;width:100%;justify-content:center;"
+        >
+          <img
+            src="http://placehold.jp/50x50.png"
+            style="position:relative; top:25px;margin-right:25px;"
+          />
+          <img src="http://placehold.jp/50x50.png" style="position:relative; top:25px;" />
+          <img
+            src="http://placehold.jp/50x50.png"
+            style="position:relative; top:25px;margin-left:25px;"
+          />
+        </div>
+      </div>
     </section>
+    <p style="color:#212a37;font-size: 0.9rem;letter-spacing:0.1rem;">最新情報をチェック</p>
   </div>
 </template>
 
@@ -168,7 +204,7 @@ export default {
         },
       },
       swiperOption: {
-        slidesPerView: 1.5,
+        slidesPerView: 1.6,
         centeredSlides: true,
         // spaceBetween: 30,
         // slidesPerGroup: 3,
@@ -192,72 +228,118 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.brancket {
-  position: relative;
-  padding: 0.3em;
-  text-align: center;
-
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    width: 4rem;
-    height: 4rem;
-    display: inline-block;
-    border-top: solid 2px #61b5a7;
-    border-left: solid 2px #61b5a7;
-  }
-
-  &:after {
-    position: absolute;
-    right: 0;
-
-    bottom: 0;
-    content: '';
-    width: 4rem;
-    height: 4rem;
-    display: inline-block;
-    border-right: solid 2px #61b5a7;
-    border-bottom: solid 2px #61b5a7;
-  }
-}
-
 @media only screen and (min-device-width: 769px) {
-  .top-image {
-    height: auto;
-    width: 100%;
+  .container {
     margin: 0 auto;
-    object-fit: cover;
-  }
+    text-align: center;
 
-  .staff-wrapper {
-    display: flex;
-    margin: 2rem auto;
-    width: 80%;
-  }
+    .section-1 {
+      .top-image {
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        object-fit: cover;
+      }
+    }
 
-  .staff-item {
-    width: 45%;
-    margin: 0 1rem;
-    padding: 2rem 3rem;
+    .section-2 {
+      background-color: #fafafa;
+      padding: 2rem 0;
+
+      .section2-h1-1 {
+        font-size: 1.7rem;
+      }
+
+      .section-h1-2 {
+        font-size: 3rem;
+      }
+
+      div {
+        font-size: 1.1rem;
+        line-height: 2rem;
+        margin: 1.8rem 0 1rem 0;
+      }
+    }
+
+    .section-3 {
+      .have-fun {
+        .swiper-pagination {
+          left: 25%;
+          text-align: left !important;
+        }
+      }
+    }
+
+    .section-4 {
+      .staff-wrapper {
+        display: flex;
+        margin: 2rem auto;
+        width: 80%;
+      }
+
+      .staff-item {
+        width: 45%;
+        margin: 0 1rem;
+        padding: 2rem 3rem;
+      }
+    }
+
+    .section-5 {
+      display: flex;
+      height: 600px;
+      background: url('http://placehold.jp/1200x600.png');
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section-6 {
+      background-color: #d8d8d8;
+      margin-bottom: 50px;
+
+      .carousel-centered {
+        height: 85%;
+        text-align: left;
+        margin: 2rem 4rem;
+        padding: 0 10%;
+
+        .catchphrase-en {
+          color: #d8d8d8;
+          font-size: 1.4rem;
+          font-weight: bold;
+          text-align: right;
+          width: 100%;
+          position: relative;
+          left: 4rem;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+          text-align: center;
+          margin: 1rem 0;
+        }
+      }
+
+      .swiper-button-prev {
+        background-image: url('http://placehold.jp/60x60.png');
+        background-size: 60px 60px;
+        height: 60px;
+        width: 60px;
+        left: 16%;
+      }
+
+      .swiper-button-next {
+        background-image: url('http://placehold.jp/60x60.png');
+        background-size: 60px 60px;
+        height: 60px;
+        width: 60px;
+        right: 16%;
+      }
+    }
   }
 
   .swiper-container {
     width: 100%;
     height: 400px;
-  }
-
-  .have-fun {
-    .swiper-pagination {
-      left: 25%;
-      text-align: left !important;
-    }
   }
 
   .swiper-slide {
@@ -269,45 +351,6 @@ export default {
     &.swiper-slide-active {
       background-color: #fff;
     }
-
-    .carousel-centered {
-      height: 85%;
-      text-align: left;
-      margin: 2rem 4rem;
-      padding: 0 6rem;
-
-      .catchphrase-en {
-        color: #d8d8d8;
-        font-size: 1.4rem;
-        font-weight: bold;
-        text-align: right;
-        width: 100%;
-        position: relative;
-        left: 4rem;
-      }
-
-      h2 {
-        font-size: 1.6rem;
-        text-align: center;
-        margin: 1rem 0;
-      }
-    }
-  }
-
-  .swiper-button-prev {
-    background-image: url('http://placehold.jp/60x60.png');
-    background-size: 60px 60px;
-    height: 60px;
-    width: 60px;
-    left: 16%;
-  }
-
-  .swiper-button-next {
-    background-image: url('http://placehold.jp/60x60.png');
-    background-size: 60px 60px;
-    height: 60px;
-    width: 60px;
-    right: 16%;
   }
 
   // ディープセレクターを用いてページネーション部分のスタイルを変更できるようにする
@@ -319,8 +362,204 @@ export default {
   /deep/ .swiper-pagination-bullet-active {
     background-color: gray;
   }
+
+  .brancket {
+    position: relative;
+    padding: 0.3em;
+    text-align: center;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 4rem;
+      height: 4rem;
+      display: inline-block;
+      border-top: solid 2px #61b5a7;
+      border-left: solid 2px #61b5a7;
+    }
+
+    &:after {
+      position: absolute;
+      right: 0;
+
+      bottom: 0;
+      content: '';
+      width: 4rem;
+      height: 4rem;
+      display: inline-block;
+      border-right: solid 2px #61b5a7;
+      border-bottom: solid 2px #61b5a7;
+    }
+  }
 }
 
 @media only screen and (max-device-width: 768px) {
+  .container {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+
+    .section-1 {
+      .top-image {
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        object-fit: cover;
+      }
+    }
+
+    .section-2 {
+      background-color: #fafafa;
+      padding: 2rem 0;
+
+      .section2-h1-1 {
+        font-size: 1.1rem;
+      }
+
+      .section2-h1-2 {
+        font-size: 1.3rem;
+      }
+
+      div {
+        font-size: 1.1rem;
+        line-height: 2rem;
+        margin: 1.8rem 0 1rem 0;
+      }
+    }
+
+    .section-3 {
+      .have-fun {
+        .swiper-pagination {
+          left: 25%;
+          text-align: left !important;
+        }
+      }
+    }
+
+    .section-4 {
+      .staff-wrapper {
+        display: flex;
+        margin: 2rem auto;
+        width: 80%;
+      }
+
+      .staff-item {
+        width: 45%;
+        margin: 0 1rem;
+        padding: 2rem 3rem;
+      }
+    }
+
+    .section-5 {
+      display: flex;
+      height: 600px;
+      background: url('http://placehold.jp/1200x600.png');
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section-6 {
+      background-color: #d8d8d8;
+      margin-bottom: 50px;
+
+      .carousel-centered {
+        height: 85%;
+        text-align: left;
+        margin: 2rem 4rem;
+        padding: 0 10%;
+
+        .catchphrase-en {
+          color: #d8d8d8;
+          font-size: 1.4rem;
+          font-weight: bold;
+          text-align: right;
+          width: 100%;
+          position: relative;
+          left: 4rem;
+        }
+
+        h2 {
+          font-size: 1.6rem;
+          text-align: center;
+          margin: 1rem 0;
+        }
+      }
+
+      .swiper-button-prev {
+        background-image: url('http://placehold.jp/60x60.png');
+        background-size: 60px 60px;
+        height: 60px;
+        width: 60px;
+        left: 16%;
+      }
+
+      .swiper-button-next {
+        background-image: url('http://placehold.jp/60x60.png');
+        background-size: 60px 60px;
+        height: 60px;
+        width: 60px;
+        right: 16%;
+      }
+    }
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 400px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background-color: #f3f3f3;
+
+    // アクティブなスライドの背景色を白にする
+    &.swiper-slide-active {
+      background-color: #fff;
+    }
+  }
+
+  // ディープセレクターを用いてページネーション部分のスタイルを変更できるようにする
+  /deep/ .swiper-pagination-bullet {
+    height: 13px !important;
+    width: 13px !important;
+  }
+
+  /deep/ .swiper-pagination-bullet-active {
+    background-color: gray;
+  }
+
+  .brancket {
+    position: relative;
+    padding: 0.3em;
+    text-align: center;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      width: 4rem;
+      height: 4rem;
+      display: inline-block;
+      border-top: solid 2px #61b5a7;
+      border-left: solid 2px #61b5a7;
+    }
+
+    &:after {
+      position: absolute;
+      right: 0;
+
+      bottom: 0;
+      content: '';
+      width: 4rem;
+      height: 4rem;
+      display: inline-block;
+      border-right: solid 2px #61b5a7;
+      border-bottom: solid 2px #61b5a7;
+    }
+  }
 }
 </style>
