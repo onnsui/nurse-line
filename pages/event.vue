@@ -2,7 +2,7 @@
   <div id="top" class="container">
     <section class="section1">
       <div class="section1-wrapper">
-        <a href="#">
+        <a href="#" class="logo">
           <img src="http://placehold.jp/90x40.png" alt="noizeロゴ" />
         </a>
 
@@ -26,18 +26,18 @@
               <img src="http://placehold.jp/50x50.png" class="social-icon" />
             </a>
           </div>
+        </div>
 
-          <div class="apply-buttons-wrapper">
-            <div>
-              <a href="#">
-                <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" />
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <img src="http://placehold.jp/350x70.png" />
-              </a>
-            </div>
+        <div class="apply-buttons-wrapper">
+          <div>
+            <a href="#">
+              <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" />
+            </a>
+          </div>
+          <div>
+            <a href="#">
+              <img src="http://placehold.jp/350x70.png" />
+            </a>
           </div>
         </div>
       </div>
@@ -143,18 +143,16 @@
     </section>
 
     <section class="section5">
-      <div
-        style="display:flex;flex-direction: column;height:600px; justify-content: center;align-items: center;width:100%;margin: 0 9rem;"
-      >
-        <h2 style="font-size:1.3rem;font-weight:normal;letter-spacing: 0.2rem;">Our throughts</h2>
-        <h1 style="font-size:2rem;">想い</h1>
-        <p style="font-size: 1.3rem;line-height:3rem;text-align:left;">
+      <div>
+        <h2>Our throughts</h2>
+        <h1 class="section5-h1-1">想い</h1>
+        <p style>
           病院や同級生以外のつながりを創るサポートを通じて、
           <br />リアルな場でも看護師さんのプライベートが輝くように応援しています。
           <br />「看護師になったことは間違いではなかった」
           <br />そう想える人を増やしたい。看護師の作る、看護師が主役のサービスを。
         </p>
-        <h1 style="font-size:2rem;text-align:right;width:100%;">看護師の日常に彩りを</h1>
+        <h1 style class="section5-h1-2">看護師の日常に彩りを</h1>
       </div>
     </section>
 
@@ -270,9 +268,9 @@ export default {
       text-align: left;
 
       &-wrapper {
-        padding: 5rem 10rem;
+        padding: 4rem 10rem;
 
-        a {
+        .logo {
           position: relative;
           top: -2rem;
         }
@@ -380,6 +378,35 @@ export default {
       background: url('http://placehold.jp/1200x600.png');
       justify-content: center;
       align-items: center;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        height: 600px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 9rem;
+
+        h2 {
+          font-size: 1.3rem;
+          font-weight: normal;
+          letter-spacing: 0.2rem;
+        }
+        p {
+          font-size: 1.3rem;
+          line-height: 3rem;
+          text-align: left;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+
+        .section5-h1-2 {
+          text-align: right;
+          width: 100%;
+        }
+      }
     }
 
     .section6 {
@@ -530,13 +557,60 @@ export default {
     text-align: center;
     width: 100%;
 
-    .section-1 {
-      background: url('http://placehold.jp/1200x450.png');
-      .top-image {
-        height: auto;
-        width: 100%;
-        margin: 0 auto;
-        object-fit: cover;
+    .section1 {
+      background: url('http://placehold.jp/1200x600.png');
+      color: #fff;
+      height: 100vh;
+      text-align: left;
+
+      &-wrapper {
+        height: 100%;
+        padding: 3rem 4rem;
+
+        .logo {
+          position: relative;
+          top: -2rem;
+        }
+
+        h1,
+        h2 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+          margin: 2rem 0;
+        }
+        hr {
+          height: 1px;
+          border: none;
+          border-top: 1px #fff solid;
+          margin: 0 0 2rem 0;
+          width: 4rem;
+        }
+
+        .social-icons-wrapper {
+          display: none;
+        }
+
+        // 「話を聞いてみる」 「OR 飲み会へ参加する」ボタン
+        .apply-buttons-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          padding: 2rem 0;
+          width: 100%;
+
+          div {
+            margin: 0 auto;
+            width: 100%;
+          }
+
+          img {
+            width: 100%;
+            margin: 0 0.5rem;
+          }
+        }
       }
     }
 
@@ -571,23 +645,51 @@ export default {
     .section4 {
       .staff-wrapper {
         display: flex;
+        flex-direction: column;
         margin: 2rem auto;
         width: 80%;
-      }
 
-      .staff-item {
-        width: 45%;
-        margin: 0 1rem;
-        padding: 2rem 3rem;
+        .staff-item {
+          width: 100%;
+          margin: 0 1rem;
+          padding: 2rem 3rem;
+
+          p {
+            text-align: left;
+          }
+        }
       }
     }
 
     .section5 {
       display: flex;
-      height: 600px;
+      height: 400px;
       background: url('http://placehold.jp/1200x600.png');
       justify-content: center;
       align-items: center;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 2rem;
+
+        h2 {
+          font-size: 1.3rem;
+          font-weight: normal;
+          letter-spacing: 0.2rem;
+        }
+        p {
+          font-size: 1rem;
+          text-align: left;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+      }
     }
 
     .section6 {
@@ -643,19 +745,11 @@ export default {
       }
 
       .swiper-button-prev {
-        background-image: url('http://placehold.jp/60x60.png');
-        background-size: 60px 60px;
-        height: 60px;
-        width: 60px;
-        left: 16%;
+        display: none;
       }
 
       .swiper-button-next {
-        background-image: url('http://placehold.jp/60x60.png');
-        background-size: 60px 60px;
-        height: 60px;
-        width: 60px;
-        right: 16%;
+        display: none;
       }
     }
   }
