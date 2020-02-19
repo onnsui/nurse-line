@@ -1,10 +1,23 @@
 <template>
   <div id="top" class="container">
-    <section class="section-1">
-      <img src="http://placehold.jp/1200x450.png" class="top-image" />
+    <section class="section1">
+      <div class="section1-wrapper">
+        <a href="#">
+          <img src="http://placehold.jp/90x40.png" alt="noizeロゴ" />
+        </a>
+
+        <h1 class="section1-h1-1">NURSE LINE ゆる飲み</h1>
+        <h2 class="section1-h2-1">運営スタッフ募集</h2>
+
+        <p>
+          私達のイベントに参加していただくだけでなく、看護師の将来のために、
+          <br />考え行動していく仲間を募集しています。
+        </p>
+        <hr />
+      </div>
     </section>
 
-    <section class="section-2">
+    <section class="section2">
       <h1 class="section2-h1-1">横の繋がりを広げることで</h1>
       <h1 class="section2-h1-2">もっと看護を好きになる</h1>
       <div>
@@ -14,7 +27,7 @@
       </div>
     </section>
 
-    <section class="section-3 have-fun">
+    <section class="section3 have-fun">
       <swiper :options="swiperHaveFunOption">
         <swiper-slide>
           <div style="display:flex;margin:0;">
@@ -69,7 +82,7 @@
       </swiper>
     </section>
 
-    <section class="section-4">
+    <section class="section4">
       <div>
         STAFF
         <h1>運営スタッフ</h1>
@@ -103,7 +116,7 @@
       </div>
     </section>
 
-    <section class="section-5">
+    <section class="section5">
       <div
         style="display:flex;flex-direction: column;height:600px; justify-content: center;align-items: center;width:100%;margin: 0 9rem;"
       >
@@ -119,7 +132,7 @@
       </div>
     </section>
 
-    <section class="section-6">
+    <section class="section6">
       <swiper :options="swiperOption">
         <swiper-slide>
           <div class="carousel-centered brancket">
@@ -233,24 +246,46 @@ export default {
     margin: 0 auto;
     text-align: center;
 
-    .section-1 {
-      .top-image {
-        height: auto;
-        width: 100%;
-        margin: 0 auto;
-        object-fit: cover;
+    .section1 {
+      background: url('http://placehold.jp/1200x600.png');
+      color: #fff;
+      height: 600px;
+      text-align: left;
+
+      &-wrapper {
+        padding: 5rem 10rem;
+
+        a {
+          position: relative;
+          top: -2rem;
+        }
+
+        h1,
+        h2 {
+          font-size: 3rem;
+        }
+        p {
+          font-size: 1rem;
+          margin: 2rem 0;
+        }
+        hr {
+          height: 1px;
+          border: none;
+          border-top: 1px #fff solid;
+          width: 4rem;
+        }
       }
     }
 
-    .section-2 {
+    .section2 {
       background-color: #fafafa;
       padding: 2rem 0;
 
-      .section2-h1-1 {
+      &-h1-1 {
         font-size: 1.7rem;
       }
 
-      .section-h1-2 {
+      &-h1-2 {
         font-size: 3rem;
       }
 
@@ -261,7 +296,7 @@ export default {
       }
     }
 
-    .section-3 {
+    .section3 {
       .have-fun {
         .swiper-pagination {
           left: 25%;
@@ -270,7 +305,7 @@ export default {
       }
     }
 
-    .section-4 {
+    .section4 {
       .staff-wrapper {
         display: flex;
         margin: 2rem auto;
@@ -284,7 +319,7 @@ export default {
       }
     }
 
-    .section-5 {
+    .section5 {
       display: flex;
       height: 600px;
       background: url('http://placehold.jp/1200x600.png');
@@ -292,7 +327,7 @@ export default {
       align-items: center;
     }
 
-    .section-6 {
+    .section6 {
       background-color: #d8d8d8;
       margin-bottom: 50px;
 
@@ -402,6 +437,7 @@ export default {
     width: 100%;
 
     .section-1 {
+      background: url('http://placehold.jp/1200x450.png');
       .top-image {
         height: auto;
         width: 100%;
@@ -410,7 +446,7 @@ export default {
       }
     }
 
-    .section-2 {
+    .section2 {
       background-color: #fafafa;
       padding: 2rem 0;
 
@@ -429,7 +465,7 @@ export default {
       }
     }
 
-    .section-3 {
+    .section3 {
       .have-fun {
         .swiper-pagination {
           left: 25%;
@@ -438,7 +474,7 @@ export default {
       }
     }
 
-    .section-4 {
+    .section4 {
       .staff-wrapper {
         display: flex;
         margin: 2rem auto;
@@ -452,7 +488,7 @@ export default {
       }
     }
 
-    .section-5 {
+    .section5 {
       display: flex;
       height: 600px;
       background: url('http://placehold.jp/1200x600.png');
@@ -460,7 +496,7 @@ export default {
       align-items: center;
     }
 
-    .section-6 {
+    .section6 {
       background-color: #d8d8d8;
       margin-bottom: 50px;
 
