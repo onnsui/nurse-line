@@ -14,6 +14,32 @@
           <br />考え行動していく仲間を募集しています。
         </p>
         <hr />
+        <div class="social-icons-wrapper">
+          <div class="social-icons">
+            <a href="#">
+              <img src="http://placehold.jp/50x50.png" class="social-icon" />
+            </a>
+            <a href="#">
+              <img src="http://placehold.jp/50x50.png" class="social-icon" />
+            </a>
+            <a href="#">
+              <img src="http://placehold.jp/50x50.png" class="social-icon" />
+            </a>
+          </div>
+
+          <div class="apply-buttons-wrapper">
+            <div>
+              <a href="#">
+                <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" />
+              </a>
+            </div>
+            <div>
+              <a href="#">
+                <img src="http://placehold.jp/350x70.png" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -167,25 +193,21 @@
         <div slot="button-next" class="swiper-button-next"></div>
         <div slot="pagination" class="swiper-pagination"></div>
       </swiper>
-      <div
-        style="background-color: #f3f3f3;display: flex;margin: 0 auto; padding: 2rem 0;width:100%;"
-      >
-        <img src="http://placehold.jp/350x70.png" style="display: flex;margin: 0 0.5rem 0 auto;" />
-        <img src="http://placehold.jp/350x70.png" style="display: flex;margin: 0 auto 0 0.5rem;" />
+
+      <div class="apply-buttons-wrapper">
+        <a href="#">
+          <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" />
+        </a>
+        <a href="#">
+          <img src="http://placehold.jp/350x70.png" alt="OR 飲み会へ参加する" />
+        </a>
       </div>
-      <div style="width:100%;">
-        <div
-          style="background-color: #f3f3f3;display: flex;margin: 0 auto; padding:0;width:100%;justify-content:center;"
-        >
-          <img
-            src="http://placehold.jp/50x50.png"
-            style="position:relative; top:25px;margin-right:25px;"
-          />
-          <img src="http://placehold.jp/50x50.png" style="position:relative; top:25px;" />
-          <img
-            src="http://placehold.jp/50x50.png"
-            style="position:relative; top:25px;margin-left:25px;"
-          />
+
+      <div class="social-icons-wrapper">
+        <div class="social-icons">
+          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" />
         </div>
       </div>
     </section>
@@ -200,8 +222,6 @@ export default {
     return {
       swiperHaveFunOption: {
         slidesPerView: 1,
-        // spaceBetween: 30,
-        // slidesPerGroup: 3,
         loop: true,
         loopFillGroupWithBlank: true,
         // autoplay: {
@@ -219,10 +239,7 @@ export default {
       swiperOption: {
         slidesPerView: 1.6,
         centeredSlides: true,
-        // spaceBetween: 30,
-        // slidesPerGroup: 3,
         loop: true,
-        // loopFillGroupWithBlank: true,
         // autoplay: {
         //   delay: 5000,
         // },
@@ -272,7 +289,45 @@ export default {
           height: 1px;
           border: none;
           border-top: 1px #fff solid;
+          margin: 0 0 2rem 0;
           width: 4rem;
+        }
+
+        .social-icons-wrapper {
+          width: 100%;
+
+          .social-icons {
+            display: flex;
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+            justify-content: left;
+
+            .social-icon {
+              position: relative;
+              top: 25px;
+            }
+
+            :first-child {
+              margin-right: 10px;
+            }
+            :last-child {
+              margin-left: 10px;
+            }
+          }
+        }
+
+        // 「話を聞いてみる」 「OR 飲み会へ参加する」ボタン
+        .apply-buttons-wrapper {
+          display: flex;
+          justify-content: flex-end;
+
+          padding: 2rem 0;
+          width: 100%;
+
+          img {
+            margin: 0 0.5rem;
+          }
         }
       }
     }
@@ -331,6 +386,12 @@ export default {
       background-color: #d8d8d8;
       margin-bottom: 50px;
 
+      h2 {
+        font-size: 1.6rem;
+        text-align: center;
+        margin: 1rem 0;
+      }
+
       .carousel-centered {
         height: 85%;
         text-align: left;
@@ -346,11 +407,44 @@ export default {
           position: relative;
           left: 4rem;
         }
+      }
 
-        h2 {
-          font-size: 1.6rem;
-          text-align: center;
-          margin: 1rem 0;
+      .apply-buttons-wrapper {
+        background-color: #f3f3f3;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 2rem 0;
+        width: 100%;
+
+        img {
+          display: flex;
+          margin: 0 0.5rem 0 auto;
+        }
+      }
+
+      .social-icons-wrapper {
+        width: 100%;
+
+        .social-icons {
+          background-color: #f3f3f3;
+          display: flex;
+          margin: 0 auto;
+          padding: 0;
+          width: 100%;
+          justify-content: center;
+
+          .social-icon {
+            position: relative;
+            top: 25px;
+          }
+
+          :first-child {
+            margin-right: 25px;
+          }
+          :last-child {
+            margin-left: 25px;
+          }
         }
       }
 
@@ -520,6 +614,31 @@ export default {
           font-size: 1.6rem;
           text-align: center;
           margin: 1rem 0;
+        }
+      }
+
+      .social-icons-wrapper {
+        width: 100%;
+
+        .social-icons {
+          background-color: #f3f3f3;
+          display: flex;
+          margin: 0 auto;
+          padding: 0;
+          width: 100%;
+          justify-content: center;
+
+          .social-icon {
+            position: relative;
+            top: 25px;
+          }
+
+          :first-child {
+            margin-right: 25px;
+          }
+          :last-child {
+            margin-left: 25px;
+          }
         }
       }
 
