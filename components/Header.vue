@@ -24,6 +24,13 @@
           </li>
         </ul>
       </nav>
+      <div class="social-icons-wrapper">
+        <div class="social-icons">
+          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -59,6 +66,10 @@ export default {
   li {
     list-style: none;
   }
+
+  .social-icons-wrapper {
+    display: none;
+  }
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -69,6 +80,11 @@ export default {
     width: 100%;
     margin: 0 auto;
     text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
   }
 
   @import url(https://fonts.googleapis.com/css?family=Quicksand);
@@ -115,23 +131,30 @@ export default {
     transition: all 0.25s;
     top: -0px;
   }
+  .social-icons-wrapper {
+    display: none;
+  }
+
   .menu-expanded {
     transition: all 0.25s;
     text-align: center;
-    line-height: 200px;
+    line-height: 100px;
     height: 100%;
     width: 100%;
     border-radius: 0px;
     top: 0;
     left: 0;
     background-color: rgba(38, 47, 64, 0.85);
+
     ul {
       transition: all 0s;
-      position: relative;
+      // position: relative;
+      width: 100%;
       left: 0;
       z-index: 2;
       padding: 0;
     }
+
     li {
       display: flex;
       flex-direction: column;
@@ -178,6 +201,33 @@ export default {
       &:after {
         @extend .b-a-expanded;
         transform: rotate(-45deg);
+      }
+    }
+
+    .social-icons-wrapper {
+      display: flex !important;
+      width: 100%;
+      position: relative;
+      bottom: 0;
+
+      .social-icons {
+        display: flex;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        justify-content: center;
+
+        .social-icon {
+          position: relative;
+          top: 25px;
+        }
+
+        :first-child {
+          margin-right: 10px;
+        }
+        :last-child {
+          margin-left: 10px;
+        }
       }
     }
   }
