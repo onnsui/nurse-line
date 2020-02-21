@@ -373,6 +373,9 @@ export default {
         width: 100%;
         margin: 0 9rem;
 
+        h1 {
+          font-size: 2rem;
+        }
         h2 {
           font-size: 1.3rem;
           font-weight: normal;
@@ -382,9 +385,6 @@ export default {
           font-size: 1.3rem;
           line-height: 3rem;
           text-align: left;
-        }
-        h1 {
-          font-size: 2rem;
         }
 
         .section5-h1-2 {
@@ -549,7 +549,7 @@ export default {
       height: 100vh;
       text-align: left;
 
-      &-wrapper {
+      .section1-wrapper {
         height: 100%;
         padding: 3rem 4rem;
 
@@ -609,7 +609,7 @@ export default {
       }
 
       .section2-h1-2 {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
       }
 
       div {
@@ -626,18 +626,26 @@ export default {
       text-align: left;
 
       img {
-        height: auto;
+        height: 100%;
         width: 100%;
         object-fit: cover;
       }
 
       .swiper-container {
-        width: 100%;
+        height: 100vh;
+        width: 100vw;
+
+        .swiper-slide {
+          height: 100vh;
+          width: 100vw;
+        }
+
         .swiper-pagination {
           left: 40%;
           text-align: left !important;
         }
       }
+
       .slide-caption {
         background-color: #fff;
         width: 100%;
