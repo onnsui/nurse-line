@@ -249,6 +249,13 @@ export default {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        // レスポンシブ対応
+        breakpoints: {
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+        },
       },
     }
   },
@@ -697,25 +704,39 @@ export default {
       margin-bottom: 50px;
 
       .carousel-centered {
-        height: 85%;
+        font-size: 1.2rem;
         text-align: left;
-        margin: 2rem 4rem;
-        padding: 0 10%;
+        margin: 1rem 0.8rem;
+        padding: 0 5%;
+        height: 85%;
 
         .catchphrase-en {
           color: #d8d8d8;
-          font-size: 1.4rem;
+          font-size: 1rem;
           font-weight: bold;
           text-align: right;
           width: 100%;
-          position: relative;
-          left: 4rem;
         }
 
         h2 {
-          font-size: 1.6rem;
+          font-size: 1.2rem;
           text-align: center;
-          margin: 1rem 0;
+          margin: 0;
+        }
+      }
+
+      .apply-buttons-wrapper {
+        // background-color: #f3f3f3;
+        // display: flex;
+        // justify-content: center;
+        // margin: 0 auto;
+        // padding: 2rem 0;
+        width: 100%;
+
+        img {
+          display: flex;
+          margin: 1rem auto 1rem auto;
+          width: 60%;
         }
       }
 
@@ -772,8 +793,8 @@ export default {
 
   // ディープセレクターを用いてページネーション部分のスタイルを変更できるようにする
   /deep/ .swiper-pagination-bullet {
-    height: 13px !important;
-    width: 13px !important;
+    height: 10px !important;
+    width: 10px !important;
   }
 
   /deep/ .swiper-pagination-bullet-active {
