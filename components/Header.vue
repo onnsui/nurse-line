@@ -78,9 +78,8 @@ export default {
     content: '';
     position: absolute;
     left: 0;
-    height: 6px;
+    height: 2px;
     width: 30px;
-    border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.95);
   }
   .menu-collapsed {
