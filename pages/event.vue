@@ -57,25 +57,32 @@
     </section>
 
     <section class="section3 have-fun">
-      <div v-swiper:section3_Swiper="swiperHaveFunOption">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="http://placehold.jp/630x400.png" />
+      <div class="section3-container">
+        <div v-swiper:section3_Swiper="swiperHaveFunOption">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="http://placehold.jp/630x400.png" />
+            </div>
+            <div class="swiper-slide">
+              <img src="http://placehold.jp/630x400.png" />
+            </div>
+            <div class="swiper-slide">
+              <img src="http://placehold.jp/630x400.png" />
+            </div>
           </div>
-          <div class="swiper-slide">
-            <img src="http://placehold.jp/630x400.png" />
-          </div>
-          <div class="swiper-slide">
-            <img src="http://placehold.jp/630x400.png" />
-          </div>
+
+          <div slot="pagination" class="swiper-pagination"></div>
         </div>
 
-        <div slot="pagination" class="swiper-pagination"></div>
+        <div class="slide-caption">
+          <p>
+            看護師同士、横のつながりをつくるも良し、いろんな働き方を知るのも良し、看護師のための看護師によるイベントです
+            <br />主な参加者の年齢層は20代から40代まで。男性看護師も看護学生も多数参加しています。
+          </p>
+        </div>
       </div>
-
-      <div class="slide-caption">
-        看護師同士、横のつながりをつくるも良し、いろんな働き方を知るのも良し、看護師のための看護師によるイベントです
-        <br />主な参加者の年齢層は20代から40代まで。男性看護師も看護学生も多数参加しています。
+      <div class="have-fun-wrapper">
+        <img src="http://placehold.jp/250x130.png" alt="have fun" />
       </div>
     </section>
 
@@ -336,24 +343,45 @@ export default {
     }
 
     .section3 {
-      display: flex;
-      width: 100%;
-      text-align: left;
+      .section3-container {
+        display: flex;
+        width: 100%;
+        text-align: left;
 
-      .swiper-container {
-        width: 50%;
-        .swiper-pagination {
-          left: 40%;
-          text-align: left !important;
+        .swiper-container {
+          width: 50%;
+          .swiper-pagination {
+            left: 40%;
+            text-align: left !important;
+          }
+        }
+        .slide-caption {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          width: 50%;
+          font-size: 1.1rem;
+          line-height: 2.5rem;
+          padding: 0 4rem;
+          margin: 0 auto;
         }
       }
-      .slide-caption {
-        width: 50%;
+      .have-fun-wrapper {
+        background-color: #d8d8d8;
+        width: 100%;
+
         display: flex;
-        align-items: center;
-        font-size: 1.1rem;
-        line-height: 2.3rem;
-        padding: 0 4rem;
+        align-items: right;
+        justify-content: right;
+        position: relative;
+        bottom: 0rem;
+        right: 0;
+        img {
+          position: absolute;
+          bottom: -65px;
+          right: 10%;
+        }
       }
     }
 
@@ -519,10 +547,12 @@ export default {
     width: 13px !important;
   }
 
+  // ページネーションの色を変更
   /deep/ .swiper-pagination-bullet-active {
     background-color: gray;
   }
 
+  // 要素を「」の記号で囲むプロパティ
   .brancket {
     position: relative;
     padding: 0.3em;
@@ -644,41 +674,60 @@ export default {
     }
 
     .section3 {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      text-align: left;
-
-      img {
-        height: 100%;
+      .section3-container {
+        background-color: #d8d8d8;
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        object-fit: cover;
-      }
+        text-align: left;
 
-      .swiper-container {
-        height: 100vh;
-        width: 100vw;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
 
-        .swiper-slide {
+        .swiper-container {
           height: 100vh;
           width: 100vw;
+
+          .swiper-slide {
+            height: 100vh;
+            width: 100vw;
+          }
+
+          .swiper-pagination {
+            left: 40%;
+            text-align: left !important;
+          }
         }
 
-        .swiper-pagination {
-          left: 40%;
-          text-align: left !important;
+        .slide-caption {
+          background-color: #fff;
+          width: 90%;
+          font-size: 1.1rem;
+          line-height: 2.3rem;
+          margin: 1rem auto 2rem auto;
+          padding: 1rem 1rem;
         }
       }
-
-      .slide-caption {
-        background-color: #fff;
+      .have-fun-wrapper {
+        background-color: #d8d8d8;
         width: 100%;
+
         display: flex;
-        align-items: center;
-        font-size: 1.1rem;
-        line-height: 2.3rem;
-        margin: 0 1rem;
-        padding: 1rem 4rem;
+        align-items: right;
+        justify-content: right;
+        position: relative;
+        bottom: 0rem;
+        right: 0;
+        img {
+          position: absolute;
+          bottom: 0;
+          right: 10%;
+          height: auto;
+          width: 30%;
+        }
       }
     }
 
@@ -854,6 +903,7 @@ export default {
     background-color: gray;
   }
 
+  // 要素を「」の記号で囲むプロパティ
   .brancket {
     position: relative;
     padding: 0.3em;
