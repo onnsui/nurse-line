@@ -84,7 +84,7 @@
             <h2>飯島 純</h2>
             <h3>夜間救急のスペシャリスト</h3>
             <p>
-              すべての人に笑いを届けるスーパースター,無限の体力を持つ男
+              全ての人に笑いを届けるスーパースター,無限の体力を持つ男
               <br />夜勤専従歴11年,夜間救急のスペシャリスト。
               <br />患者らしさと自分らしさを追求した看護を提供する。
               <br />＼3度の飯より猫が好き／
@@ -125,7 +125,7 @@
       <swiper :options="swiperOption">
         <swiper-slide>
           <div class="carousel-centered brancket">
-            <div class="catchphrase-en">Palace</div>
+            <div class="catchphrase-en">Place</div>
             <h2>看護師のサードプレイスに</h2>
             <br />看護師は精神的に大変な仕事。心休まる時間が必要。
             <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
@@ -143,7 +143,7 @@
         </swiper-slide>
         <swiper-slide>
           <div class="carousel-centered brancket">
-            <div class="catchphrase-en">Palace</div>
+            <div class="catchphrase-en">Place</div>
             <h2>看護師という人生に誇りを持てるように</h2>
             <br />看護師人生に誇りを持てるようになって欲しい。
             <br />辛いこともたくさんある。
@@ -548,7 +548,6 @@ export default {
 
 ---------------------------------*/
   .container {
-    background-color: #f9f9f9;
     margin: 0 auto;
     text-align: center;
     width: 100%;
@@ -677,11 +676,17 @@ export default {
 
         .staff-item {
           width: 100%;
-          margin: 0 1rem;
-          padding: 2rem 3rem;
+          margin: 1rem 1rem;
+          padding: 2rem 1rem;
+
+          h3 {
+            font-size: 0.9rem;
+          }
 
           p {
+            font-size: 0.9rem;
             text-align: left;
+            margin-top: 1rem;
           }
         }
       }
@@ -695,6 +700,7 @@ export default {
       align-items: center;
 
       div {
+        color: #fff;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -703,14 +709,23 @@ export default {
         width: 100%;
         margin: 0 2rem;
 
+        .section5-h1-1 {
+          font-size: 1.4rem;
+        }
+
+        .section5-h1-2 {
+          font-size: 1.6rem;
+        }
+
         h2 {
-          font-size: 1.3rem;
+          font-size: 0.9rem;
           font-weight: normal;
           letter-spacing: 0.2rem;
         }
         p {
           font-size: 1rem;
           text-align: left;
+          margin: 2rem 0;
         }
         h1 {
           font-size: 2rem;
@@ -719,14 +734,18 @@ export default {
     }
 
     .section6 {
-      background-color: #d8d8d8;
+      background-color: #f3f3f3;
       margin-bottom: 50px;
 
+      .swiper-container {
+        background-color: #f3f3f3;
+      }
+
       .carousel-centered {
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: left;
         margin: 1rem 0.8rem;
-        padding: 0 5%;
+        padding: 5% 5%;
         height: 85%;
 
         .catchphrase-en {
@@ -745,7 +764,7 @@ export default {
       }
 
       .apply-buttons-wrapper {
-        // background-color: #f3f3f3;
+        background-color: #f3f3f3;
         // display: flex;
         // justify-content: center;
         // margin: 0 auto;
