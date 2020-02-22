@@ -8,7 +8,7 @@
 
         <h1 class="section1-h1-1">
           NURSE LINE
-          <br class="mobile-style" . />ゆる飲み
+          <br class="mobile-style" />ゆる飲み
         </h1>
         <h2 class="section1-h2-1">運営スタッフ募集</h2>
 
