@@ -6,7 +6,10 @@
           <img src="http://placehold.jp/90x40.png" alt="noizeロゴ" />
         </a>
 
-        <h1 class="section1-h1-1">NURSE LINE ゆる飲み</h1>
+        <h1 class="section1-h1-1">
+          NURSE LINE
+          <br class="mobile-style" . />ゆる飲み
+        </h1>
         <h2 class="section1-h2-1">運営スタッフ募集</h2>
 
         <p>
@@ -481,6 +484,11 @@ export default {
         right: 16%;
       }
     }
+
+    // モバイル端末以外では非表示
+    .mobile-style {
+      display: none;
+    }
   }
 
   .swiper-container {
@@ -569,7 +577,8 @@ export default {
 
         h1,
         h2 {
-          font-size: 2rem;
+          font-size: 1.8rem;
+          text-align: center;
         }
         p {
           font-size: 1rem;
