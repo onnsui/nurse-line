@@ -34,7 +34,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '~/plugins/vue-scrollto.js',
-    { src: '~plugins/vue-awesome-swiper', ssr: false },
+    { src: '~plugins/vue-awesome-swiper', mode: 'client' },
   ],
   /*
    ** Nuxt.js dev-modules
