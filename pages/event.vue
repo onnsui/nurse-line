@@ -88,7 +88,7 @@
 
     <section class="section4">
       <div>
-        STAFF
+        <h2>STAFF</h2>
         <h1>運営スタッフ</h1>
 
         <div class="staff-wrapper">
@@ -386,6 +386,12 @@ export default {
     }
 
     .section4 {
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-weight: normal;
+      }
       .staff-wrapper {
         display: flex;
         margin: 2rem auto;
@@ -732,6 +738,10 @@ export default {
     }
 
     .section4 {
+      h2 {
+        font-size: 1rem;
+        font-weight: normal;
+      }
       .staff-wrapper {
         display: flex;
         flex-direction: column;
