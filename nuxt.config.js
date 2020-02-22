@@ -20,6 +20,11 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
+  plugins: [
+    '@/plugins/element-ui',
+    '~/plugins/vue-scrollto.js',
+    { src: '~/plugins/swiper.js', ssr: false },
+  ],
   /*
    ** Global CSS
    */
@@ -31,11 +36,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@/plugins/element-ui',
-    '~/plugins/vue-scrollto.js',
-    { src: '~plugins/vue-awesome-swiper', mode: 'client' },
-  ],
+
   /*
    ** Nuxt.js dev-modules
    */
@@ -64,7 +65,7 @@ export default {
   build: {
     hardSource: true,
     transpile: [/^element-ui/],
-    vendor: ['vue-awesome-swiper'],
+    // vendor: ['vue-awesome-swiper'],
     /*
      ** You can extend webpack config here
      */

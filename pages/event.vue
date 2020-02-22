@@ -57,19 +57,22 @@
     </section>
 
     <section class="section3 have-fun">
-      <swiper :options="swiperHaveFunOption">
-        <swiper-slide>
-          <img src="http://placehold.jp/630x400.png" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="http://placehold.jp/630x400.png" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="http://placehold.jp/630x400.png" />
-        </swiper-slide>
+      <div v-swiper:section3_Swiper="swiperHaveFunOption">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="http://placehold.jp/630x400.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="http://placehold.jp/630x400.png" />
+          </div>
+          <div class="swiper-slide">
+            <img src="http://placehold.jp/630x400.png" />
+          </div>
+        </div>
 
         <div slot="pagination" class="swiper-pagination"></div>
-      </swiper>
+      </div>
+
       <div class="slide-caption">
         看護師同士、横のつながりをつくるも良し、いろんな働き方を知るのも良し、看護師のための看護師によるイベントです
         <br />主な参加者の年齢層は20代から40代まで。男性看護師も看護学生も多数参加しています。
@@ -125,37 +128,41 @@
     </section>
 
     <section class="section6">
-      <swiper :options="swiperOption">
-        <swiper-slide>
-          <div class="carousel-centered brancket">
-            <div class="catchphrase-en">Place</div>
-            <h2>看護師のサードプレイスに</h2>看護師は精神的に大変な仕事。心休まる時間が必要。
-            <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
-            <br />看護師の居場所になるような場を。
+      <div v-swiper:section6_Swiper="swiperOption">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="carousel-centered brancket">
+              <div class="catchphrase-en">Place</div>
+              <h2>看護師のサードプレイスに</h2>看護師は精神的に大変な仕事。心休まる時間が必要。
+              <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
+              <br />看護師の居場所になるような場を。
+            </div>
           </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="carousel-centered brancket">
-            <div class="catchphrase-en">Values</div>
-            <h2>看護師に多様な価値観を</h2>世の中には色んな看護師がいることを伝えたい。
-            <br />自分は看護師に向いていない。
-            <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
+
+          <div class="swiper-slide">
+            <div class="carousel-centered brancket">
+              <div class="catchphrase-en">Values</div>
+              <h2>看護師に多様な価値観を</h2>世の中には色んな看護師がいることを伝えたい。
+              <br />自分は看護師に向いていない。
+              <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
+            </div>
           </div>
-        </swiper-slide>
-        <swiper-slide>
-          <div class="carousel-centered brancket">
-            <div class="catchphrase-en">Place</div>
-            <h2>看護師という人生に誇りを持てるように</h2>看護師人生に誇りを持てるようになって欲しい。
-            <br />辛いこともたくさんある。
-            <br />ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
-            <br />看護師は尊く、素敵な仕事だ。
+
+          <div class="swiper-slide">
+            <div class="carousel-centered brancket">
+              <div class="catchphrase-en">Place</div>
+              <h2>看護師という人生に誇りを持てるように</h2>看護師人生に誇りを持てるようになって欲しい。
+              <br />辛いこともたくさんある。
+              <br />ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
+              <br />看護師は尊く、素敵な仕事だ。
+            </div>
           </div>
-        </swiper-slide>
+        </div>
 
         <div slot="button-prev" class="swiper-button-prev"></div>
         <div slot="button-next" class="swiper-button-next"></div>
         <div slot="pagination" class="swiper-pagination"></div>
-      </swiper>
+      </div>
 
       <div class="apply-buttons-wrapper">
         <a href="#">
@@ -179,6 +186,8 @@
 </template>
 
 <script>
+import 'swiper/dist/css/swiper.css'
+
 export default {
   layout: 'top',
   data() {
