@@ -87,7 +87,7 @@
     </section>
 
     <section class="section4">
-      <div>
+      <div class="section4-container">
         <h2>STAFF</h2>
         <h1>運営スタッフ</h1>
 
@@ -386,22 +386,26 @@ export default {
     }
 
     .section4 {
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-weight: normal;
-      }
-      .staff-wrapper {
-        display: flex;
-        margin: 2rem auto;
-        width: 80%;
-      }
+      & .section4-container {
+        margin-top: 2rem;
 
-      .staff-item {
-        width: 45%;
-        margin: 0 1rem;
-        padding: 2rem 3rem;
+        h1 {
+          font-size: 2.2rem;
+        }
+        h2 {
+          font-weight: normal;
+        }
+        .staff-wrapper {
+          display: flex;
+          margin: 2rem auto;
+          width: 80%;
+        }
+
+        .staff-item {
+          width: 45%;
+          margin: 0 1rem;
+          padding: 2rem 3rem;
+        }
       }
     }
 
@@ -738,29 +742,33 @@ export default {
     }
 
     .section4 {
-      h2 {
-        font-size: 1rem;
-        font-weight: normal;
-      }
-      .staff-wrapper {
-        display: flex;
-        flex-direction: column;
-        margin: 2rem auto;
-        width: 80%;
+      & .section4-container {
+        margin-top: 2rem;
 
-        .staff-item {
-          width: 100%;
-          margin: 1rem 1rem;
-          padding: 2rem 1rem;
+        h2 {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+        .staff-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin: 2rem auto;
+          width: 80%;
 
-          h3 {
-            font-size: 0.9rem;
-          }
+          .staff-item {
+            width: 100%;
+            margin: 1rem 1rem;
+            padding: 2rem 1rem;
 
-          p {
-            font-size: 0.9rem;
-            text-align: left;
-            margin-top: 1rem;
+            h3 {
+              font-size: 0.9rem;
+            }
+
+            p {
+              font-size: 0.9rem;
+              text-align: left;
+              margin-top: 1rem;
+            }
           }
         }
       }
