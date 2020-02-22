@@ -207,8 +207,8 @@ export default {
     .social-icons-wrapper {
       display: flex !important;
       width: 100%;
-      position: relative;
-      top: 70%;
+      position: absolute;
+      bottom: 28%;
 
       .social-icons {
         display: flex;
