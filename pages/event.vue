@@ -228,6 +228,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/*---------------------------------
+
+  PC対応のスタイル
+
+---------------------------------*/
 @media only screen and (min-device-width: 769px) {
   .container {
     margin: 0 auto;
@@ -537,6 +542,11 @@ export default {
 }
 
 @media only screen and (max-device-width: 768px) {
+  /*---------------------------------
+
+  スマホ・タブレット対応のスタイル
+
+---------------------------------*/
   .container {
     background-color: #f9f9f9;
     margin: 0 auto;

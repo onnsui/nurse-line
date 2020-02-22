@@ -621,7 +621,11 @@ export default {
 }
 
 @media only screen and (max-device-width: 768px) {
-  /* スマホ用のCSS */
+  /*---------------------------------
+
+  スマホ・タブレット対応のスタイル
+
+---------------------------------*/
 
   .container {
     width: 100%;
