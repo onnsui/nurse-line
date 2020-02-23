@@ -154,6 +154,7 @@ export default {
       'http://blog.igz0.net/wp-json/wp/v2/users',
     )
 
+    // 記事の著者情報をWordPressの情報から取得する
     const getAuthorUser = (userId, users) => {
       let userName = ''
       let avatarUrls = []

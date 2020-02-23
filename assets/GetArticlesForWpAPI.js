@@ -1,10 +1,11 @@
+// WordPressから取得した記事を記事表示コンポーネントへ渡すデータに整形する関数
 const GetArticles = (fetchedArticles, tags) => {
   const articles = []
 
   for (let i = 0; i < fetchedArticles.length; i++) {
     const article = fetchedArticles[i]
 
-    // アイキャッチ画像がない場合の画像URLをセットする。
+    // 記事にアイキャッチ画像が設定されていない場合の画像URLをセットする。
     let coverImage = 'http://placehold.jp/200x150.png'
 
     // アイキャッチ画像のURLが記事中にあった場合、変数にセットする。
