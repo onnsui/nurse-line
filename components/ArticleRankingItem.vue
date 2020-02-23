@@ -52,7 +52,7 @@ export default {
     }
 
     .article-wrapper {
-      margin-right: 1.1rem;
+      margin-right: 0.5rem;
       height: 17rem;
       width: 14.5rem;
       padding: 1rem 1rem 0 1rem;
