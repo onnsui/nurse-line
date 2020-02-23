@@ -195,6 +195,7 @@
         </div>
       </div>
     </section>
+
     <p style="color:#212a37;font-size: 0.9rem;letter-spacing:0.1rem;">最新情報をチェック</p>
   </div>
 </template>
