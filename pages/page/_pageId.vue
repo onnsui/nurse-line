@@ -8,7 +8,7 @@
           </div>
 
           <div class="cover-image">
-            <img :src="article.cover_image" />
+            <img :src="article.cover_image" loading="lazy" />
           </div>
         </div>
 
@@ -16,7 +16,7 @@
           <h1 class="article-title">{{ article.title }}</h1>
 
           <div class="article-info">
-            <img :src="article.author_avatar_img_48px" class="article-avatar-icon" />
+            <img :src="article.author_avatar_img_48px" class="article-avatar-icon" loading="lazy" />
             <div>
               <div class="article-author">{{ article.author }}</div>
               <div class="article-date">{{ article.date_str }}</div>
@@ -27,7 +27,12 @@
         </article>
 
         <a href="#">
-          <img src="http://placehold.jp/350x60.png" alt="キャリア相談をする" style="margin: 2rem 0;" />
+          <img
+            src="http://placehold.jp/350x60.png"
+            alt="キャリア相談をする"
+            style="margin: 2rem 0;"
+            loading="lazy"
+          />
         </a>
 
         <div class="keywords-wrapper">

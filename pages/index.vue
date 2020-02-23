@@ -2,7 +2,7 @@
   <div id="top" class="container">
     <div class="hero">
       <nuxt-link to="/">
-        <img src="http://placehold.jp/1000x350.png" alt="hero" />
+        <img src="http://placehold.jp/1000x350.png" alt="hero" loading="lazy" />
       </nuxt-link>
     </div>
 
@@ -11,7 +11,12 @@
 
       <div class="sidebar">
         <nuxt-link to="/event">
-          <img src="http://placehold.jp/250x120.png" alt="運営スタッフ募集中" class="sidebar-banner" />
+          <img
+            src="http://placehold.jp/250x120.png"
+            alt="運営スタッフ募集中"
+            class="sidebar-banner"
+            loading="lazy"
+          />
         </nuxt-link>
         <div class="sidebar-header">
           <div class="social-area">
@@ -23,28 +28,33 @@
             <div class="social-icon-area">
               <div>
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" />
+                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
               <div>
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" />
+                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
               <div>
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" />
+                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
             </div>
           </div>
           <a href="#">
-            <img src="http://placehold.jp/250x120.png" alt="看護師がサポート、転職支援" class="sidebar-banner" />
+            <img
+              src="http://placehold.jp/250x120.png"
+              alt="看護師がサポート、転職支援"
+              class="sidebar-banner"
+              loading="lazy"
+            />
           </a>
           <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
           <div>
             <a href="#">
-              <img src="http://placehold.jp/200x50.png" alt="SNS1" />
+              <img src="http://placehold.jp/200x50.png" alt="SNS1" loading="lazy" />
             </a>
           </div>
         </div>
@@ -54,7 +64,7 @@
         <div class="under-content">
           <div class="next-article-button">
             <a href="#">
-              <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" />
+              <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" loading="lazy" />
             </a>
           </div>
 

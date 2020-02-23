@@ -3,7 +3,7 @@
     <div v-for="(article, index) in articles" :key="index" class="article-wrapper">
       <div class="article-thumbnail">
         <a v-bind:href="article.url">
-          <img :src="article.image_url" alt="article-thumbnail" />
+          <img :src="article.image_url" alt="article-thumbnail" loading="lazy" />
         </a>
         <div class="article-keywords-wrapper pc-style">
           <div class="article-keywords">{{ article.keywords[0] }}</div>
@@ -21,7 +21,7 @@
 
       <div class="article-read-button">
         <a v-bind:href="article.url">
-          <img src="~/static/read-button.png" alt="article-read-button" />
+          <img src="~/static/read-button.png" alt="article-read-button" loading="lazy" />
         </a>
       </div>
     </div>

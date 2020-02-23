@@ -3,7 +3,7 @@
     <section class="section1">
       <div class="section1-wrapper">
         <a href="#" class="logo">
-          <img src="http://placehold.jp/90x40.png" alt="noizeロゴ" />
+          <img src="http://placehold.jp/90x40.png" alt="noizeロゴ" loading="lazy" />
         </a>
 
         <h1 class="section1-h1-1">
@@ -22,13 +22,13 @@
         <div class="social-icons-wrapper">
           <div class="social-icons">
             <a href="#">
-              <img src="http://placehold.jp/50x50.png" class="social-icon" />
+              <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
             </a>
             <a href="#">
-              <img src="http://placehold.jp/50x50.png" class="social-icon" />
+              <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
             </a>
             <a href="#">
-              <img src="http://placehold.jp/50x50.png" class="social-icon" />
+              <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
             </a>
           </div>
         </div>
@@ -36,12 +36,12 @@
         <div class="apply-buttons-wrapper">
           <div>
             <a href="#">
-              <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" />
+              <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" loading="lazy" />
             </a>
           </div>
           <div>
             <a href="#">
-              <img src="http://placehold.jp/350x70.png" />
+              <img src="http://placehold.jp/350x70.png" loading="lazy" />
             </a>
           </div>
         </div>
@@ -64,13 +64,13 @@
         <div v-swiper:section3_Swiper="swiperHaveFunOption">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="http://placehold.jp/630x400.png" />
+              <img src="http://placehold.jp/630x400.png" loading="lazy" />
             </div>
             <div class="swiper-slide">
-              <img src="http://placehold.jp/630x400.png" />
+              <img src="http://placehold.jp/630x400.png" loading="lazy" />
             </div>
             <div class="swiper-slide">
-              <img src="http://placehold.jp/630x400.png" />
+              <img src="http://placehold.jp/630x400.png" loading="lazy" />
             </div>
           </div>
 
@@ -86,7 +86,7 @@
       </div>
 
       <div class="have-fun-wrapper">
-        <img src="http://placehold.jp/250x130.png" alt="have fun" />
+        <img src="http://placehold.jp/250x130.png" alt="have fun" loading="lazy" />
       </div>
     </section>
 
@@ -97,7 +97,7 @@
 
         <div class="staff-wrapper">
           <div class="staff-item brancket">
-            <img src="http://placehold.jp/200x200.png" alt="飯島 純のプロフィール写真" />
+            <img src="http://placehold.jp/200x200.png" alt="飯島 純のプロフィール写真" loading="lazy" />
             <h2>飯島 純</h2>
             <h3>夜間救急のスペシャリスト</h3>
             <p>
@@ -109,7 +109,7 @@
           </div>
 
           <div class="staff-item brancket">
-            <img src="http://placehold.jp/200x200.png" alt="小林 央幸のプロフィール写真" />
+            <img src="http://placehold.jp/200x200.png" alt="小林 央幸のプロフィール写真" loading="lazy" />
             <h2>小林 央幸</h2>
             <h3>3児のパパナース</h3>
             <p>
@@ -180,18 +180,18 @@
 
       <div class="apply-buttons-wrapper">
         <a href="#">
-          <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" />
+          <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" loading="lazy" />
         </a>
         <a href="#">
-          <img src="http://placehold.jp/350x70.png" alt="OR 飲み会へ参加する" />
+          <img src="http://placehold.jp/350x70.png" alt="OR 飲み会へ参加する" loading="lazy" />
         </a>
       </div>
 
       <div class="social-icons-wrapper">
         <div class="social-icons">
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
+          <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
         </div>
       </div>
     </section>
