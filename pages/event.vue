@@ -437,6 +437,7 @@ export default {
           font-size: 1.3rem;
           line-height: 3rem;
           text-align: left;
+          margin-bottom: 2rem;
         }
 
         .section5-h1-2 {

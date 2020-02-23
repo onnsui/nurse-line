@@ -154,14 +154,14 @@ export default {
     .article-wrapper {
       background-color: #f8f8f8;
       border: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: initial;
       height: 9.5rem;
       width: 100%;
       margin: 0.5rem 0.6rem;
-      display: flex;
-      flex-direction: initial;
       padding: 0 0.5rem;
       position: relative;
-      align-items: center;
 
       .article-thumbnail {
         height: 9.5rem;
@@ -199,14 +199,11 @@ export default {
         margin: 0.2rem 0 0.2rem 0.4rem;
 
         .article-keywords {
-          margin-left: 0.5rem;
           background-color: #61b5a7;
-          font-size: 0.75rem;
           color: #fff;
+          font-size: 0.75rem;
           padding: 0.15rem 0.3rem;
           margin-left: 0.5rem;
-          background-color: #61b5a7;
-          color: #fff;
           &:first-child {
             margin-left: 0.5rem !important;
           }
