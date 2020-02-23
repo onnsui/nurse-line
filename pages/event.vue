@@ -196,7 +196,7 @@
       </div>
     </section>
 
-    <p style="color:#212a37;font-size: 0.9rem;letter-spacing:0.1rem;">最新情報をチェック</p>
+    <p class="check-info">最新情報をチェック</p>
   </div>
 </template>
 
@@ -541,6 +541,12 @@ export default {
     // モバイル端末以外では非表示
     .mobile-style {
       display: none;
+    }
+
+    .check-info {
+      color: #212a37;
+      font-size: 0.9rem;
+      letter-spacing: 0.1rem;
     }
   }
 
@@ -960,6 +966,12 @@ export default {
       border-right: solid 2px #61b5a7;
       border-bottom: solid 2px #61b5a7;
     }
+  }
+
+  .check-info {
+    color: #212a37;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
   }
 }
 </style>
