@@ -127,13 +127,16 @@
     <section class="section5">
       <div class="section5-wrapper">
         <h2>Our throughts</h2>
+
         <h1 class="section5-h1-1">想い</h1>
+
         <p style>
           病院や同級生以外のつながりを創るサポートを通じて、
           <br />リアルな場でも看護師さんのプライベートが輝くように応援しています。
           <br />「看護師になったことは間違いではなかった」
           <br />そう想える人を増やしたい。看護師の作る、看護師が主役のサービスを。
         </p>
+
         <h1 style class="section5-h1-2">看護師の日常に彩りを</h1>
       </div>
     </section>
