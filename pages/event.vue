@@ -16,7 +16,9 @@
           私達のイベントに参加していただくだけでなく、看護師の将来のために、
           <br />考え行動していく仲間を募集しています。
         </p>
+
         <hr />
+
         <div class="social-icons-wrapper">
           <div class="social-icons">
             <a href="#">
@@ -49,6 +51,7 @@
     <section class="section2">
       <h1 class="section2-h1-1">横の繋がりを広げることで</h1>
       <h1 class="section2-h1-2">もっと看護を好きになる</h1>
+
       <div>
         看護師にとっての
         <strong>職場と自宅以外の第三の場所=サードプレイス</strong>として
@@ -81,6 +84,7 @@
           </p>
         </div>
       </div>
+
       <div class="have-fun-wrapper">
         <img src="http://placehold.jp/250x130.png" alt="have fun" />
       </div>
@@ -121,7 +125,7 @@
     </section>
 
     <section class="section5">
-      <div>
+      <div class="section5-wrapper">
         <h2>Our throughts</h2>
         <h1 class="section5-h1-1">想い</h1>
         <p style>
@@ -416,7 +420,7 @@ export default {
       justify-content: center;
       align-items: center;
 
-      div {
+      .section5-wrapper {
         display: flex;
         flex-direction: column;
         height: 600px;
@@ -782,7 +786,7 @@ export default {
       justify-content: center;
       align-items: center;
 
-      div {
+      .section5-wrapper {
         color: #fff;
         display: flex;
         flex-direction: column;
