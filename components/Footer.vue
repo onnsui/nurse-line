@@ -9,7 +9,7 @@
         </a>
         <br />
       </div>
-      <img src="http://placehold.jp/100x80.png" style="height:80px; width: 100px" />
+      <img src="/logo.svg" style="height:80px; width: 100px" />
       <div class="copyright">© 2020 ROXX All Rights Reserved.</div>
     </footer>
   </div>

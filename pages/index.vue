@@ -2,7 +2,7 @@
   <div id="top" class="container">
     <div class="hero">
       <nuxt-link to="/">
-        <img src="http://placehold.jp/1000x350.png" alt="hero" loading="lazy" />
+        <img src="/pc-hero.svg" alt="hero" loading="lazy" />
       </nuxt-link>
     </div>
 
@@ -12,7 +12,7 @@
       <div class="sidebar">
         <nuxt-link to="/event">
           <img
-            src="http://placehold.jp/250x120.png"
+            src="/event.png"
             alt="運営スタッフ募集中"
             class="sidebar-banner"
             loading="lazy"
@@ -26,35 +26,35 @@
               <br />フォローして最新情報をGET
             </p>
             <div class="social-icon-area">
-              <div>
+              <div class="sns-line">
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
+                  <img src="/line.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
-              <div>
+              <div class="sns-twitter">
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
+                  <img src="/twitter.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
-              <div>
+              <div class="sns-instagram">
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
+                  <img src="/instagram.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
             </div>
           </div>
           <a href="#">
             <img
-              src="http://placehold.jp/250x120.png"
+              src="/recruit.png"
               alt="看護師がサポート、転職支援"
               class="sidebar-banner"
               loading="lazy"
             />
           </a>
           <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
-          <div>
+          <div class="detail-button">
             <a href="#">
-              <img src="http://placehold.jp/200x50.png" alt="SNS1" loading="lazy" />
+              <span>詳しく見る</span>
             </a>
           </div>
         </div>
@@ -156,6 +156,18 @@ export default {
   PC対応のスタイル
 
 ---------------------------------*/
+a {
+  text-decoration: none;
+}
+.detail-button {
+  font-weight: bold;
+  padding: 1rem 4rem 1rem 4rem;
+  background: rgb(38,47,64);
+  background: linear-gradient(149deg, rgba(38,47,64,1) 0%, rgba(139,142,157,1) 66%, rgba(152,149,170,1) 100%);
+  span {
+    color: white;
+  }
+}
 @media only screen and (min-device-width: 769px) {
   .container {
     margin: 0 10%;
@@ -178,10 +190,16 @@ export default {
       .sidebar {
         width: 25%;
         text-align: center;
+        img {
+          width: 100%;
+        }
 
         .sidebar-header {
           margin: 0 auto;
           width: 100%;
+          img {
+            width: 100%;
+          }
           p {
             font-size: 0.9rem;
             letter-spacing: 0.05rem;
@@ -206,6 +224,36 @@ export default {
             display: flex;
             justify-content: space-evenly;
             margin: 1rem 0;
+            .sns-line {
+              background-color: #262F40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 1.1rem 0.7rem 1rem 0.7rem;
+              }
+            }
+            .sns-twitter {
+              background-color: #262F40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 0.8rem 0.7rem 1rem 0.7rem;
+              }
+            }
+            .sns-instagram {
+              background-color: #262F40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 0.7rem 0.7rem 1rem 0.7rem;
+              }
+            }
           }
         }
       }
@@ -276,6 +324,7 @@ export default {
       justify-content: space-around;
       margin: 0 auto;
       width: 100%;
+      padding: 0 1rem 0 1rem;
 
       .sidebar {
         order: 3;
