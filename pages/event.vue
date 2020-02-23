@@ -93,7 +93,7 @@
 
         <div class="staff-wrapper">
           <div class="staff-item brancket">
-            <img src="http://placehold.jp/200x200.png" />
+            <img src="http://placehold.jp/200x200.png" alt="飯島 純のプロフィール写真" />
             <h2>飯島 純</h2>
             <h3>夜間救急のスペシャリスト</h3>
             <p>
@@ -105,7 +105,7 @@
           </div>
 
           <div class="staff-item brancket">
-            <img src="http://placehold.jp/200x200.png" />
+            <img src="http://placehold.jp/200x200.png" alt="小林 央幸のプロフィール写真" />
             <h2>小林 央幸</h2>
             <h3>3児のパパナース</h3>
             <p>
@@ -196,7 +196,7 @@
 import 'swiper/dist/css/swiper.css'
 
 export default {
-  layout: 'top',
+  layout: 'event',
   data() {
     return {
       swiperHaveFunOption: {

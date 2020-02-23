@@ -1,18 +1,15 @@
 <template>
   <div>
-    <TransparentHeader />
     <nuxt />
     <MyFooter />
   </div>
 </template>
 
 <script>
-import TransparentHeader from '~/components/TransparentHeader.vue'
 import MyFooter from '~/components/Footer.vue'
 
 export default {
   components: {
-    TransparentHeader,
     MyFooter,
   },
 }
