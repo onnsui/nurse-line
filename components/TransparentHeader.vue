@@ -49,6 +49,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/*---------------------------------
+
+  PC対応のスタイル
+
+---------------------------------*/
 @media only screen and (min-device-width: 769px) {
   header {
     color: #ffffff;
@@ -72,6 +77,11 @@ export default {
   }
 }
 
+/*---------------------------------
+
+  スマホ・タブレット対応のスタイル
+
+---------------------------------*/
 @media only screen and (max-device-width: 768px) {
   header {
     color: #000;

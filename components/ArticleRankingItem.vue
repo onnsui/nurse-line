@@ -40,6 +40,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/*---------------------------------
+
+  PC対応のスタイル
+
+---------------------------------*/
 @media only screen and (min-device-width: 769px) {
   .articles-wrapper {
     display: flex;
@@ -52,22 +57,23 @@ export default {
     }
 
     .article-wrapper {
-      margin-right: 0.5rem;
-      height: 17rem;
-      width: 14.5rem;
-      padding: 1rem 1rem 0 1rem;
-      position: relative;
-      border: 1px solid #ccc;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      height: 17rem;
+      width: 14.5rem;
+      padding: 1rem 1rem 0 1rem;
+      border: 1px solid #ccc;
+      margin-right: 0.5rem;
       margin-bottom: 1rem;
 
       .article-thumbnail {
-        width: 15rem;
         height: 9.5rem;
+        width: 15rem;
         text-align: center;
         vertical-align: bottom;
+
         img {
           height: 9rem;
           width: 12rem;
@@ -81,11 +87,11 @@ export default {
           left: 0.3rem;
         }
         .article-keywords {
+          background-color: #61b5a7;
+          color: #fff;
+          font-size: 0.7rem;
           padding: 0.2rem 0.7rem;
           margin-left: 0.5rem;
-          background-color: #61b5a7;
-          font-size: 0.7rem;
-          color: #fff;
 
           &:first-child {
             margin-left: 0;
@@ -125,9 +131,12 @@ export default {
   }
 }
 
-@media only screen and (max-device-width: 768px) {
-  /* スマホ用のCSS */
+/*---------------------------------
 
+  スマホ・タブレット対応のスタイル
+
+---------------------------------*/
+@media only screen and (max-device-width: 768px) {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -155,10 +164,8 @@ export default {
       align-items: center;
 
       .article-thumbnail {
-        width: 50%;
-        height: 8.5rem;
-        width: 10.5rem;
         height: 9.5rem;
+        width: 10.5rem;
         text-align: center;
         vertical-align: bottom;
         img {

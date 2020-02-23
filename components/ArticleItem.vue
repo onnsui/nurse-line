@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/*---------------------------------
+
+  PC対応のスタイル
+
+---------------------------------*/
 @media only screen and (min-device-width: 769px) {
   .articles-wrapper {
     display: flex;
@@ -111,9 +116,12 @@ export default {
   }
 }
 
-@media only screen and (max-device-width: 768px) {
-  /* スマホ用のCSS */
+/*---------------------------------
 
+  スマホ・タブレット対応のスタイル
+
+---------------------------------*/
+@media only screen and (max-device-width: 768px) {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
