@@ -2,92 +2,91 @@
   <div id="top" class="container">
     <div class="hero">
       <nuxt-link to="/">
-        <img src="/pc-hero.svg" alt="hero" loading="lazy" />
+        <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
+        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy">
       </nuxt-link>
     </div>
 
     <div class="main-wrapper">
-      <ArticleItem :articles="latestArticles"></ArticleItem>
+      <div class="main-contents">
+        <ArticleItem :articles="latestArticles"></ArticleItem>
+        <div class="under-content-wrapper">
+          <div class="under-content">
 
-      <div class="sidebar">
-        <nuxt-link to="/event">
-          <img
-            src="/event.png"
-            alt="運営スタッフ募集中"
-            class="sidebar-banner"
-            loading="lazy"
-          />
-        </nuxt-link>
-        <div class="sidebar-header">
-          <div class="social-area">
-            <h1>公式アカウント</h1>
-            <p>
-              最新記事やイベント情報を配信中
-              <br />フォローして最新情報をGET
-            </p>
-            <div class="social-icon-area">
-              <div class="sns-line">
-                <a href="#">
-                  <img src="/line.png" alt="SNS1" loading="lazy" />
-                </a>
-              </div>
-              <div class="sns-twitter">
-                <a href="#">
-                  <img src="/twitter.png" alt="SNS1" loading="lazy" />
-                </a>
-              </div>
-              <div class="sns-instagram">
-                <a href="#">
-                  <img src="/instagram.png" alt="SNS1" loading="lazy" />
-                </a>
-              </div>
+            <div class="vertical-separator"></div>
+
+            <h1>キーワード</h1>
+
+            <div class="keywords-wrapper">
+              <a
+                v-for="(keyword, index) in tags"
+                :key="index"
+                v-bind:href="'/keyword/'+keyword.name"
+                class="keyword-link"
+              >#{{ keyword.name }}</a>
             </div>
           </div>
-          <a href="#">
-            <img
-              src="/recruit.png"
-              alt="看護師がサポート、転職支援"
-              class="sidebar-banner"
-              loading="lazy"
-            />
-          </a>
-          <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
-          <div class="detail-button">
-            <a href="#">
-              <span>詳しく見る</span>
-            </a>
+
+          <div class="under-content">
+            <div class="vertical-separator"></div>
+
+            <h1>人気の記事</h1>
+
+            <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
           </div>
         </div>
       </div>
-
-      <div class="under-content-wrapper">
-        <div class="under-content">
-          <div class="next-article-button">
+      <div class="sub-contents">
+        <div class="sidebar">
+          <nuxt-link to="/event">
+            <img
+              src="/event.png"
+              alt="運営スタッフ募集中"
+              class="sidebar-banner"
+              loading="lazy"
+            />
+          </nuxt-link>
+          <div class="sidebar-header">
+            <div class="social-area">
+              <div class="vertical-separator sp"></div>
+              <h1>公式アカウント</h1>
+              <p>
+                最新記事やイベント情報を配信中
+                <br />フォローして最新情報をGET
+              </p>
+              <div class="social-icon-area">
+                <div class="sns-line">
+                  <a href="#">
+                    <img src="/line.png" alt="SNS1" loading="lazy" />
+                  </a>
+                </div>
+                <div class="sns-twitter">
+                  <a href="#">
+                    <img src="/twitter.png" alt="SNS1" loading="lazy" />
+                  </a>
+                </div>
+                <div class="sns-instagram">
+                  <a href="#">
+                    <img src="/instagram.png" alt="SNS1" loading="lazy" />
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="#">
-              <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" loading="lazy" />
+              <img
+                src="/recruit.png"
+                alt="看護師がサポート、転職支援"
+                class="sidebar-banner"
+                loading="lazy"
+              />
             </a>
+            <p class="recruit-text">経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
+            <div class="detail-button">
+              <a href="#">
+                <span>詳しく見る</span>
+              </a>
+            </div>
           </div>
-
-          <div class="vertical-separator"></div>
-
-          <h1>キーワード</h1>
-
-          <div class="keywords-wrapper">
-            <a
-              v-for="(keyword, index) in tags"
-              :key="index"
-              v-bind:href="'/keyword/'+keyword.name"
-              class="keyword-link"
-            >#{{ keyword.name }}</a>
-          </div>
-        </div>
-
-        <div class="under-content">
-          <div class="vertical-separator"></div>
-
-          <h1>人気の記事</h1>
-
-          <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
         </div>
       </div>
     </div>
@@ -151,11 +150,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*---------------------------------
-
-  PC対応のスタイル
-
----------------------------------*/
 a {
   text-decoration: none;
 }
@@ -168,7 +162,15 @@ a {
     color: white;
   }
 }
+/*---------------------------------
+
+  PC対応のスタイル
+
+---------------------------------*/
 @media only screen and (min-device-width: 769px) {
+  .sp {
+    display: none;
+  }
   .container {
     margin: 0 10%;
 
@@ -183,12 +185,17 @@ a {
 
     .main-wrapper {
       display: flex;
-      flex-wrap: wrap;
       margin-top: 2rem;
       width: 100%;
+      .main-contents {
+        margin-right: 2rem;
+        width: 75%;
+      }
+      .sub-contents {
+        width: 25%;
+      }
 
       .sidebar {
-        width: 25%;
         text-align: center;
         img {
           width: 100%;
@@ -306,7 +313,9 @@ a {
   スマホ・タブレット対応のスタイル
 
 ---------------------------------*/
-
+  .pc {
+    display: none;
+  }
   .container {
     width: 100%;
     margin: 0 auto;
@@ -320,6 +329,7 @@ a {
     }
 
     .main-wrapper {
+      display: flex;
       flex-direction: column;
       justify-content: space-around;
       margin: 0 auto;
@@ -329,10 +339,67 @@ a {
       .sidebar {
         order: 3;
         width: 100%;
+        img {
+          width: 100%;
+        }
+        .sidebar-header {
+          margin-top: 4rem;
+          .detail-button {
+            margin: 0 3rem;
+          }
+        }
+        .social-area {
+          letter-spacing: 0.25rem;
+          margin-bottom: 4rem;
+          h1 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+          }
+          p {
+            font-size: 0.875rem;
+          }
+        }
         .social-icon-area {
           display: flex;
           justify-content: space-around;
-          margin: 1rem 0;
+          width: 50%;
+          margin: 1rem auto;
+          .sns-line {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 1.1rem 0.7rem 1rem 0.7rem;
+            }
+          }
+          .sns-twitter {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.8rem 0.7rem 1rem 0.7rem;
+            }
+          }
+          .sns-instagram {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.7rem 0.7rem 1rem 0.7rem;
+            }
+          }
+        }
+        .recruit-text {
+          margin: 1rem 0 2rem 0;
+          padding: 0 1rem;
+          font-size: 0.875rem;
+          text-align: left;
         }
       }
 
@@ -342,7 +409,7 @@ a {
 
         .under-content {
           width: 100%;
-          margin: 3rem 0 6rem 0;
+          margin: 2.25rem 0 4rem 0;
           h1 {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;

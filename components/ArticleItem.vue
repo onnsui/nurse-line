@@ -46,7 +46,6 @@ export default {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
-    width: 75%;
 
     a {
       color: #454545;
@@ -141,9 +140,8 @@ export default {
       align-items: center;
       border: 0;
       padding: 0;
-      height: 16em;
       width: 50%;
-      margin: 0;
+      margin: 0 0 1.5rem 0;
 
       &:first-child {
         height: 100%;

@@ -20,7 +20,7 @@
 <style lang="scss" scoped>
 footer {
   width: 100%;
-  margin: 10px auto 25px 0;
+  margin: 10px auto 0 0;
   text-align: center;
 }
 
@@ -47,5 +47,10 @@ footer {
   line-height: 23px;
   width: 100%;
   margin: 0 auto;
+}
+@media only screen and (max-device-width: 768px) {
+  .separater {
+    width: 60%;
+  }
 }
 </style>
