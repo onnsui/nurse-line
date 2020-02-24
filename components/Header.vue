@@ -5,7 +5,7 @@
       <nav>
         <ul>
           <li>
-            <a href="#">トップページ</a>
+            <nuxt-link to="/" class="logo">トップページ</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
@@ -26,9 +26,9 @@
       </nav>
       <div class="social-icons-wrapper">
         <div class="social-icons">
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="/line.svg" class="social-icon" />
+          <img src="/twitter.svg" class="social-icon" />
+          <img src="/instagram.svg" class="social-icon" />
         </div>
       </div>
     </div>

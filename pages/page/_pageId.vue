@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="top">
     <div class="container">
       <div>
         <div class="article-cover">
@@ -27,12 +27,11 @@
         </article>
 
         <a href="#">
-          <img
-            src="http://placehold.jp/350x60.png"
-            alt="キャリア相談をする"
-            style="margin: 2rem 0;"
-            loading="lazy"
-          />
+          <div class="detail-button">
+            <a href="#">
+              <span>キャリア相談をする</span>
+            </a>
+          </div>
         </a>
 
         <div class="keywords-wrapper">
@@ -238,6 +237,20 @@ export default {
 </script>
 
 <style lang="scss">
+  a {
+    text-decoration: none;
+  }
+  .detail-button {
+    max-width: 22rem;
+    margin: 2rem auto 3rem auto;
+    font-weight: bold;
+    padding: 1rem 4rem 1rem 4rem;
+    background: rgb(38, 47, 64);
+    background: linear-gradient(149deg, rgba(38, 47, 64, 1) 0%, rgba(139, 142, 157, 1) 66%, rgba(152, 149, 170, 1) 100%);
+    span {
+      color: white;
+    }
+  }
 /*---------------------------------
 
   PC対応のスタイル
@@ -803,11 +816,11 @@ export default {
     }
 
     article {
+      margin-top: 2rem;
       padding: 0 0.8rem;
     }
 
     .article-title {
-      margin: 0 0.5rem;
       width: 100%;
     }
 

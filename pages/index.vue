@@ -90,6 +90,7 @@
         </div>
       </div>
     </div>
+    <div class="separater"></div>
   </div>
 </template>
 
@@ -305,6 +306,13 @@ a {
       }
     }
   }
+  .separater {
+    border: solid #333;
+    border-width: 1px 0 1px 0;
+    height: 5px;
+    width: 95%;
+    margin: 50px auto 0 auto;
+  }
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -340,17 +348,19 @@ a {
         order: 3;
         width: 100%;
         img {
+          max-width: 25rem;
           width: 100%;
         }
         .sidebar-header {
-          margin-top: 4rem;
+          margin-top: 2rem;
           .detail-button {
-            margin: 0 3rem;
+            max-width: 15.125rem;
+            margin: 0 auto;
           }
         }
         .social-area {
           letter-spacing: 0.25rem;
-          margin-bottom: 4rem;
+          margin-bottom: 2rem;
           h1 {
             margin-bottom: 1rem;
             font-size: 1.25rem;
@@ -363,6 +373,7 @@ a {
           display: flex;
           justify-content: space-around;
           width: 50%;
+          max-width: 10.5rem;
           margin: 1rem auto;
           .sns-line {
             background-color: #262F40;
@@ -397,9 +408,8 @@ a {
         }
         .recruit-text {
           margin: 1rem 0 2rem 0;
-          padding: 0 1rem;
           font-size: 0.875rem;
-          text-align: left;
+          text-align: center;
         }
       }
 
@@ -442,6 +452,9 @@ a {
         }
       }
     }
+  }
+  .separater {
+    width: 60%;
   }
 }
 </style>

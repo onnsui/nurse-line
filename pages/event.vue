@@ -2,9 +2,9 @@
   <div id="top" class="container">
     <section class="section1">
       <div class="section1-wrapper">
-        <a href="#" class="logo">
-          <img src="http://placehold.jp/90x40.png" alt="noizeロゴ" loading="lazy" />
-        </a>
+        <nuxt-link to="/" class="logo">
+          <img src="/event-logo.svg" alt="logo" loading="lazy" />
+        </nuxt-link>
 
         <h1 class="section1-h1-1">
           NURSE LINE
@@ -22,13 +22,13 @@
         <div class="social-icons-wrapper">
           <div class="social-icons">
             <a href="#">
-              <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
+              <img src="/line.svg" class="social-icon" loading="lazy" />
             </a>
             <a href="#">
-              <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
+              <img src="/twitter.svg" class="social-icon" loading="lazy" />
             </a>
             <a href="#">
-              <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
+              <img src="/instagram.svg" class="social-icon" loading="lazy" />
             </a>
           </div>
         </div>
@@ -36,12 +36,12 @@
         <div class="apply-buttons-wrapper">
           <div>
             <a href="#">
-              <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" loading="lazy" />
+              <img src="/detail-button.svg" loading="lazy" />
             </a>
           </div>
-          <div>
-            <a href="#">
-              <img src="http://placehold.jp/350x70.png" loading="lazy" />
+          <div class="join-button">
+            <a href="https://nurseline.studio.design/tokyo">
+              <span>or <span class="underline">飲み会へ参加する</span></span>
             </a>
           </div>
         </div>
@@ -64,13 +64,13 @@
         <div v-swiper:section3_Swiper="swiperHaveFunOption">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="http://placehold.jp/630x400.png" loading="lazy" />
+              <img src="/havefun-slide.png" loading="lazy" />
             </div>
             <div class="swiper-slide">
-              <img src="http://placehold.jp/630x400.png" loading="lazy" />
+              <img src="/havefun-slide.png" loading="lazy" />
             </div>
             <div class="swiper-slide">
-              <img src="http://placehold.jp/630x400.png" loading="lazy" />
+              <img src="/havefun-slide.png" loading="lazy" />
             </div>
           </div>
 
@@ -86,7 +86,7 @@
       </div>
 
       <div class="have-fun-wrapper">
-        <img src="http://placehold.jp/250x130.png" alt="have fun" loading="lazy" />
+        <img src="/havefun.svg" alt="have fun" loading="lazy" />
       </div>
     </section>
 
@@ -97,7 +97,7 @@
 
         <div class="staff-wrapper">
           <div class="staff-item brancket">
-            <img src="http://placehold.jp/200x200.png" alt="飯島 純のプロフィール写真" loading="lazy" />
+            <img src="/staff1.png" alt="飯島 純のプロフィール写真" loading="lazy" />
             <h2>飯島 純</h2>
             <h3>夜間救急のスペシャリスト</h3>
             <p>
@@ -109,7 +109,7 @@
           </div>
 
           <div class="staff-item brancket">
-            <img src="http://placehold.jp/200x200.png" alt="小林 央幸のプロフィール写真" loading="lazy" />
+            <img src="/staff2.png" alt="小林 央幸のプロフィール写真" loading="lazy" />
             <h2>小林 央幸</h2>
             <h3>3児のパパナース</h3>
             <p>
@@ -147,28 +147,37 @@
           <div class="swiper-slide">
             <div class="carousel-centered brancket">
               <div class="catchphrase-en">Place</div>
-              <h2>看護師のサードプレイスに</h2>看護師は精神的に大変な仕事。心休まる時間が必要。
+              <h2>看護師のサードプレイスに</h2>
+              <span class="carousel-text">
+              看護師は精神的に大変な仕事。心休まる時間が必要。
               <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
               <br />看護師の居場所になるような場を。
+              </span>
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="carousel-centered brancket">
               <div class="catchphrase-en">Values</div>
-              <h2>看護師に多様な価値観を</h2>世の中には色んな看護師がいることを伝えたい。
+              <h2>看護師に多様な価値観を</h2>
+              <span class="carousel-text">
+              世の中には色んな看護師がいることを伝えたい。
               <br />自分は看護師に向いていない。
               <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
+              </span>
             </div>
           </div>
 
           <div class="swiper-slide">
             <div class="carousel-centered brancket">
               <div class="catchphrase-en">Place</div>
-              <h2>看護師という人生に誇りを持てるように</h2>看護師人生に誇りを持てるようになって欲しい。
-              <br />辛いこともたくさんある。
-              <br />ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
-              <br />看護師は尊く、素敵な仕事だ。
+              <h2>看護師という人生に誇りを持てるように</h2>
+              <span class="carousel-text">
+              看護師人生に誇りを持てるようになって欲しい。
+              <br/>辛いこともたくさんある。
+              <br/>ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
+              <br/>看護師は尊く、素敵な仕事だ。
+                </span>
             </div>
           </div>
         </div>
@@ -180,18 +189,32 @@
 
       <div class="apply-buttons-wrapper">
         <a href="#">
-          <img src="http://placehold.jp/350x70.png" alt="話を聞いてみる" loading="lazy" />
+          <img src="/detail-button.svg" alt="話を聞いてみる" loading="lazy" />
         </a>
-        <a href="#">
-          <img src="http://placehold.jp/350x70.png" alt="OR 飲み会へ参加する" loading="lazy" />
-        </a>
+        <div class="join-button">
+          <a href="https://nurseline.studio.design/tokyo">
+            <span>or <span class="underline">飲み会へ参加する</span></span>
+          </a>
+        </div>
       </div>
 
       <div class="social-icons-wrapper">
         <div class="social-icons">
-          <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" loading="lazy" />
+          <div class="sns-line">
+            <a href="#">
+              <img src="/line.png" alt="SNS1" loading="lazy" />
+            </a>
+          </div>
+          <div class="sns-twitter">
+            <a href="#">
+              <img src="/twitter.png" alt="SNS1" loading="lazy" />
+            </a>
+          </div>
+          <div class="sns-instagram">
+            <a href="#">
+              <img src="/instagram.png" alt="SNS1" loading="lazy" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -252,6 +275,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  a {
+    text-decoration: none;
+  }
+  .detail-button {
+    width: 21.8rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background: rgb(97,181,167);
+    background: linear-gradient(149deg, rgba(97,181,167,1) 0%, rgba(228,226,239,1) 100%);
+    span {
+      color: white;
+    }
+  }
 /*---------------------------------
 
   PC対応のスタイル
@@ -263,7 +299,8 @@ export default {
     text-align: center;
 
     .section1 {
-      background: url('http://placehold.jp/1200x600.png');
+      background: url('/event-hero.png');
+      background-size: cover;
       color: #fff;
       height: 600px;
       text-align: left;
@@ -320,10 +357,21 @@ export default {
         .apply-buttons-wrapper {
           display: flex;
           justify-content: flex-end;
-
           padding: 2rem 0;
           width: 100%;
-
+          .join-button {
+            padding: 1.2rem 4rem;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            a:visited {
+              color: white;
+            }
+            .underline {
+              padding-bottom: 2px;
+              border-bottom: 2px solid white;
+            }
+          }
           img {
             margin: 0 0.5rem;
           }
@@ -333,7 +381,7 @@ export default {
 
     .section2 {
       background-color: #fafafa;
-      padding: 2rem 0;
+      padding: 4rem 0;
 
       &-h1-1 {
         font-size: 1.7rem;
@@ -351,6 +399,7 @@ export default {
     }
 
     .section3 {
+      background-color: #fafafa;
       .section3-container {
         display: flex;
         width: 100%;
@@ -388,14 +437,14 @@ export default {
         img {
           position: absolute;
           bottom: -65px;
-          right: 10%;
+          right: 0;
         }
       }
     }
 
     .section4 {
       & .section4-container {
-        margin-top: 2rem;
+        margin-top: 6rem;
 
         h1 {
           font-size: 2.2rem;
@@ -413,6 +462,18 @@ export default {
           width: 45%;
           margin: 0 1rem;
           padding: 2rem 3rem;
+          h2 {
+            font-weight: bold;
+            font-size: 1.25rem;
+          }
+          h3 {
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+          }
+          p {
+            text-align: left;
+            line-height: 2rem;
+          }
         }
       }
     }
@@ -420,11 +481,14 @@ export default {
     .section5 {
       display: flex;
       height: 600px;
-      background: url('http://placehold.jp/1200x600.png');
+      background: url('/throughts.png');
+      background-size: cover;
       justify-content: center;
       align-items: center;
+      background-color: #F5F5F5;
 
       .section5-wrapper {
+        color: white;
         display: flex;
         flex-direction: column;
         height: 600px;
@@ -456,8 +520,9 @@ export default {
     }
 
     .section6 {
-      background-color: #d8d8d8;
-      margin-bottom: 50px;
+      background-color: #F5F5F5;
+      margin-bottom: 2rem;
+      padding-top: 4rem;
 
       h2 {
         font-size: 1.6rem;
@@ -480,6 +545,9 @@ export default {
           position: relative;
           left: 4rem;
         }
+        .carousel-text {
+          line-height: 2rem;
+        }
       }
 
       .apply-buttons-wrapper {
@@ -487,8 +555,22 @@ export default {
         display: flex;
         justify-content: center;
         margin: 0 auto;
-        padding: 2rem 0;
+        padding: 2rem 0 4rem 0;
         width: 100%;
+
+        .join-button {
+          padding: 1.2rem 4rem;
+          color: #AAAAAA;
+          font-size: 1.5rem;
+          font-weight: bold;
+          a:visited {
+            color: #AAAAAA;
+          }
+          .underline {
+            padding-bottom: 2px;
+            border-bottom: 2px solid #AAAAAA;
+          }
+        }
 
         img {
           display: flex;
@@ -498,31 +580,52 @@ export default {
 
       .social-icons-wrapper {
         width: 100%;
+        position: relative;
 
         .social-icons {
-          background-color: #f3f3f3;
+          position: absolute;
+          top: -1.5rem;
+          left: calc(50% - (10.5rem / 2));
+          width: 10.5rem;
           display: flex;
           margin: 0 auto;
           padding: 0;
-          width: 100%;
-          justify-content: center;
-
-          .social-icon {
-            position: relative;
-            top: 25px;
+          justify-content: space-between;
+          .sns-line {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 1.1rem 0.7rem 1rem 0.7rem;
+            }
           }
-
-          :first-child {
-            margin-right: 25px;
+          .sns-twitter {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.8rem 0.7rem 1rem 0.7rem;
+            }
           }
-          :last-child {
-            margin-left: 25px;
+          .sns-instagram {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.7rem 0.7rem 1rem 0.7rem;
+            }
           }
         }
       }
 
       .swiper-button-prev {
-        background-image: url('http://placehold.jp/60x60.png');
+        background-image: url('/carousel-arrow-left.svg');
         background-size: 60px 60px;
         height: 60px;
         width: 60px;
@@ -530,7 +633,7 @@ export default {
       }
 
       .swiper-button-next {
-        background-image: url('http://placehold.jp/60x60.png');
+        background-image: url('/carousel-arrow-right.svg');
         background-size: 60px 60px;
         height: 60px;
         width: 60px;
@@ -559,7 +662,9 @@ export default {
     text-align: center;
     font-size: 18px;
     background-color: #f3f3f3;
-
+    img {
+      width: 100%;
+    }
     // アクティブなスライドの背景色を白にする
     &.swiper-slide-active {
       background-color: #fff;
@@ -622,9 +727,10 @@ export default {
     width: 100%;
 
     .section1 {
-      background: url('http://placehold.jp/1200x600.png');
+      background: url('/event-hero-sp.png');
+      background-position: center;
+      background-size: cover;
       color: #fff;
-      height: 100vh;
       text-align: left;
 
       .section1-wrapper {
@@ -644,6 +750,7 @@ export default {
         p {
           font-size: 1rem;
           margin: 2rem 0;
+          line-height: 1.5rem;
         }
         hr {
           height: 1px;
@@ -665,15 +772,30 @@ export default {
 
           padding: 2rem 0;
           width: 100%;
+          .join-button {
+            margin-top: 2rem;
+            text-align: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            a:visited {
+              color: white;
+            }
+            .underline {
+              padding-bottom: 2px;
+              border-bottom: 2px solid white;
+            }
+          }
 
           div {
             margin: 0 auto;
-            width: 100%;
           }
 
           img {
             width: 100%;
+            max-width: 15rem;
             margin: 0 0.5rem;
+            text-align: center;
           }
         }
       }
@@ -681,7 +803,7 @@ export default {
 
     .section2 {
       background-color: #fafafa;
-      padding: 2rem 0;
+      padding: 2rem 1rem;
 
       .section2-h1-1 {
         font-size: 1.1rem;
@@ -700,24 +822,21 @@ export default {
 
     .section3 {
       .section3-container {
-        background-color: #d8d8d8;
+        background-color: #f5f5f5;
         display: flex;
         flex-direction: column;
         width: 100%;
         text-align: left;
 
         img {
-          height: 100%;
           width: 100%;
           object-fit: cover;
         }
 
         .swiper-container {
-          height: 100vh;
           width: 100vw;
 
           .swiper-slide {
-            height: 100vh;
             width: 100vw;
           }
 
@@ -744,14 +863,13 @@ export default {
         align-items: right;
         justify-content: right;
         position: relative;
-        bottom: 0rem;
-        right: 0;
+        bottom: 0;
         img {
           position: absolute;
           bottom: 0;
           right: 10%;
           height: auto;
-          width: 30%;
+          width: 13.25rem;
         }
       }
     }
@@ -780,6 +898,7 @@ export default {
             }
 
             p {
+              line-height: 2rem;
               font-size: 0.9rem;
               text-align: left;
               margin-top: 1rem;
@@ -791,10 +910,10 @@ export default {
 
     .section5 {
       display: flex;
-      height: 400px;
-      background: url('http://placehold.jp/1200x600.png');
+      background: url('/throughts-sp.png');
       justify-content: center;
       align-items: center;
+      background-size: cover;
 
       .section5-wrapper {
         color: #fff;
@@ -805,6 +924,7 @@ export default {
         align-items: center;
         width: 100%;
         margin: 0 2rem;
+        padding: 3rem 0;
 
         .section5-h1-1 {
           font-size: 1.4rem;
@@ -820,6 +940,7 @@ export default {
           letter-spacing: 0.2rem;
         }
         p {
+          line-height: 2rem;
           font-size: 1rem;
           text-align: left;
           margin: 2rem 0;
@@ -832,7 +953,7 @@ export default {
 
     .section6 {
       background-color: #f3f3f3;
-      margin-bottom: 50px;
+      margin-bottom: 2rem;
 
       .swiper-container {
         background-color: #f3f3f3;
@@ -862,40 +983,78 @@ export default {
 
       .apply-buttons-wrapper {
         background-color: #f3f3f3;
-        // display: flex;
-        // justify-content: center;
-        // margin: 0 auto;
-        // padding: 2rem 0;
         width: 100%;
+
+        .join-button {
+          color: #AAAAAA;
+          font-size: 1rem;
+          font-weight: bold;
+          padding-bottom: 4rem;
+          a:visited {
+            color: #AAAAAA;
+          }
+          .underline {
+            padding-bottom: 2px;
+            border-bottom: 1px solid #AAAAAA;
+          }
+        }
 
         img {
           display: flex;
-          margin: 1rem auto 1rem auto;
+          margin: 1rem auto 2rem auto;
+          max-width: 15rem;
           width: 60%;
         }
       }
 
       .social-icons-wrapper {
         width: 100%;
+        position: relative;
 
         .social-icons {
-          background-color: #f3f3f3;
           display: flex;
           margin: 0 auto;
           padding: 0;
           width: 100%;
           justify-content: center;
+          position: absolute;
+          top: -1.5rem;
+          .sns-line {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            margin-right: 1rem;
+            img {
+              width: 100%;
+              padding: 1.1rem 0.7rem 1rem 0.7rem;
+            }
+          }
+          .sns-twitter {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            margin-right: 1rem;
+            img {
+              width: 100%;
+              padding: 0.8rem 0.7rem 1rem 0.7rem;
+            }
+          }
+          .sns-instagram {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.7rem 0.7rem 1rem 0.7rem;
+            }
+          }
 
           .social-icon {
             position: relative;
             top: 25px;
-          }
-
-          :first-child {
-            margin-right: 25px;
-          }
-          :last-child {
-            margin-left: 25px;
           }
         }
       }
@@ -912,7 +1071,7 @@ export default {
 
   .swiper-container {
     width: 100%;
-    height: 400px;
+    /*height: 400px;*/
   }
 
   .swiper-slide {
@@ -928,12 +1087,13 @@ export default {
 
   // ディープセレクターを用いてページネーション部分のスタイルを変更できるようにする
   /deep/ .swiper-pagination-bullet {
+    background-color: #cccccc;
     height: 10px !important;
     width: 10px !important;
   }
 
   /deep/ .swiper-pagination-bullet-active {
-    background-color: gray;
+    background-color: #262F40;
   }
 
   // 要素を「」の記号で囲むプロパティ

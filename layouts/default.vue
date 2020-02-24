@@ -50,6 +50,7 @@ html {
 
 @media only screen and (max-device-width: 768px) {
   .social-icon-area {
+    display: none;
     position: sticky;
     bottom: 2rem;
     left: 0;

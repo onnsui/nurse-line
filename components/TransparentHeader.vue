@@ -5,7 +5,7 @@
       <nav>
         <ul>
           <li>
-            <a href="#">トップページ</a>
+            <nuxt-link to="/" class="logo">トップページ</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
@@ -26,9 +26,9 @@
       </nav>
       <div class="social-icons-wrapper">
         <div class="social-icons">
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
-          <img src="http://placehold.jp/50x50.png" class="social-icon" />
+          <img src="/line.svg" class="social-icon" />
+          <img src="/twitter.svg" class="social-icon" />
+          <img src="/instagram.svg" class="social-icon" />
         </div>
       </div>
     </div>
@@ -236,6 +236,14 @@ export default {
         .social-icon {
           position: relative;
           top: 25px;
+          border-radius: 50%;
+          width: 46px;
+          height: 46px;
+          img {
+            background-color: rgba(38, 47, 64, 0.85);
+            width: 100%;
+            padding: 1.1rem 0.7rem 1rem 0.7rem;
+          }
         }
 
         :first-child {

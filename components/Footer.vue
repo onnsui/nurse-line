@@ -1,8 +1,6 @@
 <template>
   <div>
     <footer>
-      <div class="separater"></div>
-
       <div class="scroll-top-button">
         <a v-scroll-to="'#top'" href="#">
           <img src="/icon/arrow_up.png" />
@@ -20,7 +18,7 @@
 <style lang="scss" scoped>
 footer {
   width: 100%;
-  margin: 10px auto 0 0;
+  margin: 4rem auto 0 0;
   text-align: center;
 }
 
@@ -49,6 +47,9 @@ footer {
   margin: 0 auto;
 }
 @media only screen and (max-device-width: 768px) {
+  footer {
+    margin: 2rem auto 0 0;
+  }
   .separater {
     width: 60%;
   }

@@ -2,19 +2,46 @@
   <div id="top" class="container">
     <div class="hero">
       <a href to="/">
-        <img src="http://placehold.jp/1000x350.png" alt="hero" loading="lazy" />
+        <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
+        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy">
       </a>
     </div>
 
     <h1 class="keyword-name">#{{ keywordName }} の記事</h1>
 
     <div class="main-wrapper">
-      <ArticleItem :articles="keywordArticles"></ArticleItem>
+      <div class="main-contents">
+        <ArticleItem :articles="keywordArticles"></ArticleItem>
+        <div class="under-content-wrapper">
+          <div class="under-content">
 
+            <div class="vertical-separator"></div>
+
+            <h1>キーワード</h1>
+
+            <div class="keywords-wrapper">
+              <div class="keywords-content">
+                <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
+                  <a v-bind:href="'/keyword/'+keyword.name" class="keyword-link">#{{ keyword.name }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="under-content">
+            <div class="vertical-separator"></div>
+
+            <h1>人気の記事</h1>
+
+            <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
+          </div>
+        </div>
+      </div>
+      <div class="sub-contents">
       <div class="sidebar">
         <nuxt-link to="/event">
           <img
-            src="http://placehold.jp/250x120.png"
+            src="/event.png"
             alt="運営スタッフ募集中"
             class="sidebar-banner"
             loading="lazy"
@@ -28,69 +55,42 @@
               <br />フォローして最新情報をGET
             </p>
             <div class="social-icon-area">
-              <div>
+              <div class="sns-line">
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
+                  <img src="/line.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
-              <div>
+              <div class="sns-twitter">
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
+                  <img src="/twitter.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
-              <div>
+              <div class="sns-instagram">
                 <a href="#">
-                  <img src="http://placehold.jp/50x50.png" alt="SNS1" loading="lazy" />
+                  <img src="/instagram.png" alt="SNS1" loading="lazy" />
                 </a>
               </div>
             </div>
           </div>
           <a href="#">
             <img
-              src="http://placehold.jp/250x120.png"
+              src="/recruit.png"
               alt="看護師がサポート、転職支援"
               class="sidebar-banner"
               loading="lazy"
             />
           </a>
-          <p>経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
-          <div>
+          <p class="recruit-text">経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
+          <div class="detail-button">
             <a href="#">
-              <img src="http://placehold.jp/200x50.png" alt="SNS1" loading="lazy" />
+              <span>詳しく見る</span>
             </a>
           </div>
         </div>
       </div>
-
-      <div class="under-content-wrapper">
-        <div class="under-content">
-          <div class="next-article-button">
-            <a href="#">
-              <img src="http://placehold.jp/350x60.png" alt="次の10件を表示" loading="lazy" />
-            </a>
-          </div>
-
-          <div class="vertical-separator"></div>
-
-          <h1>キーワード</h1>
-
-          <div class="keywords-wrapper">
-            <div class="keywords-content">
-              <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
-                <a href="#" class="keyword-link">#{{ keyword.name }}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="under-content">
-          <div class="vertical-separator"></div>
-
-          <h1>人気の記事</h1>
-
-          <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
-        </div>
       </div>
+
+
     </div>
   </div>
 </template>
@@ -170,7 +170,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  a {
+    text-decoration: none;
+  }
+  .detail-button {
+    font-weight: bold;
+    margin: 0 auto;
+    max-width: 13.5rem;
+    padding: 1rem 4rem 1rem 4rem;
+    background: rgb(38,47,64);
+    background: linear-gradient(149deg, rgba(38,47,64,1) 0%, rgba(139,142,157,1) 66%, rgba(152,149,170,1) 100%);
+    span {
+      color: white;
+    }
+  }
 @media only screen and (min-device-width: 769px) {
+  .sp {
+    display: none;
+  }
   .container {
     margin: 0 10%;
 
@@ -191,12 +208,17 @@ export default {
 
     .main-wrapper {
       display: flex;
-      flex-wrap: wrap;
       margin-top: 2rem;
       width: 100%;
+      .main-contents {
+        margin-right: 2rem;
+        width: 75%;
+      }
+      .sub-contents {
+        width: 25%;
+      }
 
       .sidebar {
-        width: 25%;
         text-align: center;
 
         .sidebar-header {
@@ -226,6 +248,36 @@ export default {
             display: flex;
             justify-content: space-evenly;
             margin: 1rem 0;
+            .sns-line {
+              background-color: #262F40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 1.1rem 0.7rem 1rem 0.7rem;
+              }
+            }
+            .sns-twitter {
+              background-color: #262F40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 0.8rem 0.7rem 1rem 0.7rem;
+              }
+            }
+            .sns-instagram {
+              background-color: #262F40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 0.7rem 0.7rem 1rem 0.7rem;
+              }
+            }
           }
         }
       }
@@ -240,6 +292,12 @@ export default {
           h1 {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;
+          }
+          .keywords-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0.5rem;
+            width: initial;
           }
 
           .keywords-content {
@@ -272,7 +330,9 @@ export default {
 
 @media only screen and (max-device-width: 768px) {
   /* スマホ用のCSS */
-
+  .pc {
+    display: none;
+  }
   .container {
     width: 100%;
     margin: 0 auto;
@@ -296,14 +356,72 @@ export default {
       justify-content: space-around;
       margin: 0 auto;
       width: 100%;
-
       .sidebar {
         order: 3;
         width: 100%;
+        img {
+          max-width: 25rem;
+          width: 100%;
+        }
+        .sidebar-header {
+          margin-top: 2rem;
+          .detail-button {
+            max-width: 15.125rem;
+            margin: 0 auto;
+          }
+        }
+        .social-area {
+          letter-spacing: 0.25rem;
+          margin-bottom: 2rem;
+          h1 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+          }
+          p {
+            font-size: 0.875rem;
+          }
+        }
         .social-icon-area {
           display: flex;
           justify-content: space-around;
-          margin: 1rem 0;
+          width: 50%;
+          max-width: 10.5rem;
+          margin: 1rem auto;
+          .sns-line {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 1.1rem 0.7rem 1rem 0.7rem;
+            }
+          }
+          .sns-twitter {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.8rem 0.7rem 1rem 0.7rem;
+            }
+          }
+          .sns-instagram {
+            background-color: #262F40;
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            img {
+              width: 100%;
+              padding: 0.7rem 0.7rem 1rem 0.7rem;
+            }
+          }
+        }
+        .recruit-text {
+          margin: 1rem 0 2rem 0;
+          font-size: 0.875rem;
+          text-align: center;
         }
       }
 
@@ -318,8 +436,13 @@ export default {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;
           }
-          .keyword-content {
+          .keywords-content {
             display: flex;
+            flex-wrap: wrap;
+            margin: 0.5rem;
+            width: initial;
+          }
+          .keyword-content {
             flex-wrap: wrap;
             margin: 0.5rem;
 
