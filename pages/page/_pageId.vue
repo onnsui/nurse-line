@@ -77,6 +77,8 @@ export default {
     }
   },
   async asyncData({ $axios, params }) {
+    const pageId = params.pageId
+
     // WordPressから記事のタグのリストを取得する
     const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
 
@@ -89,7 +91,7 @@ export default {
 
     // 記事内容を取得
     const fetchedArticle = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts/' + params.pageId,
+      'http://blog.igz0.net/wp-json/wp/v2/posts/' + pageId,
     )
 
     // 会話の発言者名・アイコン名をスタイルシートのテキストとして取得する
@@ -100,7 +102,7 @@ export default {
     // WordPress Popular Postプラグインでの閲覧数をカウントアップする
     $axios.$post(
       'http://blog.igz0.net/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' +
-        params.pageId,
+        pageId,
     )
 
     // ISO8601形式の日付をDate型に変換する関数
