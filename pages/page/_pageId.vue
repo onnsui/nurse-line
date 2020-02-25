@@ -100,7 +100,7 @@ export default {
     // WordPress Popular Postプラグインでの閲覧数をカウントアップする
     $axios.$post(
       'http://blog.igz0.net/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' +
-        params.id,
+        params.pageId,
     )
 
     // ISO8601形式の日付をDate型に変換する関数
@@ -237,20 +237,25 @@ export default {
 </script>
 
 <style lang="scss">
-  a {
-    text-decoration: none;
+a {
+  text-decoration: none;
+}
+.detail-button {
+  max-width: 22rem;
+  margin: 2rem auto 3rem auto;
+  font-weight: bold;
+  padding: 1rem 4rem 1rem 4rem;
+  background: rgb(38, 47, 64);
+  background: linear-gradient(
+    149deg,
+    rgba(38, 47, 64, 1) 0%,
+    rgba(139, 142, 157, 1) 66%,
+    rgba(152, 149, 170, 1) 100%
+  );
+  span {
+    color: white;
   }
-  .detail-button {
-    max-width: 22rem;
-    margin: 2rem auto 3rem auto;
-    font-weight: bold;
-    padding: 1rem 4rem 1rem 4rem;
-    background: rgb(38, 47, 64);
-    background: linear-gradient(149deg, rgba(38, 47, 64, 1) 0%, rgba(139, 142, 157, 1) 66%, rgba(152, 149, 170, 1) 100%);
-    span {
-      color: white;
-    }
-  }
+}
 /*---------------------------------
 
   PC対応のスタイル
