@@ -8,7 +8,7 @@
         <br />
       </div>
       <img src="/logo.svg" style="height:80px; width: 100px" />
-      <div class="copyright">© 2020 ROXX All Rights Reserved.</div>
+      <div class="copyright">&copy; {{ new Date().getFullYear() }} ROXX All Rights Reserved.</div>
     </footer>
   </div>
 </template>
