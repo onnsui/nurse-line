@@ -1,8 +1,8 @@
 <template>
   <div>
-    <MyHeader />
+    <Header />
     <nuxt />
-    <MyFooter />
+    <Footer />
     <div class="social-icon-area">
       <img src="http://placehold.jp/50x50.png" />
       <img src="http://placehold.jp/50x50.png" />
@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import MyHeader from '~/components/Header.vue'
-import MyFooter from '~/components/Footer.vue'
+import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
-    MyHeader,
-    MyFooter,
+    Header,
+    Footer,
   },
 }
 </script>
