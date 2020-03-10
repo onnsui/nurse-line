@@ -3,7 +3,7 @@
     <div class="hero">
       <a href to="/">
         <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
-        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy">
+        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy" />
       </a>
     </div>
 
@@ -14,7 +14,6 @@
         <ArticleItem :articles="keywordArticles"></ArticleItem>
         <div class="under-content-wrapper">
           <div class="under-content">
-
             <div class="vertical-separator"></div>
 
             <h1>キーワード</h1>
@@ -38,59 +37,47 @@
         </div>
       </div>
       <div class="sub-contents">
-      <div class="sidebar">
-        <nuxt-link to="/event">
-          <img
-            src="/event.png"
-            alt="運営スタッフ募集中"
-            class="sidebar-banner"
-            loading="lazy"
-          />
-        </nuxt-link>
-        <div class="sidebar-header">
-          <div class="social-area">
-            <h1>公式アカウント</h1>
-            <p>
-              最新記事やイベント情報を配信中
-              <br />フォローして最新情報をGET
-            </p>
-            <div class="social-icon-area">
-              <div class="sns-line">
-                <a href="#">
-                  <img src="/line.png" alt="SNS1" loading="lazy" />
-                </a>
-              </div>
-              <div class="sns-twitter">
-                <a href="#">
-                  <img src="/twitter.png" alt="SNS1" loading="lazy" />
-                </a>
-              </div>
-              <div class="sns-instagram">
-                <a href="#">
-                  <img src="/instagram.png" alt="SNS1" loading="lazy" />
-                </a>
+        <div class="sidebar">
+          <nuxt-link to="/event">
+            <img src="/event.png" alt="運営スタッフ募集中" class="sidebar-banner" loading="lazy" />
+          </nuxt-link>
+          <div class="sidebar-header">
+            <div class="social-area">
+              <h1>公式アカウント</h1>
+              <p>
+                最新記事やイベント情報を配信中
+                <br />フォローして最新情報をGET
+              </p>
+              <div class="social-icon-area">
+                <div class="sns-line">
+                  <a href="#">
+                    <img src="/line.png" alt="SNS1" loading="lazy" />
+                  </a>
+                </div>
+                <div class="sns-twitter">
+                  <a href="#">
+                    <img src="/twitter.png" alt="SNS1" loading="lazy" />
+                  </a>
+                </div>
+                <div class="sns-instagram">
+                  <a href="#">
+                    <img src="/instagram.png" alt="SNS1" loading="lazy" />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <a href="#">
-            <img
-              src="/recruit.png"
-              alt="看護師がサポート、転職支援"
-              class="sidebar-banner"
-              loading="lazy"
-            />
-          </a>
-          <p class="recruit-text">経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
-          <div class="detail-button">
             <a href="#">
-              <span>詳しく見る</span>
+              <img src="/recruit.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
             </a>
+            <p class="recruit-text">経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
+            <div class="detail-button">
+              <a href="#">
+                <span>詳しく見る</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      </div>
-
-
     </div>
   </div>
 </template>
@@ -115,7 +102,7 @@ export default {
   },
   async asyncData({ $axios, params }) {
     // WordPressからタグの一覧を取得する
-    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
+    const tags = await $axios.$get('/wp-json/wp/v2/tags')
 
     const keywordName = params.keywordName
 
@@ -137,15 +124,13 @@ export default {
 
     // 最新の記事をWordPressから取得する
     const fetchedWpKeywordArticles = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts?_embed&tags=' + tagId,
+      '/wp-json/wp/v2/posts?_embed&tags=' + tagId,
     )
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const keywordArticles = GetArticlesForWpAPI(fetchedWpKeywordArticles, tags)
 
     // 人気記事をWordPressから取得する
-    const fetchedWPPopularArticles = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wpp/posts',
-    )
+    const fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
@@ -170,20 +155,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  a {
-    text-decoration: none;
+a {
+  text-decoration: none;
+}
+.detail-button {
+  font-weight: bold;
+  margin: 0 auto;
+  max-width: 13.5rem;
+  padding: 1rem 4rem 1rem 4rem;
+  background: rgb(38, 47, 64);
+  background: linear-gradient(
+    149deg,
+    rgba(38, 47, 64, 1) 0%,
+    rgba(139, 142, 157, 1) 66%,
+    rgba(152, 149, 170, 1) 100%
+  );
+  span {
+    color: white;
   }
-  .detail-button {
-    font-weight: bold;
-    margin: 0 auto;
-    max-width: 13.5rem;
-    padding: 1rem 4rem 1rem 4rem;
-    background: rgb(38,47,64);
-    background: linear-gradient(149deg, rgba(38,47,64,1) 0%, rgba(139,142,157,1) 66%, rgba(152,149,170,1) 100%);
-    span {
-      color: white;
-    }
-  }
+}
 @media only screen and (min-device-width: 769px) {
   .sp {
     display: none;
@@ -249,7 +239,7 @@ export default {
             justify-content: space-evenly;
             margin: 1rem 0;
             .sns-line {
-              background-color: #262F40;
+              background-color: #262f40;
               border-radius: 50%;
               width: 46px;
               height: 46px;
@@ -259,7 +249,7 @@ export default {
               }
             }
             .sns-twitter {
-              background-color: #262F40;
+              background-color: #262f40;
               border-radius: 50%;
               width: 46px;
               height: 46px;
@@ -269,7 +259,7 @@ export default {
               }
             }
             .sns-instagram {
-              background-color: #262F40;
+              background-color: #262f40;
               border-radius: 50%;
               width: 46px;
               height: 46px;
@@ -388,7 +378,7 @@ export default {
           max-width: 10.5rem;
           margin: 1rem auto;
           .sns-line {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -398,7 +388,7 @@ export default {
             }
           }
           .sns-twitter {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -408,7 +398,7 @@ export default {
             }
           }
           .sns-instagram {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;

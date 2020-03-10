@@ -80,29 +80,24 @@ export default {
     const pageId = params.pageId
 
     // WordPressから記事のタグのリストを取得する
-    const tags = await $axios.$get('http://blog.igz0.net/wp-json/wp/v2/tags')
+    const tags = await $axios.$get('/wp-json/wp/v2/tags')
 
     // 人気記事をWordPressから取得する
-    const fetchedWPPopularArticles = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wpp/posts',
-    )
+    const fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
     // 人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
     // 記事内容を取得
-    const fetchedArticle = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/posts/' + pageId,
-    )
+    const fetchedArticle = await $axios.$get('/wp-json/wp/v2/posts/' + pageId)
 
     // 会話の発言者名・アイコン名をスタイルシートのテキストとして取得する
     const speechStyleTag = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/liquid-speech-baloon/style-tag',
+      '/wp-json/wp/v2/liquid-speech-baloon/style-tag',
     )
 
     // WordPress Popular Postプラグインでの閲覧数をカウントアップする
     $axios.$post(
-      'http://blog.igz0.net/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' +
-        pageId,
+      '/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' + pageId,
     )
 
     // ISO8601形式の日付をDate型に変換する関数
@@ -156,9 +151,7 @@ export default {
     }
 
     // WordPressのユーザー一覧を取得
-    const fetchedUsers = await $axios.$get(
-      'http://blog.igz0.net/wp-json/wp/v2/users',
-    )
+    const fetchedUsers = await $axios.$get('/wp-json/wp/v2/users')
 
     // 記事の著者情報をWordPressの情報から取得する
     const getAuthorUser = (userId, users) => {
