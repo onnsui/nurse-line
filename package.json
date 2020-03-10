@@ -16,7 +16,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "element-ui": "^2.4.11",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "sass-loader": "^8.0.0",
     "vue-awesome-swiper": "^3.1.3",
