@@ -10,7 +10,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "fix": "eslint --fix --ext .js,.vue ."
+    "fix": "eslint --fix --ext .js,.vue .",
+    "clear-cache": "rm -rf node_modules/.cache/hard-source/"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
