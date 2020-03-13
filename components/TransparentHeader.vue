@@ -11,6 +11,33 @@
             </div>
           </li>
           <li>
+            <a href="/media/about">NURSE LINEについて</a>
+            <div class="horizon-wrapper">
+              <hr />
+            </div>
+          </li>
+          <li>
+            <a href="/category/event-report">イベントレポート</a>
+            <div class="horizon-wrapper">
+              <hr />
+            </div>
+          </li>
+
+          <li>
+            <a href="/category/interview">インタビュー</a>
+            <div class="horizon-wrapper">
+              <hr />
+            </div>
+          </li>
+
+          <li>
+            <a href="/category/column">コラム</a>
+            <div class="horizon-wrapper">
+              <hr />
+            </div>
+          </li>
+
+          <li>
             <a href="#">運営スタッフ募集</a>
             <div class="horizon-wrapper">
               <hr />
@@ -149,7 +176,7 @@ export default {
   .menu-expanded {
     transition: all 0.25s;
     text-align: center;
-    line-height: 100px;
+    line-height: 60px;
     height: 100%;
     width: 100%;
     border-radius: 0px;
@@ -172,6 +199,8 @@ export default {
       align-content: center;
       list-style: none;
       font-size: 0.88rem;
+      width: 80%;
+      margin: 0 auto;
       .horizon-wrapper {
         margin: 0 auto;
         width: auto;
@@ -189,7 +218,7 @@ export default {
     a {
       transition: all 0.15s;
       text-decoration: none;
-      font-size: 2em;
+      font-size: 1.5rem;
       padding: 5px;
       color: #fff;
       display: block;
@@ -224,7 +253,7 @@ export default {
       display: flex !important;
       width: 100%;
       position: absolute;
-      bottom: 28%;
+      bottom: 10%;
 
       .social-icons {
         display: flex;
