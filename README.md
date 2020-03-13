@@ -4,9 +4,12 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
+
+# reset cache
+$ yarn cache-clear
 
 # serve with hot reload at localhost:3000
 $ yarn dev
