@@ -94,6 +94,12 @@ export default {
     ArticleItem,
     ArticleRankingItem,
   },
+  head() {
+    return {
+      title: 'NURSE LINE',
+      titleTemplate: '',
+    }
+  },
   data() {
     return {
       latestArticles: this.latestArticles,

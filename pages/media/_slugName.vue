@@ -27,6 +27,11 @@ export default {
   components: {
     ArticleRankingItem,
   },
+  head() {
+    return {
+      title: this.meta.title,
+    }
+  },
   data() {
     return {
       popularArticles: this.popularArticles,
@@ -48,10 +53,8 @@ export default {
     const fetchedArticles = await $axios.$get(
       '/wp-json/wp/v2/pages?_embed&slug=' + slugName,
     )
-    console.log('/wp-json/wp/v2/pages?_embed&slug=' + slugName)
 
     const fetchedArticle = fetchedArticles[0]
-    console.log(fetchedArticle)
 
     // ISO8601形式の日付をDate型に変換する関数
     const convIso8601DateStr = (isoDateStr) => {
@@ -88,6 +91,8 @@ export default {
       content: fetchedArticle.content.rendered,
     }
 
+    console.log(slugName)
+
     return {
       fetchedArticle,
       popularArticles,
@@ -95,6 +100,9 @@ export default {
       tags,
       articleHTML: article.content,
       slugName,
+      meta: {
+        title: fetchedArticle.title.rendered,
+      },
     }
   },
   methods: {

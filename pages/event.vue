@@ -41,7 +41,10 @@
           </div>
           <div class="join-button">
             <a href="https://nurseline.studio.design/tokyo">
-              <span>or <span class="underline">飲み会へ参加する</span></span>
+              <span>
+                or
+                <span class="underline">飲み会へ参加する</span>
+              </span>
             </a>
           </div>
         </div>
@@ -149,9 +152,9 @@
               <div class="catchphrase-en">Place</div>
               <h2>看護師のサードプレイスに</h2>
               <span class="carousel-text">
-              看護師は精神的に大変な仕事。心休まる時間が必要。
-              <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
-              <br />看護師の居場所になるような場を。
+                看護師は精神的に大変な仕事。心休まる時間が必要。
+                <br />家でも職場でもない、心休められる第三の場所を提供したい。趣味を共有したり、悩みを共有したり、友達を作ったり。
+                <br />看護師の居場所になるような場を。
               </span>
             </div>
           </div>
@@ -161,9 +164,9 @@
               <div class="catchphrase-en">Values</div>
               <h2>看護師に多様な価値観を</h2>
               <span class="carousel-text">
-              世の中には色んな看護師がいることを伝えたい。
-              <br />自分は看護師に向いていない。
-              <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
+                世の中には色んな看護師がいることを伝えたい。
+                <br />自分は看護師に向いていない。
+                <br />そう悩む人達に、同じように苦しんでいる人がいることを、看護師として色んな考え方で乗り越えた人たちがいることを伝えたい。
               </span>
             </div>
           </div>
@@ -173,11 +176,11 @@
               <div class="catchphrase-en">Place</div>
               <h2>看護師という人生に誇りを持てるように</h2>
               <span class="carousel-text">
-              看護師人生に誇りを持てるようになって欲しい。
-              <br/>辛いこともたくさんある。
-              <br/>ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
-              <br/>看護師は尊く、素敵な仕事だ。
-                </span>
+                看護師人生に誇りを持てるようになって欲しい。
+                <br />辛いこともたくさんある。
+                <br />ただ、ここで出会えた仲間を一緒に充実した看護師人生を歩んで欲しい。そのきっかけを提供したい。
+                <br />看護師は尊く、素敵な仕事だ。
+              </span>
             </div>
           </div>
         </div>
@@ -193,7 +196,10 @@
         </a>
         <div class="join-button">
           <a href="https://nurseline.studio.design/tokyo">
-            <span>or <span class="underline">飲み会へ参加する</span></span>
+            <span>
+              or
+              <span class="underline">飲み会へ参加する</span>
+            </span>
           </a>
         </div>
       </div>
@@ -228,6 +234,9 @@ import 'swiper/dist/css/swiper.css'
 
 export default {
   layout: 'event',
+  head() {
+    title: 'イベントページ'
+  },
   data() {
     return {
       swiperHaveFunOption: {
@@ -275,19 +284,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  a {
-    text-decoration: none;
+a {
+  text-decoration: none;
+}
+.detail-button {
+  width: 21.8rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: rgb(97, 181, 167);
+  background: linear-gradient(
+    149deg,
+    rgba(97, 181, 167, 1) 0%,
+    rgba(228, 226, 239, 1) 100%
+  );
+  span {
+    color: white;
   }
-  .detail-button {
-    width: 21.8rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-    background: rgb(97,181,167);
-    background: linear-gradient(149deg, rgba(97,181,167,1) 0%, rgba(228,226,239,1) 100%);
-    span {
-      color: white;
-    }
-  }
+}
 /*---------------------------------
 
   PC対応のスタイル
@@ -485,7 +498,7 @@ export default {
       background-size: cover;
       justify-content: center;
       align-items: center;
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
 
       .section5-wrapper {
         color: white;
@@ -520,7 +533,7 @@ export default {
     }
 
     .section6 {
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
       margin-bottom: 2rem;
       padding-top: 4rem;
 
@@ -560,15 +573,15 @@ export default {
 
         .join-button {
           padding: 1.2rem 4rem;
-          color: #AAAAAA;
+          color: #aaaaaa;
           font-size: 1.5rem;
           font-weight: bold;
           a:visited {
-            color: #AAAAAA;
+            color: #aaaaaa;
           }
           .underline {
             padding-bottom: 2px;
-            border-bottom: 2px solid #AAAAAA;
+            border-bottom: 2px solid #aaaaaa;
           }
         }
 
@@ -592,7 +605,7 @@ export default {
           padding: 0;
           justify-content: space-between;
           .sns-line {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -602,7 +615,7 @@ export default {
             }
           }
           .sns-twitter {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -612,7 +625,7 @@ export default {
             }
           }
           .sns-instagram {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -986,16 +999,16 @@ export default {
         width: 100%;
 
         .join-button {
-          color: #AAAAAA;
+          color: #aaaaaa;
           font-size: 1rem;
           font-weight: bold;
           padding-bottom: 4rem;
           a:visited {
-            color: #AAAAAA;
+            color: #aaaaaa;
           }
           .underline {
             padding-bottom: 2px;
-            border-bottom: 1px solid #AAAAAA;
+            border-bottom: 1px solid #aaaaaa;
           }
         }
 
@@ -1020,7 +1033,7 @@ export default {
           position: absolute;
           top: -1.5rem;
           .sns-line {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -1031,7 +1044,7 @@ export default {
             }
           }
           .sns-twitter {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -1042,7 +1055,7 @@ export default {
             }
           }
           .sns-instagram {
-            background-color: #262F40;
+            background-color: #262f40;
             border-radius: 50%;
             width: 46px;
             height: 46px;
@@ -1093,7 +1106,7 @@ export default {
   }
 
   /deep/ .swiper-pagination-bullet-active {
-    background-color: #262F40;
+    background-color: #262f40;
   }
 
   // 要素を「」の記号で囲むプロパティ

@@ -59,8 +59,10 @@ export default {
   components: {
     ArticleRankingItem,
   },
+
   head() {
     return {
+      title: this.meta.title,
       style: [
         {
           innerHTML: this.speechStyleTag.innerHTML,
@@ -211,6 +213,9 @@ export default {
       speechStyleTag,
       users: fetchedUsers,
       articleHTML: article.content,
+      meta: {
+        title: article.title,
+      },
     }
   },
   methods: {

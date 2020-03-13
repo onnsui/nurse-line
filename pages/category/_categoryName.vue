@@ -93,6 +93,12 @@ export default {
     ArticleItem,
     ArticleRankingItem,
   },
+
+  head() {
+    return {
+      title: this.meta.title,
+    }
+  },
   data() {
     return {
       keywordArticles: this.keywordArticles,
@@ -149,7 +155,15 @@ export default {
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
-    return { categoryArticles, popularArticles, tags, WpCategoryName }
+    return {
+      categoryArticles,
+      popularArticles,
+      tags,
+      WpCategoryName,
+      meta: {
+        title: WpCategoryName,
+      },
+    }
   },
   methods: {
     getTagName(id) {
