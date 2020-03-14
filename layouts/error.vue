@@ -1,5 +1,4 @@
-
-<template>
+ <template>
   <div class="error">
     <h1 class="error-title">{{error.statusCode}}</h1>
     <p class="error-txt" v-if="error.statusCode === 404">ページが見つかりません</p>
