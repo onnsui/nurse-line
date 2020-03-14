@@ -78,29 +78,69 @@ export default {
       speechStyleTag: this.speechStyleTag,
     }
   },
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, error }) {
     const pageId = params.pageId
 
-    // WordPressから記事のタグのリストを取得する
-    const tags = await $axios.$get('/wp-json/wp/v2/tags')
+    let tags = null
+    try {
+      // WordPressから記事のタグのリストを取得する
+      tags = await $axios.$get('/wp-json/wp/v2/tags')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
 
-    // 人気記事をWordPressから取得する
-    const fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
+    let fetchedWPPopularArticles = null
+    try {
+      // 人気記事をWordPressから取得する
+      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
     // 人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
-    // 記事内容を取得
-    const fetchedArticle = await $axios.$get('/wp-json/wp/v2/posts/' + pageId)
-
+    let fetchedArticle = null
+    try {
+      // 記事内容を取得
+      fetchedArticle = await $axios.$get('/wp-json/wp/v2/posts/' + pageId)
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
     // 会話の発言者名・アイコン名をスタイルシートのテキストとして取得する
-    const speechStyleTag = await $axios.$get(
-      '/wp-json/wp/v2/liquid-speech-baloon/style-tag',
-    )
 
-    // WordPress Popular Postプラグインでの閲覧数をカウントアップする
-    $axios.$post(
-      '/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' + pageId,
-    )
+    let speechStyleTag = null
+    try {
+      speechStyleTag = await $axios.$get(
+        '/wp-json/wp/v2/liquid-speech-baloon/style-tag',
+      )
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
+    try {
+      // WordPress Popular Postプラグインでの閲覧数をカウントアップする
+      $axios.$post(
+        '/wp-json/wordpress-popular-posts/v1/popular-posts?wpp_id=' + pageId,
+      )
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
 
     // ISO8601形式の日付をDate型に変換する関数
     const convIso8601DateStr = (isoDateStr) => {
@@ -152,9 +192,16 @@ export default {
       tagNames.push(tagName)
     }
 
-    // WordPressのユーザー一覧を取得
-    const fetchedUsers = await $axios.$get('/wp-json/wp/v2/users')
-
+    let fetchedUsers = null
+    try {
+      // WordPressのユーザー一覧を取得
+      fetchedUsers = await $axios.$get('/wp-json/wp/v2/users')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
     // 記事の著者情報をWordPressの情報から取得する
     const getAuthorUser = (userId, users) => {
       let userName = ''
@@ -186,7 +233,16 @@ export default {
     if (featuredMedia !== undefined && featuredMedia.length > 0) {
       featuredMediaRESTUrl = featuredMedia[0].href
     }
-    const featuredMediaInfo = await $axios.$get(featuredMediaRESTUrl)
+
+    let featuredMediaInfo = null
+    try {
+      featuredMediaInfo = await $axios.$get(featuredMediaRESTUrl)
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
     const featuredMediaURL = featuredMediaInfo.guid.rendered
 
     const article = {

@@ -106,13 +106,19 @@ export default {
       WpCategoryName: this.WpCategoryName,
     }
   },
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, error }) {
     const categoryName = params.categoryName
 
-    // WordPressからカテゴリー名の一覧を取得する
-    const WpCategories = await $axios.$get('/wp-json/wp/v2/categories')
-
-    console.log(WpCategories)
+    let WpCategories = null
+    try {
+      // WordPressからカテゴリー名の一覧を取得する
+      WpCategories = await $axios.$get('/wp-json/wp/v2/categories')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
 
     // キーワード名からWordPressでのタグIDを取得する関数
     const getCategoryId = (categoryName, categories) => {
@@ -131,18 +137,34 @@ export default {
       return { WpCategoryId, WpCategoryName }
     }
 
-    // WordPressからタグの一覧を取得する
-    const tags = await $axios.$get('/wp-json/wp/v2/tags')
+    let tags = null
+    try {
+      // WordPressからタグの一覧を取得する
+      tags = await $axios.$get('/wp-json/wp/v2/tags')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
 
     const { WpCategoryId, WpCategoryName } = getCategoryId(
       categoryName,
       WpCategories,
     )
 
-    // 最新の記事をWordPressから取得する
-    const fetchedWpCategoryArticles = await $axios.$get(
-      '/wp-json/wp/v2/posts?_embed&categories=' + WpCategoryId,
-    )
+    let fetchedWpCategoryArticles = null
+    try {
+      // 最新の記事をWordPressから取得する
+      fetchedWpCategoryArticles = await $axios.$get(
+        '/wp-json/wp/v2/posts?_embed&categories=' + WpCategoryId,
+      )
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
 
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const categoryArticles = GetArticlesForWpAPI(
@@ -150,8 +172,17 @@ export default {
       tags,
     )
 
-    // 人気記事をWordPressから取得する
-    const fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
+    let fetchedWPPopularArticles = null
+    try {
+      // 人気記事をWordPressから取得する
+      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
@@ -312,16 +343,15 @@ a {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;
           }
+
           .keywords-content {
             display: flex;
             flex-wrap: wrap;
             margin: 0.5rem;
             width: initial;
-          }
-
-          .keywords-content {
-            display: flex;
-            flex-wrap: wrap;
+            .keyword-content {
+              margin: 10px 0;
+            }
 
             .keyword-link {
               border: 1px solid #b4b2b2;

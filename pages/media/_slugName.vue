@@ -38,21 +38,45 @@ export default {
       slugName: '',
     }
   },
-  async asyncData({ $axios, params }) {
-    // WordPressから記事のタグのリストを取得する
-    const tags = await $axios.$get('/wp-json/wp/v2/tags')
-
+  async asyncData({ $axios, params, error }) {
+    let tags = null
+    try {
+      // WordPressから記事のタグのリストを取得する
+      tags = await $axios.$get('/wp-json/wp/v2/tags')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
     const slugName = params.slugName
 
-    // 人気記事をWordPressから取得する
-    const fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
+    let fetchedWPPopularArticles = null
+    try {
+      // 人気記事をWordPressから取得する
+      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
     // 人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
-    // 記事内容を取得
-    const fetchedArticles = await $axios.$get(
-      '/wp-json/wp/v2/pages?_embed&slug=' + slugName,
-    )
+    let fetchedArticles = null
+    try {
+      // 記事内容を取得
+      fetchedArticles = await $axios.$get(
+        '/wp-json/wp/v2/pages?_embed&slug=' + slugName,
+      )
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
 
     const fetchedArticle = fetchedArticles[0]
 
@@ -90,8 +114,6 @@ export default {
       date_str: articleDateStr,
       content: fetchedArticle.content.rendered,
     }
-
-    console.log(slugName)
 
     return {
       fetchedArticle,
@@ -350,6 +372,10 @@ export default {
       flex-wrap: wrap;
       margin: 0.5rem;
       width: initial;
+
+      .keyword-content {
+        margin: 10px 0;
+      }
 
       .keyword-link {
         border: 1px solid #b4b2b2;
