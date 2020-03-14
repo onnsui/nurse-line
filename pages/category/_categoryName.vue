@@ -166,8 +166,6 @@ export default {
       })
     }
 
-    console.log(fetchedWpCategoryArticles)
-
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const categoryArticles = GetArticlesForWpAPI(
       fetchedWpCategoryArticles,
