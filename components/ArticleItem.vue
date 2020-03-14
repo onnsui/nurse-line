@@ -1,5 +1,8 @@
 <template>
-  <div class="articles-wrapper">
+  <div v-if="articles.length === 0">
+    <p>記事がありません。</p>
+  </div>
+  <div v-else class="articles-wrapper">
     <div v-for="(article, index) in articles" :key="index" class="article-wrapper">
       <div class="article-thumbnail">
         <a v-bind:href="article.url">
@@ -24,6 +27,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 export default {
