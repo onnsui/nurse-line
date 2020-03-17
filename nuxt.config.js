@@ -27,6 +27,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/vue-scrollto.js',
+    { src: '@/plugins/vue-social-sharing.js', mode: 'client' },
     { src: '@/plugins/swiper.js', ssr: false },
   ],
   /*
