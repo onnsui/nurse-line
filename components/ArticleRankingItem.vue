@@ -58,7 +58,7 @@ export default {
 
     .article-wrapper {
       display: flex;
-      margin-right: 1rem;
+      margin-right: 1.5%;
       height: 272px;
       width: 232px;
       padding: 16px 16px 0 16px;
