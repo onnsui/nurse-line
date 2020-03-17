@@ -274,6 +274,10 @@ export default {
     position: absolute;
   }
 
+  .social-icons-wrapper {
+    display: none;
+  }
+
   nav {
     display: flex;
     flex-direction: column;

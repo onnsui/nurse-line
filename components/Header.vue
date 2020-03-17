@@ -259,6 +259,10 @@ export default {
     text-align: center;
   }
 
+  .social-icons-wrapper {
+    display: none;
+  }
+
   nav {
     display: flex;
     flex-direction: column;
