@@ -26,8 +26,8 @@ export default {
   loading: { color: '#fff' },
   plugins: [
     '@/plugins/element-ui',
-    '~/plugins/vue-scrollto.js',
-    { src: '~/plugins/swiper.js', ssr: false },
+    '@/plugins/vue-scrollto.js',
+    { src: '@/plugins/swiper.js', ssr: false },
   ],
   /*
    ** Global CSS
@@ -64,6 +64,9 @@ export default {
    */
   axios: {
     baseURL: 'http://nurse-line.igz0.net',
+  },
+  router: {
+    base: '/',
   },
   /*
    ** Build configuration
