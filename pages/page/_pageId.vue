@@ -81,9 +81,20 @@ export default {
   async asyncData({ $axios, params, error }) {
     const pageId = params.pageId
 
-    let categories = null
+    let tags = null
     try {
       // WordPressから記事のタグのリストを取得する
+      tags = await $axios.$get('/wp-json/wp/v2/tags')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
+    let categories = null
+    try {
+      // WordPressからカテゴリーのリストを取得する
       categories = await $axios.$get('/wp-json/wp/v2/categories')
     } catch (e) {
       return error({
@@ -173,26 +184,26 @@ export default {
     const articleDateStr = getArticleDateStr(articleDate)
 
     // WordPressのタグIDからタグ名を取得する関数
-    const getcategoryName = (id, categories) => {
-      let categoryName = ''
+    const getTagName = (id, tags) => {
+      let tagName = ''
 
-      for (let i = 0; i < categories.length; i++) {
-        const category = categories[i]
-        const categoryId = category.id
-        if (id === categoryId) {
-          categoryName = category.name
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagId = tag.id
+        if (id === tagId) {
+          tagName = tag.name
         }
       }
-      return categoryName
+      return tagName
     }
 
     // 記事のタグID一覧を取得し、タグ名のリストを作成する。
-    const categoryNames = []
-    const articlecategoryIds = fetchedArticle.categories
-    for (let i = 0; i < articlecategoryIds.length; i++) {
-      const categoryId = articlecategoryIds[i]
-      const categoryName = getcategoryName(categoryId, categories)
-      categoryNames.push(categoryName)
+    const tagNames = []
+    const articleTagIds = fetchedArticle.tags
+    for (let i = 0; i < articleTagIds.length; i++) {
+      const tagId = articleTagIds[i]
+      const tagName = getTagName(tagId, tags)
+      tagNames.push(tagName)
     }
 
     let fetchedUsers = null
@@ -258,7 +269,7 @@ export default {
       author_avatar_img_48px: articleAuthor.avatar_img_48px,
       author_avatar_img_96px: articleAuthor.avatar_img_96px,
       content: fetchedArticle.content.rendered,
-      keywords: categoryNames,
+      keywords: tagNames,
     }
 
     // WordPressの記事(HTML)を加工し、目次のHTMLタグを埋め込む。
@@ -269,6 +280,7 @@ export default {
       popularArticles,
       article,
       categories,
+      tags,
       speechStyleTag,
       users: fetchedUsers,
       articleHTML: article.content,
@@ -278,18 +290,18 @@ export default {
     }
   },
   methods: {
-    getcategoryName(id) {
-      const categories = this.categories
-      let categoryName = ''
+    getTagName(id) {
+      const tags = this.tags
+      let tagName = ''
 
-      for (let i = 0; i < categories.length; i++) {
-        const category = categories[i]
-        const categoryId = category.id
-        if (id === categoryId) {
-          categoryName = category.name
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagId = tag.id
+        if (id === tagId) {
+          tagName = tag.name
         }
       }
-      return categoryName
+      return tagName
     },
   },
 }

@@ -18,11 +18,11 @@
 
             <div class="keywords-wrapper">
               <a
-                v-for="(keyword, index) in categories"
+                v-for="(tag, index) in tags"
                 :key="index"
-                v-bind:href="'/keyword/'+keyword.name"
+                v-bind:href="'/keyword/'+tag.name"
                 class="keyword-link"
-              >#{{ keyword.name }}</a>
+              >#{{ tag.name }}</a>
             </div>
           </div>
 
@@ -48,24 +48,28 @@
                 最新記事やイベント情報を配信中
                 <br />フォローして最新情報をGET
               </p>
-              <div class="social-icon-area">
-                <div class="sns-line">
-                  <a href="#">
-                    <img src="/line.png" alt="SNS1" loading="lazy" />
-                  </a>
-                </div>
-                <div class="sns-twitter">
-                  <a href="#">
-                    <img src="/twitter.png" alt="SNS1" loading="lazy" />
-                  </a>
-                </div>
-                <div class="sns-instagram">
-                  <a href="#">
-                    <img src="/instagram.png" alt="SNS1" loading="lazy" />
-                  </a>
-                </div>
-              </div>
+
+              <client-only>
+                <social-sharing inline-template>
+                  <div class="social-icon-area">
+                    <div class="sns-line">
+                      <network network="line">
+                        <img src="/line.png" alt="SNS1" loading="lazy" />
+                      </network>
+                    </div>
+                    <div class="sns-twitter">
+                      <network network="twitter">
+                        <img src="/twitter.png" alt="SNS1" loading="lazy" />
+                      </network>
+                    </div>
+                    <div class="sns-instagram">
+                      <img src="/instagram.png" alt="SNS1" loading="lazy" />
+                    </div>
+                  </div>
+                </social-sharing>
+              </client-only>
             </div>
+
             <a href="#">
               <img src="/recruit.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
             </a>
@@ -107,9 +111,20 @@ export default {
     }
   },
   async asyncData({ $axios, error }) {
+    let tags = null
+    try {
+      // WordPressから記事のタグのリストを取得する
+      tags = await $axios.$get('/wp-json/wp/v2/tags')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
     let categories = null
     try {
-      // WordPressからタグの一覧を取得する
+      // WordPressからカテゴリーの一覧を取得する
       categories = await $axios.$get('/wp-json/wp/v2/categories')
     } catch (e) {
       return error({
@@ -154,21 +169,21 @@ export default {
       categories,
     )
 
-    return { latestArticles, popularArticles, categories }
+    return { latestArticles, popularArticles, categories, tags }
   },
   methods: {
-    getcategoryName(id) {
-      const categories = this.categories
-      let categoryName = ''
+    getTagName(id) {
+      const tags = this.tags
+      let tagName = ''
 
-      for (let i = 0; i < categories.length; i++) {
-        const category = categories[i]
-        const categoryId = category.id
-        if (id === categoryId) {
-          categoryName = category.name
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagId = tag.id
+        if (id === tagId) {
+          tagName = tag.name
         }
       }
-      return categoryName
+      return tagName
     },
   },
 }
@@ -249,7 +264,7 @@ a {
           width: 100%;
         }
 
-        .social-area {
+        /deep/ .social-area {
           margin: 0.8rem auto 1rem auto;
           width: 100%;
           h1 {
@@ -297,7 +312,6 @@ a {
 
       .under-content-wrapper {
         text-align: center;
-        width: 75%;
 
         .under-content {
           width: 100%;
@@ -387,7 +401,7 @@ a {
             margin: 0 auto;
           }
         }
-        .social-area {
+        /deep/ .social-area {
           letter-spacing: 0.25rem;
           margin-bottom: 2rem;
           h1 {

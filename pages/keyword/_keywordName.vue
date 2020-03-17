@@ -20,7 +20,7 @@
 
             <div class="keywords-wrapper">
               <div class="keywords-content">
-                <div class="keyword-content" v-for="(keyword, index) in categories" :key="index">
+                <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
                   <a v-bind:href="'/keyword/'+keyword.name" class="keyword-link">#{{ keyword.name }}</a>
                 </div>
               </div>
@@ -101,10 +101,10 @@ export default {
     }
   },
   async asyncData({ $axios, params, error }) {
-    let categories = null
+    let tags = null
     try {
       // WordPressからタグの一覧を取得する
-      categories = await $axios.$get('/wp-json/wp/v2/categories')
+      tags = await $axios.$get('/wp-json/wp/v2/tags')
     } catch (e) {
       return error({
         statusCode: e.response.status,
@@ -115,26 +115,26 @@ export default {
     const keywordName = params.keywordName
 
     // キーワード名からWordPressでのタグIDを取得する関数
-    const getcategoryId = (keywordName, categories) => {
-      let categoryId = -1
+    const getTagId = (keywordName, tags) => {
+      let tagId = -1
 
-      for (let i = 0; i < categories.length; i++) {
-        const category = categories[i]
-        const categoryName = category.name
-        if (keywordName === categoryName) {
-          categoryId = category.id
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagName = tag.name
+        if (keywordName === tagName) {
+          tagId = tag.id
         }
       }
-      return categoryId
+      return tagId
     }
 
-    const categoryId = getcategoryId(keywordName, categories)
+    const tagId = getTagId(keywordName, tags)
 
     let fetchedWpKeywordArticles = null
     try {
       // 最新の記事をWordPressから取得する
       fetchedWpKeywordArticles = await $axios.$get(
-        '/wp-json/wp/v2/posts?_embed&categories=' + categoryId,
+        '/wp-json/wp/v2/posts?_embed&tags=' + tagId,
       )
     } catch (e) {
       return error({
@@ -143,10 +143,7 @@ export default {
       })
     }
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
-    const keywordArticles = GetArticlesForWpAPI(
-      fetchedWpKeywordArticles,
-      categories,
-    )
+    const keywordArticles = GetArticlesForWpAPI(fetchedWpKeywordArticles, tags)
 
     let fetchedWPPopularArticles = null
     try {
@@ -159,26 +156,23 @@ export default {
       })
     }
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
-    const popularArticles = GetArticlesForWpAPI(
-      fetchedWPPopularArticles,
-      categories,
-    )
+    const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
 
-    return { keywordArticles, popularArticles, categories, keywordName }
+    return { keywordArticles, popularArticles, tags, keywordName }
   },
   methods: {
-    getcategoryName(id) {
-      const categories = this.categories
-      let categoryName = ''
+    getTagName(id) {
+      const tags = this.tags
+      let tagName = ''
 
-      for (let i = 0; i < categories.length; i++) {
-        const category = categories[i]
-        const categoryId = category.id
-        if (id === categoryId) {
-          categoryName = category.name
+      for (let i = 0; i < tags.length; i++) {
+        const tag = tags[i]
+        const tagId = tag.id
+        if (id === tagId) {
+          tagName = tag.name
         }
       }
-      return categoryName
+      return tagName
     },
   },
 }
