@@ -101,6 +101,17 @@ export default {
     }
   },
   async asyncData({ $axios, params, error }) {
+    let categories = null
+    try {
+      // WordPressからカテゴリーのリストを取得する
+      categories = await $axios.$get('/wp-json/wp/v2/categories')
+    } catch (e) {
+      return error({
+        statusCode: e.response.status,
+        message: e.response.message,
+      })
+    }
+
     let tags = null
     try {
       // WordPressからタグの一覧を取得する
@@ -143,7 +154,10 @@ export default {
       })
     }
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
-    const keywordArticles = GetArticlesForWpAPI(fetchedWpKeywordArticles, tags)
+    const keywordArticles = GetArticlesForWpAPI(
+      fetchedWpKeywordArticles,
+      categories,
+    )
 
     let fetchedWPPopularArticles = null
     try {
@@ -156,9 +170,12 @@ export default {
       })
     }
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
-    const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
+    const popularArticles = GetArticlesForWpAPI(
+      fetchedWPPopularArticles,
+      categories,
+    )
 
-    return { keywordArticles, popularArticles, tags, keywordName }
+    return { keywordArticles, popularArticles, tags, categories, keywordName }
   },
   methods: {
     getTagName(id) {
@@ -298,7 +315,6 @@ a {
 
       .under-content-wrapper {
         text-align: center;
-        width: 75%;
 
         .under-content {
           width: 100%;
@@ -441,7 +457,6 @@ a {
 
       .under-content-wrapper {
         text-align: center;
-        width: 100%;
 
         .under-content {
           width: 100%;
@@ -450,15 +465,12 @@ a {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;
           }
-          .keywords-content {
+
+          .keywords-wrapper {
             display: flex;
             flex-wrap: wrap;
             margin: 0.5rem;
             width: initial;
-          }
-          .keyword-content {
-            flex-wrap: wrap;
-            margin: 0.5rem;
 
             .keyword-link {
               border: 1px solid #b4b2b2;
@@ -467,8 +479,8 @@ a {
               font-size: 0.9rem;
               font-weight: bold;
               text-decoration: none;
-              margin: 0.2rem 0.5rem;
-              padding: 0.5rem 0.9rem;
+              margin: 0.6rem 0.5rem;
+              padding: 0.3rem 0.9rem;
               width: auto !important;
             }
           }
