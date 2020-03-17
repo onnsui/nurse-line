@@ -385,7 +385,7 @@ a {
       justify-content: space-around;
       margin: 0 auto;
       width: 100%;
-      padding: 0 1rem 0 1rem;
+      padding: 0 1vw 0 1vw;
 
       .sidebar {
         order: 3;
@@ -412,7 +412,7 @@ a {
             font-size: 0.875rem;
           }
         }
-        .social-icon-area {
+        /deep/ .social-icon-area {
           display: flex;
           justify-content: space-around;
           width: 50%;
