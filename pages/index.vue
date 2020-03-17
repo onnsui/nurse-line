@@ -276,9 +276,11 @@ a {
             display: flex;
             justify-content: space-evenly;
             margin: 1rem 0;
+
             .sns-line {
               background-color: #262f40;
               border-radius: 50%;
+              cursor: pointer;
               width: 46px;
               height: 46px;
               img {
@@ -289,6 +291,7 @@ a {
             .sns-twitter {
               background-color: #262f40;
               border-radius: 50%;
+              cursor: pointer;
               width: 46px;
               height: 46px;
               img {
@@ -299,6 +302,7 @@ a {
             .sns-instagram {
               background-color: #262f40;
               border-radius: 50%;
+              cursor: pointer;
               width: 46px;
               height: 46px;
               img {
@@ -423,6 +427,7 @@ a {
             border-radius: 50%;
             width: 46px;
             height: 46px;
+            cursor: pointer;
             img {
               width: 100%;
               padding: 1.1rem 0.7rem 1rem 0.7rem;
@@ -433,6 +438,7 @@ a {
             border-radius: 50%;
             width: 46px;
             height: 46px;
+            cursor: pointer;
             img {
               width: 100%;
               padding: 0.8rem 0.7rem 1rem 0.7rem;
