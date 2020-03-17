@@ -170,17 +170,15 @@ export default {
       height: 9.5rem;
       width: 100%;
       margin: 0.5rem 0.6rem;
-      padding: 0 0.5rem;
       position: relative;
 
       .article-thumbnail {
-        height: 9.5rem;
-        width: 10.5rem;
+        width: 50vw;
         text-align: center;
         vertical-align: bottom;
         img {
-          height: 8.5rem;
-          width: 10rem;
+          height: 15vh;
+          width: 160px;
           object-fit: cover;
         }
       }
@@ -206,14 +204,14 @@ export default {
       .article-keywords-wrapper {
         display: flex;
         width: 100%;
-        margin: 0.2rem 0 0.2rem 0.4rem;
+        margin: 1vh 0 0.2rem 0;
 
         .article-keywords {
           background-color: #61b5a7;
           color: #fff;
           font-size: 0.75rem;
           padding: 0.15rem 0.3rem;
-          margin-left: 0.5rem;
+          margin-right: 0.5rem;
           &:first-child {
             margin-left: 0.5rem !important;
           }
