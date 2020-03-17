@@ -1,5 +1,5 @@
 // WordPressから取得した記事を記事表示コンポーネントへ渡すデータに整形する関数
-const GetArticles = (fetchedArticles, tags) => {
+const GetArticles = (fetchedArticles, categories) => {
   const articles = []
 
   for (let i = 0; i < fetchedArticles.length; i++) {
@@ -15,33 +15,33 @@ const GetArticles = (fetchedArticles, tags) => {
     }
 
     // WordPressのタグIDからタグ名を取得する
-    const getTagName = (id, tags) => {
-      let tagName = ''
+    const getcategoryName = (id, categories) => {
+      let categoryName = ''
 
-      for (let i = 0; i < tags.length; i++) {
-        const tag = tags[i]
-        const tagId = tag.id
-        if (id === tagId) {
-          tagName = tag.name
+      for (let i = 0; i < categories.length; i++) {
+        const category = categories[i]
+        const categoryId = category.id
+        if (id === categoryId) {
+          categoryName = category.name
         }
       }
-      return tagName
+      return categoryName
     }
 
     // 記事のタグID一覧を取得し、タグ名のリストを作成する。
-    const tagNames = []
-    const articleTagIds = article.tags
-    for (let i = 0; i < articleTagIds.length; i++) {
-      const tagId = articleTagIds[i]
-      const tagName = getTagName(tagId, tags)
-      tagNames.push(tagName)
+    const categoryNames = []
+    const articlecategoryIds = article.categories
+    for (let i = 0; i < articlecategoryIds.length; i++) {
+      const categoryId = articlecategoryIds[i]
+      const categoryName = getcategoryName(categoryId, categories)
+      categoryNames.push(categoryName)
     }
 
     articles.push({
       url: '/page/' + article.id,
       title: article.title.rendered,
       image_url: coverImage,
-      keywords: tagNames,
+      keywords: categoryNames,
     })
   }
   return articles

@@ -20,7 +20,7 @@
 
             <div class="keywords-wrapper">
               <div class="keywords-content">
-                <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
+                <div class="keyword-content" v-for="(keyword, index) in categories" :key="index">
                   <a v-bind:href="'/keyword/'+keyword.name" class="keyword-link">#{{ keyword.name }}</a>
                 </div>
               </div>
@@ -137,10 +137,10 @@ export default {
       return { WpCategoryId, WpCategoryName }
     }
 
-    let tags = null
+    let categories = null
     try {
       // WordPressからタグの一覧を取得する
-      tags = await $axios.$get('/wp-json/wp/v2/tags')
+      categories = await $axios.$get('/wp-json/wp/v2/categories')
     } catch (e) {
       return error({
         statusCode: e.response.status,
@@ -169,7 +169,7 @@ export default {
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const categoryArticles = GetArticlesForWpAPI(
       fetchedWpCategoryArticles,
-      tags,
+      categories,
     )
 
     let fetchedWPPopularArticles = null
@@ -184,12 +184,15 @@ export default {
     }
 
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
-    const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
+    const popularArticles = GetArticlesForWpAPI(
+      fetchedWPPopularArticles,
+      categories,
+    )
 
     return {
       categoryArticles,
       popularArticles,
-      tags,
+      categories,
       WpCategoryName,
       meta: {
         title: WpCategoryName,
@@ -197,18 +200,18 @@ export default {
     }
   },
   methods: {
-    getTagName(id) {
-      const tags = this.tags
-      let tagName = ''
+    getcategoryName(id) {
+      const categories = this.categories
+      let categoryName = ''
 
-      for (let i = 0; i < tags.length; i++) {
-        const tag = tags[i]
-        const tagId = tag.id
-        if (id === tagId) {
-          tagName = tag.name
+      for (let i = 0; i < categories.length; i++) {
+        const category = categories[i]
+        const categoryId = category.id
+        if (id === categoryId) {
+          categoryName = category.name
         }
       }
-      return tagName
+      return categoryName
     },
   },
 }

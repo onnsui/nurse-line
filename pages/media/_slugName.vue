@@ -39,10 +39,10 @@ export default {
     }
   },
   async asyncData({ $axios, params, error }) {
-    let tags = null
+    let categories = null
     try {
       // WordPressから記事のタグのリストを取得する
-      tags = await $axios.$get('/wp-json/wp/v2/tags')
+      categories = await $axios.$get('/wp-json/wp/v2/categories')
     } catch (e) {
       return error({
         statusCode: e.response.status,
@@ -63,7 +63,10 @@ export default {
     }
 
     // 人気記事を記事表示コンポーネントへ渡すデータに整形
-    const popularArticles = GetArticlesForWpAPI(fetchedWPPopularArticles, tags)
+    const popularArticles = GetArticlesForWpAPI(
+      fetchedWPPopularArticles,
+      categories,
+    )
 
     let fetchedArticles = null
     try {
@@ -119,7 +122,7 @@ export default {
       fetchedArticle,
       popularArticles,
       article,
-      tags,
+      categories,
       articleHTML: article.content,
       slugName,
       meta: {
@@ -128,18 +131,18 @@ export default {
     }
   },
   methods: {
-    getTagName(id) {
-      const tags = this.tags
-      let tagName = ''
+    getcategoryName(id) {
+      const categories = this.categories
+      let categoryName = ''
 
-      for (let i = 0; i < tags.length; i++) {
-        const tag = tags[i]
-        const tagId = tag.id
-        if (id === tagId) {
-          tagName = tag.name
+      for (let i = 0; i < categories.length; i++) {
+        const category = categories[i]
+        const categoryId = category.id
+        if (id === categoryId) {
+          categoryName = category.name
         }
       }
-      return tagName
+      return categoryName
     },
   },
 }
