@@ -58,14 +58,14 @@ export default {
 
     .article-wrapper {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
+      margin-right: 0.5rem;
       height: 17rem;
       width: 14.5rem;
       padding: 1rem 1rem 0 1rem;
+      position: relative;
       border: 1px solid #ccc;
-      margin-right: 0.5rem;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 1rem;
 
       .article-thumbnail {
@@ -83,15 +83,15 @@ export default {
           display: flex;
           position: relative;
           width: 100%;
-          top: -1.79rem;
+          top: -1.85rem;
           left: 0.3rem;
         }
         .article-keywords {
-          background-color: #61b5a7;
-          color: #fff;
-          font-size: 0.7rem;
           padding: 0.2rem 0.7rem;
           margin-left: 0.5rem;
+          background-color: #61b5a7;
+          font-size: 0.7rem;
+          color: #fff;
 
           &:first-child {
             margin-left: 0;
