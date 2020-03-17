@@ -45,7 +45,7 @@ export default {
   PC対応のスタイル
 
 ---------------------------------*/
-@media only screen and (min-device-width: 769px) {
+@media only screen and (min-device-width: 768px) {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -58,10 +58,10 @@ export default {
 
     .article-wrapper {
       display: flex;
-      margin-right: 0.5rem;
-      height: 17rem;
-      width: 14.5rem;
-      padding: 1rem 1rem 0 1rem;
+      margin-right: 1rem;
+      height: 272px;
+      width: 232px;
+      padding: 16px 16px 0 16px;
       position: relative;
       border: 1px solid #ccc;
       flex-direction: column;
@@ -69,32 +69,42 @@ export default {
       margin-bottom: 1rem;
 
       .article-thumbnail {
-        height: 9.5rem;
-        width: 15rem;
+        height: 144px;
+        width: 232px;
         text-align: center;
         vertical-align: bottom;
+        position: relative;
+        margin-bottom: 8px;
 
-        img {
-          height: 9rem;
-          width: 12rem;
-          object-fit: cover;
+        a {
+          height: 144px;
+
+          img {
+            height: 144px;
+            width: 200px;
+            object-fit: cover;
+          }
         }
+
         .article-keywords-wrapper {
           display: flex;
-          position: relative;
+          position: absolute;
           width: 100%;
-          top: -1.85rem;
-          left: 0.3rem;
-        }
-        .article-keywords {
-          padding: 0.2rem 0.7rem;
-          margin-left: 0.5rem;
-          background-color: #61b5a7;
-          font-size: 0.7rem;
-          color: #fff;
+          bottom: 0;
+          height: 24px;
 
-          &:first-child {
-            margin-left: 0;
+          .article-keywords {
+            background-color: #61b5a7;
+            font-size: 0.73rem;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            padding: 0.2rem 0.7rem;
+            margin-left: 8px;
+
+            &:first-child {
+              margin-left: 0;
+            }
           }
         }
       }
@@ -136,7 +146,7 @@ export default {
   スマホ・タブレット対応のスタイル
 
 ---------------------------------*/
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-device-width: 767px) {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;

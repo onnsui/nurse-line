@@ -46,7 +46,7 @@ export default {
   PC対応のスタイル
 
 ---------------------------------*/
-@media only screen and (min-device-width: 769px) {
+@media only screen and (min-device-width: 768px) {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -60,10 +60,10 @@ export default {
 
     .article-wrapper {
       display: flex;
-      margin-right: 0.5rem;
-      height: 17rem;
-      width: 14.5rem;
-      padding: 1rem 1rem 0 1rem;
+      margin-right: 1rem;
+      height: 272px;
+      width: 232px;
+      padding: 16px 16px 0 16px;
       position: relative;
       border: 1px solid #ccc;
       flex-direction: column;
@@ -71,28 +71,39 @@ export default {
       margin-bottom: 1rem;
 
       .article-thumbnail {
-        width: 15rem;
-        height: 9.5rem;
+        height: 144px;
+        width: 232px;
         text-align: center;
         vertical-align: bottom;
-        img {
-          height: 9rem;
-          width: 12rem;
-          object-fit: cover;
+        position: relative;
+        margin-bottom: 8px;
+
+        a {
+          height: 144px;
+
+          img {
+            height: 144px;
+            width: 200px;
+            object-fit: cover;
+          }
         }
+
         .article-keywords-wrapper {
           display: flex;
-          position: relative;
+          position: absolute;
           width: 100%;
-          top: -1.85rem;
-          left: 0.3rem;
+          bottom: 0;
+          height: 24px;
         }
+
         .article-keywords {
-          padding: 0.2rem 0.7rem;
-          margin-left: 0.5rem;
           background-color: #61b5a7;
-          font-size: 0.7rem;
+          font-size: 0.73rem;
           color: #fff;
+          position: absolute;
+          bottom: 0;
+          padding: 0.2rem 0.7rem;
+          margin-left: 8px;
 
           &:first-child {
             margin-left: 0;
@@ -124,11 +135,12 @@ export default {
   スマホ・タブレット対応のスタイル
 
 ---------------------------------*/
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-device-width: 767px) {
   .articles-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    padding: 2vh 2vw 0 2vw;
 
     a {
       color: #454545;
@@ -138,14 +150,14 @@ export default {
     }
 
     .article-wrapper {
-      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 0;
-      padding: 0;
+      height: 30vh;
       width: 50%;
-      margin: 0 0 1.5rem 0;
+      position: relative;
+      padding: 0 0.5vh 0 0.5vh;
+      margin-bottom: 1rem;
 
       &:first-child {
         height: 100%;
@@ -161,10 +173,6 @@ export default {
             margin: 0;
           }
         }
-        .article-keywords-wrapper {
-          top: -1.3rem !important;
-          left: -0.5rem !important;
-        }
       }
 
       .article-title {
@@ -177,50 +185,53 @@ export default {
         p {
           display: -webkit-box;
           -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2;
-        }
-      }
-
-      .article-keywords-wrapper {
-        top: -1.7em;
-        left: 0rem;
-      }
-      .article-keywords {
-        font-size: 0.8rem;
-
-        &:first-child {
-          margin-left: 0;
+          -webkit-line-clamp: 4;
         }
       }
 
       .article-thumbnail {
-        width: 10rem;
-        height: 7.3rem;
+        height: 15vh;
+        width: 100%;
         text-align: center;
         vertical-align: bottom;
-        img {
-          height: 7rem;
-          width: 10rem;
-          object-fit: cover;
-        }
-        .article-keywords-wrapper {
-          display: flex;
-          position: relative;
-          width: 100%;
-          top: -1.6rem;
-          left: -0.5rem;
+        position: relative;
+
+        a {
+          height: 15vh;
+
+          img {
+            height: 15vh;
+            width: 100%;
+            object-fit: cover;
+          }
         }
 
-        .article-keywords {
-          padding: 0.1em 0.3em;
-          margin-left: 0.5rem;
-          background-color: #61b5a7;
-          font-size: 0.75rem;
-          color: #fff;
+        .article-keywords-wrapper {
+          display: flex;
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          left: 0;
+          height: 24px;
+
+          .article-keywords {
+            background-color: #61b5a7;
+            font-size: 0.7rem;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            padding: 0.2rem 0.3rem;
+            margin-left: 8px;
+
+            &:first-child {
+              margin-left: 0;
+            }
+          }
         }
       }
       .article-read-button {
         align-self: flex-end;
+        margin-right: 3vw;
       }
     }
   }
