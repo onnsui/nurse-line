@@ -76,163 +76,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.b-a {
-  transition: all 0.25s;
-  content: '';
-  position: absolute;
-  left: 0;
-  height: 2px;
-  width: 30px;
-  background-color: rgba(0, 0, 0, 0.95);
-}
-
-.bar {
-  @extend .b-a;
-  position: fixed;
-  left: 12px;
-  top: 24px;
-  &:before {
-    @extend .b-a;
-    top: -8px;
-  }
-  &:after {
-    @extend .b-a;
-    top: 8px;
-  }
-}
-.b-a-expanded {
-  transition: all 0.25s;
-  top: -0px;
-}
-
-.menu-collapsed {
-  transition: all 0.25s;
-  position: fixed;
-  top: 10px;
-  left: 9px;
-  height: 36px;
-  width: 36px;
-  z-index: 1;
-  cursor: pointer;
-  ul {
-    transition: all 0s;
-    position: fixed;
-    left: -9000px;
-  }
-}
-
-.menu-expanded {
-  transition: all 0.25s;
-  text-align: center;
-  line-height: 60px;
-  height: 100%;
-  width: 100%;
-  border-radius: 0px;
-  top: 0;
-  left: 0;
-  background-color: rgba(38, 47, 64, 0.85);
-
-  ul {
-    transition: all 0s;
-    width: 100%;
-    left: 0;
-    z-index: 2;
-    padding: 0;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    list-style: none;
-    font-size: 0.88rem;
-    width: 80%;
-    margin: 0 auto;
-    .horizon-wrapper {
-      margin: 0 auto;
-      width: auto;
-      hr {
-        height: 1px;
-        border: none;
-        border-top: 1px #fff solid;
-        width: 9rem;
-        position: relative;
-        top: -1px;
-      }
-    }
-  }
-
-  a {
-    transition: all 0.15s;
-    text-decoration: none;
-    font-size: 1.5rem;
-    padding: 5px;
-    color: #fff;
-    display: block;
-    &:hover {
-      background-color: rgba(white, 0.8);
-      transition: all 0.15s;
-      letter-spacing: 2px;
-      color: #333;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-  }
-  .bar {
-    background-color: transparent;
-    transition: all 0.25s;
-    &:before {
-      @extend .b-a-expanded;
-      transform: rotate(45deg);
-
-      // ハンバーガーメニュー展開時の×の色
-      background-color: #fff;
-    }
-    &:after {
-      @extend .b-a-expanded;
-      transform: rotate(-45deg);
-
-      // ハンバーガーメニュー展開時の×の色
-      background-color: #fff;
-    }
-  }
-
-  .social-icons-wrapper {
-    display: flex !important;
-    width: 100%;
-    position: absolute;
-    bottom: 10%;
-
-    .social-icons {
-      display: flex;
-      margin: 0 auto;
-      padding: 0;
-      width: 100%;
-      justify-content: center;
-
-      .social-icon {
-        position: relative;
-        top: 25px;
-        border-radius: 50%;
-        width: 46px;
-        height: 46px;
-        img {
-          background-color: rgba(38, 47, 64, 0.85);
-          width: 100%;
-          padding: 1.1rem 0.7rem 1rem 0.7rem;
-        }
-      }
-
-      :first-child {
-        margin-right: 10px;
-      }
-      :last-child {
-        margin-left: 10px;
-      }
-    }
-  }
-}
-
 /*---------------------------------
 
   PC対応のスタイル
@@ -241,20 +84,36 @@ export default {
 @media only screen and (min-device-width: 769px) {
   header {
     color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #fff;
     height: 3rem;
     width: 100%;
-    margin: 0 auto;
+    padding: 16px 10% 0 10%;
     text-align: center;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    height: 40px;
+    width: 100%;
+
+    li {
+      flex-grow: 1;
+      a {
+        color: #454545;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .horizon-wrapper {
+        display: none;
+      }
+    }
   }
 
   .social-icons-wrapper {
     display: none;
-  }
-
-  li {
-    width: 30% !important;
-    margin: 0 auto;
   }
 }
 
@@ -264,6 +123,163 @@ export default {
 
 ---------------------------------*/
 @media only screen and (max-device-width: 768px) {
+  .b-a {
+    transition: all 0.25s;
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+
+  .bar {
+    @extend .b-a;
+    position: fixed;
+    left: 12px;
+    top: 24px;
+    &:before {
+      @extend .b-a;
+      top: -8px;
+    }
+    &:after {
+      @extend .b-a;
+      top: 8px;
+    }
+  }
+  .b-a-expanded {
+    transition: all 0.25s;
+    top: -0px;
+  }
+
+  .menu-collapsed {
+    transition: all 0.25s;
+    position: fixed;
+    top: 10px;
+    left: 9px;
+    height: 36px;
+    width: 36px;
+    z-index: 1;
+    cursor: pointer;
+    ul {
+      transition: all 0s;
+      position: fixed;
+      left: -9000px;
+    }
+  }
+
+  .menu-expanded {
+    transition: all 0.25s;
+    text-align: center;
+    line-height: 60px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    top: 0;
+    left: 0;
+    background-color: rgba(38, 47, 64, 0.85);
+
+    ul {
+      transition: all 0s;
+      width: 100%;
+      left: 0;
+      z-index: 2;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      list-style: none;
+      font-size: 0.88rem;
+      width: 80%;
+      margin: 0 auto;
+      .horizon-wrapper {
+        margin: 0 auto;
+        width: auto;
+        hr {
+          height: 1px;
+          border: none;
+          border-top: 1px #fff solid;
+          width: 9rem;
+          position: relative;
+          top: -1px;
+        }
+      }
+    }
+
+    a {
+      transition: all 0.15s;
+      text-decoration: none;
+      font-size: 1.5rem;
+      padding: 5px;
+      color: #fff;
+      display: block;
+      &:hover {
+        background-color: rgba(white, 0.8);
+        transition: all 0.15s;
+        letter-spacing: 2px;
+        color: #333;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+    }
+    .bar {
+      background-color: transparent;
+      transition: all 0.25s;
+      &:before {
+        @extend .b-a-expanded;
+        transform: rotate(45deg);
+
+        // ハンバーガーメニュー展開時の×の色
+        background-color: #fff;
+      }
+      &:after {
+        @extend .b-a-expanded;
+        transform: rotate(-45deg);
+
+        // ハンバーガーメニュー展開時の×の色
+        background-color: #fff;
+      }
+    }
+
+    .social-icons-wrapper {
+      display: flex !important;
+      width: 100%;
+      position: absolute;
+      bottom: 10%;
+
+      .social-icons {
+        display: flex;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        justify-content: center;
+
+        .social-icon {
+          position: relative;
+          top: 25px;
+          border-radius: 50%;
+          width: 46px;
+          height: 46px;
+          img {
+            background-color: rgba(38, 47, 64, 0.85);
+            width: 100%;
+            padding: 1.1rem 0.7rem 1rem 0.7rem;
+          }
+        }
+
+        :first-child {
+          margin-right: 10px;
+        }
+        :last-child {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
   header {
     color: #000;
     background-color: rgba(255, 255, 255, 0);
