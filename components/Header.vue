@@ -51,13 +51,26 @@
           </li>
         </ul>
       </nav>
-      <div class="social-icons-wrapper">
-        <div class="social-icons">
-          <img src="/line.svg" class="social-icon" />
-          <img src="/twitter.svg" class="social-icon" />
-          <img src="/instagram.svg" class="social-icon" />
-        </div>
-      </div>
+
+      <client-only>
+        <social-sharing inline-template>
+          <div class="social-icons-wrapper">
+            <div class="social-icons">
+              <network network="line">
+                <img src="/line.svg" class="social-icon" />
+              </network>
+              <network network="twitter">
+                <img src="/twitter.svg" class="social-icon" />
+              </network>
+              <a href="https://instagr.am/">
+                <div class="sns-instagram">
+                  <img src="/instagram.svg" class="social-icon" />
+                </div>
+              </a>
+            </div>
+          </div>
+        </social-sharing>
+      </client-only>
     </div>
   </header>
 </template>
@@ -76,7 +89,6 @@ export default {
 </script>
 
 
-
 <style lang="scss" scoped>
 /*---------------------------------
 
@@ -87,9 +99,18 @@ export default {
   header {
     background-color: #212a37;
     height: 3rem;
+    line-height: 3rem;
     width: 100%;
-    padding: 16px 10% 0 10%;
+    padding: 0 10% 0 10%;
     text-align: center;
+  }
+
+  .social-icons-wrapper {
+    display: none;
+  }
+
+  .bar {
+    display: none;
   }
 
   ul {
@@ -162,7 +183,7 @@ export default {
     transition: all 0.25s;
     top: -0px;
   }
-  .social-icons-wrapper {
+  /deep/ .social-icons-wrapper {
     display: none;
   }
 
@@ -238,7 +259,7 @@ export default {
       }
     }
 
-    .social-icons-wrapper {
+    /deep/ .social-icons-wrapper {
       display: flex !important;
       width: 100%;
       position: absolute;
@@ -275,7 +296,7 @@ export default {
     text-align: center;
   }
 
-  .social-icons-wrapper {
+  /deep/ .social-icons-wrapper {
     display: none;
   }
 
