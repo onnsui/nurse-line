@@ -62,9 +62,11 @@
                         <img src="/twitter.png" alt="SNS1" loading="lazy" />
                       </network>
                     </div>
-                    <div class="sns-instagram">
-                      <img src="/instagram.png" alt="SNS1" loading="lazy" />
-                    </div>
+                    <a href="https://instagr.am/">
+                      <div class="sns-instagram">
+                        <img src="/instagram.png" alt="SNS1" loading="lazy" />
+                      </div>
+                    </a>
                   </div>
                 </social-sharing>
               </client-only>
@@ -415,47 +417,49 @@ a {
           p {
             font-size: 0.875rem;
           }
+
+          .social-icon-area {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            max-width: 10.5rem;
+            margin: 1rem auto;
+
+            .sns-line {
+              background-color: #262f40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              cursor: pointer;
+              img {
+                width: 100%;
+                padding: 1.1rem 0.7rem 1rem 0.7rem;
+              }
+            }
+            .sns-twitter {
+              background-color: #262f40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              cursor: pointer;
+              img {
+                width: 100%;
+                padding: 0.8rem 0.7rem 1rem 0.7rem;
+              }
+            }
+            .sns-instagram {
+              background-color: #262f40;
+              border-radius: 50%;
+              width: 46px;
+              height: 46px;
+              img {
+                width: 100%;
+                padding: 0.7rem 0.7rem 1rem 0.7rem;
+              }
+            }
+          }
         }
-        /deep/ .social-icon-area {
-          display: flex;
-          justify-content: space-around;
-          width: 50%;
-          max-width: 10.5rem;
-          margin: 1rem auto;
-          .sns-line {
-            background-color: #262f40;
-            border-radius: 50%;
-            width: 46px;
-            height: 46px;
-            cursor: pointer;
-            img {
-              width: 100%;
-              padding: 1.1rem 0.7rem 1rem 0.7rem;
-            }
-          }
-          .sns-twitter {
-            background-color: #262f40;
-            border-radius: 50%;
-            width: 46px;
-            height: 46px;
-            cursor: pointer;
-            img {
-              width: 100%;
-              padding: 0.8rem 0.7rem 1rem 0.7rem;
-            }
-          }
-          .sns-instagram {
-            background-color: #262f40;
-            border-radius: 50%;
-            width: 46px;
-            height: 46px;
-            img {
-              width: 100%;
-              padding: 0.7rem 0.7rem 1rem 0.7rem;
-            }
-          }
-        }
-        .recruit-text {
+        /deep/ .recruit-text {
           margin: 1rem 0 2rem 0;
           font-size: 0.875rem;
           text-align: center;
