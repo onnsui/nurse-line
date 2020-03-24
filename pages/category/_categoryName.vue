@@ -337,7 +337,6 @@ a {
 
       .under-content-wrapper {
         text-align: center;
-        width: 75%;
 
         .under-content {
           width: 100%;
