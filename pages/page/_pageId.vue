@@ -382,84 +382,86 @@ a {
       }
     }
 
-    .article-title {
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    .article-info {
-      display: flex;
-      width: 200px;
-      margin: 1.5rem 0.5rem;
-      text-align: left;
-      color: #454545;
-
-      .article-avatar-icon {
-        border-radius: 50%;
-        height: 32px;
-        width: 32px;
-        margin: 0 1rem 0 0.4rem;
-      }
-      .article-author {
-        font-size: 14px;
+    article {
+      .article-title {
+        font-size: 2rem;
         font-weight: bold;
-      }
-      .article-date {
-        font-size: 12px;
-      }
-    }
-
-    .article-content {
-      font-size: 1.15rem;
-      line-height: 2.4rem;
-      text-align: initial;
-
-      h1 {
-        font-weight: normal;
+        text-align: left;
       }
 
-      h2 {
-        margin: 1.8em 0;
+      .article-info {
+        display: flex;
+        width: 200px;
+        margin: 1.5rem 0.5rem;
+        text-align: left;
+        color: #454545;
+
+        .article-avatar-icon {
+          border-radius: 50%;
+          height: 32px;
+          width: 32px;
+          margin: 0 1rem 0 0.4rem;
+        }
+        .article-author {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .article-date {
+          font-size: 12px;
+        }
       }
 
-      blockquote {
-        background-color: #f3f3f3;
-        width: 80%;
-        margin: 0 auto;
-      }
+      .article-content {
+        font-size: 1.15rem;
+        line-height: 2.4rem;
+        text-align: initial;
 
-      // 記事の目次部分のスタイル定義
-      .index-heading {
-        background-color: #f8f8f8;
-        width: 75%;
-        margin: 2rem auto;
-        padding: 1.3rem 2rem 2rem 2rem;
-
-        ol {
-          padding: 0;
+        h1 {
+          font-weight: normal;
         }
 
-        // 目次の項目に下線を入れる
-        li {
-          border-bottom: 1px solid #cecece;
-          list-style: none;
-          // 最終行には下線を引かない
-          &:last-child {
-            border-bottom: 0;
+        h2 {
+          margin: 1.8em 0;
+        }
+
+        blockquote {
+          background-color: #f3f3f3;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        // 記事の目次部分のスタイル定義
+        .index-heading {
+          background-color: #f8f8f8;
+          width: 75%;
+          margin: 2rem auto;
+          padding: 1.3rem 2rem 2rem 2rem;
+
+          ol {
+            padding: 0;
+          }
+
+          // 目次の項目に下線を入れる
+          li {
+            border-bottom: 1px solid #cecece;
+            list-style: none;
+            // 最終行には下線を引かない
+            &:last-child {
+              border-bottom: 0;
+            }
+          }
+
+          a {
+            color: #6e6e6e;
+            font-size: 0.9rem;
+            text-decoration: none;
           }
         }
 
-        a {
-          color: #6e6e6e;
-          font-size: 0.9rem;
-          text-decoration: none;
+        // WordPressから投稿された画像は全幅に
+        .wp-block-image > img {
+          width: 100%;
         }
-      }
-
-      // WordPressから投稿された画像は全幅に
-      .wp-block-image > img {
-        width: 100%;
       }
     }
 
