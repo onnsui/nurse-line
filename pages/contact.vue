@@ -171,8 +171,6 @@ export default {
         }),
         axiosConfig,
       )
-
-      console.log(test)
       this.finished = true
     },
   },
@@ -219,12 +217,6 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    .article-title {
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: left;
-    }
 
     form {
       font-size: 1.15rem;
@@ -294,97 +286,6 @@ export default {
           );
         }
       }
-
-      // 記事の目次部分のスタイル定義
-      .index-heading {
-        background-color: #f8f8f8;
-        width: 75%;
-        margin: 2rem auto;
-        padding: 1.3rem 2rem 2rem 2rem;
-
-        ol {
-          padding: 0;
-        }
-
-        // 目次の項目に下線を入れる
-        li {
-          border-bottom: 1px solid #cecece;
-          list-style: none;
-          // 最終行には下線を引かない
-          &:last-child {
-            border-bottom: 0;
-          }
-        }
-
-        a {
-          color: #6e6e6e;
-          font-size: 0.9rem;
-          text-decoration: none;
-        }
-      }
-
-      // WordPressから投稿された画像は全幅に
-      .wp-block-image > img {
-        width: 100%;
-      }
-    }
-
-    .entry-content {
-      line-height: 1.5;
-    }
-
-    .title {
-      display: block;
-      font-weight: 300;
-      font-size: 100px;
-      color: #35495e;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      font-weight: 300;
-      font-size: 42px;
-      color: #526488;
-      word-spacing: 5px;
-      padding-bottom: 15px;
-    }
-
-    .links {
-      padding-top: 15px;
-    }
-
-    .wp-block-separator {
-      border-width: 1px 0px 0px 0px; /* 太さ */
-      border-style: solid; /* 線種 */
-      border-color: #dad7d7; /* 線色 */
-      margin: 30px 0;
-    }
-
-    .popular-header {
-      margin: 1rem 0;
-    }
-
-    .keywords-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0.5rem;
-      width: initial;
-
-      .keyword-content {
-        margin: 10px 0;
-      }
-
-      .keyword-link {
-        border: 1px solid #b4b2b2;
-        border-radius: 4px;
-        color: #454545;
-        font-size: 0.9rem;
-        font-weight: bold;
-        text-decoration: none;
-        margin: 0.6rem 0.5rem;
-        padding: 0.3rem 0.9rem;
-        width: auto !important;
-      }
     }
   }
 }
@@ -397,212 +298,60 @@ export default {
 ---------------------------------*/
 
   .container {
-    width: 100%;
-    margin: 0 auto;
-    color: #222;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    .article-cover {
-      .cover-browed {
-        display: none;
-
-        span {
-          width: 100%;
-          height: 250px;
-          display: block;
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          -webkit-filter: blur(5px);
-          -ms-filter: blur(5px);
-          filter: blur(5px);
-          -moz-transform: scale(1.2, 1.2);
-          -ms-transform: scale(1.2, 1.2);
-          -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-          filter: alpha(opacity=70);
-          opacity: 0.7;
-        }
-      }
-
-      .cover-image {
-        position: relative;
-        top: 0;
-
-        img {
-          width: 100%;
-        }
-      }
+    input,
+    textarea {
+      border: 1px solid #ddd;
+      width: 100% !important;
     }
 
-    .article-title {
-      font-weight: bold;
-      text-align: left;
-      font-size: 1.4rem;
-      margin: 0 auto;
-      padding: 0 0.5rem;
-      width: 100%;
-    }
-
-    .article-info {
-      display: flex;
-      width: 200px;
-      margin: 1.5rem 0.5rem;
-      text-align: left;
-      color: #454545;
-
-      .article-avatar-icon {
-        border-radius: 50%;
-        height: 32px;
-        width: 32px;
-        margin: 0 1em 0 0.5em;
-      }
-      .article-author {
-        font-size: 14px;
-        font-weight: bold;
-      }
-      .article-date {
-        font-size: 12px;
-      }
-    }
-
-    .article-content {
-      font-size: 1.15rem;
-      line-height: 2rem;
-      text-align: initial;
-      letter-spacing: 0;
-      margin: 0 0.3rem;
-
-      h1 {
-        font-weight: normal;
-      }
-      h2 {
-        margin: 1.8em 0;
-        font-size: 1.3rem;
-        letter-spacing: 0.05rem;
-      }
-    }
-
-    .index-heading {
-      background-color: #f8f8f8;
-      margin: 2rem auto;
-      padding: 1.3rem 2rem 2rem 2rem;
-
-      ol {
-        padding: 0;
-      }
-
-      // 目次の項目に下線を入れる
-      li {
-        border-bottom: 1px solid #cecece;
-        list-style: none;
-        // 最終行には下線を引かない
-        &:last-child {
-          border-bottom: 0;
-        }
-      }
-
-      a {
-        color: #6e6e6e;
-        font-size: 0.9rem;
-        text-decoration: none;
-      }
-    }
-
-    .index-heading-title {
+    label,
+    input,
+    textarea {
       font-size: 0.9rem;
     }
-
-    .wp-block-image > img {
-      width: 100%;
+    input {
+      padding: 10px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
-
-    .entry-content {
-      line-height: 1.5;
-    }
-
-    .title {
-      font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        sans-serif;
-      display: block;
-      font-weight: 300;
-      font-size: 100px;
-      color: #35495e;
-      letter-spacing: 1px;
-    }
-
-    .subtitle {
-      font-weight: 300;
-      font-size: 42px;
-      color: #526488;
-      word-spacing: 5px;
-      padding-bottom: 15px;
-    }
-
-    .links {
-      padding-top: 15px;
-    }
-
-    blockquote {
-      background-color: #f3f3f3;
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    .wp-block-separator {
-      border-width: 1px 0px 0px 0px; /* 太さ */
-      border-style: solid; /* 線種 */
-      border-color: #dad7d7; /* 線色 */
-      margin: 30px 0;
-    }
-
-    .popular-header {
-      margin: 1rem 0;
-    }
-
-    article {
-      margin-top: 2rem;
-      padding: 0 0.8rem;
+    textarea {
+      max-width: 100%;
+      height: 200px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 7px;
+      padding-top: 7px;
+      line-height: 2.14286;
     }
 
     .article-title {
-      width: 100%;
+      text-align: center;
     }
 
-    .article-content {
-      font-size: 1.08rem;
-    }
+    .wpcf7-submit {
+      display: block;
+      color: white;
+      cursor: pointer;
+      max-width: 22rem;
+      margin: 2rem auto 3rem auto;
+      font-weight: bold;
+      padding: 1rem 3rem 1rem 3rem;
+      background: rgb(38, 47, 64);
+      background: linear-gradient(
+        149deg,
+        rgba(38, 47, 64, 1) 0%,
+        rgba(139, 142, 157, 1) 66%,
+        rgba(152, 149, 170, 1) 100%
+      );
 
-    .keywords-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0.5rem;
-      width: initial;
-
-      .keyword-link {
-        border: 1px solid #b4b2b2;
-        border-radius: 4px;
-        color: #454545;
-        font-size: 0.9rem;
-        font-weight: bold;
-        text-decoration: none;
-        margin: 0.6rem 0.5rem;
-        padding: 0.3rem 0.9rem;
-        width: auto !important;
-      }
-    }
-
-    .article-keywords {
-      width: auto;
-      left: 2rem;
-
-      &:first-child {
-        margin-left: 1.5rem !important;
+      &:hover {
+        cursor: default;
+        background: linear-gradient(
+          149deg,
+          rgb(77, 87, 105) 0%,
+          rgb(166, 168, 182) 66%,
+          rgb(181, 177, 201) 100%
+        );
       }
     }
   }
