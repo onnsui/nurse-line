@@ -110,30 +110,22 @@
           <div class="wpcf7-response-output wpcf7-display-none"></div>
         </form>
       </article>
-
-      <h2 class="popular-header">人気の記事</h2>
-      <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
     </div>
   </div>
 </template>
 
 <script>
 import GetArticlesForWpAPI from '~/assets/GetArticlesForWpAPI.js'
-import ArticleRankingItem from '~/components/ArticleRankingItem'
 
 export default {
-  components: {
-    ArticleRankingItem,
-  },
   head() {
     return {
-      title: this.meta.title,
+      title: 'お問い合わせ',
     }
   },
   data() {
     return {
-      popularArticles: this.popularArticles,
-      slugName: '',
+      slugName: 'contact',
       finished: false,
       form: {
         your_name: '',
@@ -141,69 +133,6 @@ export default {
         your_email: '',
         your_subject: '',
         your_message: '',
-      },
-    }
-  },
-  async asyncData({ $axios, params, error }) {
-    let categories = null
-    try {
-      // WordPressから記事のタグのリストを取得する
-      categories = await $axios.$get('/wp-json/wp/v2/categories')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-    const slugName = 'contact'
-
-    let fetchedWPPopularArticles = null
-    try {
-      // 人気記事をWordPressから取得する
-      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-
-    // 人気記事を記事表示コンポーネントへ渡すデータに整形
-    const popularArticles = GetArticlesForWpAPI(
-      fetchedWPPopularArticles,
-      categories,
-    )
-
-    let fetchedArticles = null
-    try {
-      // 記事内容を取得
-      fetchedArticles = await $axios.$get(
-        '/wp-json/wp/v2/pages?_embed&slug=' + slugName,
-      )
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-
-    const fetchedArticle = fetchedArticles[0]
-
-    const article = {
-      fetched_article: fetchedArticle,
-      title: fetchedArticle.title.rendered,
-      content: fetchedArticle.content.rendered,
-    }
-
-    return {
-      fetchedArticle,
-      popularArticles,
-      article,
-      categories,
-      articleHTML: article.content,
-      slugName,
-      meta: {
-        title: fetchedArticle.title.rendered,
       },
     }
   },
