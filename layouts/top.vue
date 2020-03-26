@@ -1,6 +1,14 @@
 <template>
   <div>
     <TransparentHeader />
+
+    <div class="hero">
+      <nuxt-link to="/">
+        <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
+        <!-- <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy" /> -->
+      </nuxt-link>
+    </div>
+
     <nuxt />
     <MyFooter />
   </div>
@@ -29,5 +37,32 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+@media only screen and (min-device-width: 769px) {
+  .sp {
+    display: none;
+  }
+  .hero {
+    height: auto;
+    width: 100%;
+    padding: 0 10%;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 768px) {
+  .pc {
+    display: none;
+  }
+  .hero {
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
 }
 </style>

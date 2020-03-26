@@ -1,12 +1,5 @@
 <template>
   <div id="top" class="container">
-    <div class="hero">
-      <nuxt-link to="/">
-        <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
-        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy" />
-      </nuxt-link>
-    </div>
-
     <div class="main-wrapper">
       <div class="main-contents">
         <ArticleItem :articles="latestArticles"></ArticleItem>
@@ -221,15 +214,6 @@ a {
   .container {
     margin: 0 10%;
 
-    .hero {
-      width: 100%;
-      margin: 0 auto;
-      text-align: center;
-      img {
-        width: 100%;
-      }
-    }
-
     .main-wrapper {
       display: flex;
       margin-top: 2rem;
@@ -377,13 +361,6 @@ a {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-
-    .hero {
-      img {
-        height: auto;
-        width: 100%;
-      }
-    }
 
     .main-wrapper {
       display: flex;

@@ -1,12 +1,5 @@
 <template>
   <div id="top" class="container">
-    <div class="hero">
-      <a href to="/">
-        <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
-        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy" />
-      </a>
-    </div>
-
     <h1 class="keyword-name">#{{ keywordName }} の記事</h1>
 
     <div class="main-wrapper">
@@ -222,15 +215,6 @@ a {
   .container {
     margin: 0 10%;
 
-    .hero {
-      width: 100%;
-      margin: 0 auto;
-      text-align: center;
-      img {
-        width: 100%;
-      }
-    }
-
     .keyword-name {
       font-size: 1.5rem;
       margin: 0.5rem 0 0.5rem 0.5rem;
@@ -367,13 +351,6 @@ a {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-
-    .hero {
-      img {
-        height: auto;
-        width: 100%;
-      }
-    }
 
     .keyword-name {
       font-size: 1.5rem;
