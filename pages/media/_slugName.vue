@@ -148,7 +148,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   article {
     padding: 0 5% 3rem 5%;
