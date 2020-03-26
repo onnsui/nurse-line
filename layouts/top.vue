@@ -5,7 +5,7 @@
     <div class="hero">
       <nuxt-link to="/">
         <img class="pc" src="/pc-hero.png" alt="hero" loading="lazy" />
-        <!-- <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy" /> -->
+        <img class="sp" src="/sp-hero.png" alt="hero" loading="lazy" />
       </nuxt-link>
     </div>
 
