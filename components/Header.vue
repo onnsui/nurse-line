@@ -44,7 +44,7 @@
             </div>
           </li>
           <li>
-            <a href="/media/contact">お問い合わせ</a>
+            <a href="/contact">お問い合わせ</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
