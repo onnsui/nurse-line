@@ -11,40 +11,40 @@
             </div>
           </li>
           <li>
-            <a href="/media/about">NURSE LINEについて</a>
+            <nuxt-link to="/media/about">NURSE LINEについて</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
           <li>
-            <a href="/category/event-report">イベントレポート</a>
-            <div class="horizon-wrapper">
-              <hr />
-            </div>
-          </li>
-
-          <li>
-            <a href="/category/interview">インタビュー</a>
+            <nuxt-link to="/category/event-report">イベントレポート</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
 
           <li>
-            <a href="/category/column">コラム</a>
+            <nuxt-link to="/category/interview">インタビュー</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
 
           <li>
-            <a href="/media/join-us">運営スタッフ募集</a>
+            <nuxt-link to="/category/column">コラム</nuxt-link>
+            <div class="horizon-wrapper">
+              <hr />
+            </div>
+          </li>
+
+          <li>
+            <nuxt-link to="/media/join-us">運営スタッフ募集</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
           <li>
-            <a href="/contact">お問い合わせ</a>
+            <nuxt-link to="/contact">お問い合わせ</nuxt-link>
             <div class="horizon-wrapper">
               <hr />
             </div>
@@ -87,7 +87,6 @@ export default {
   },
 }
 </script>
-
 
 <style lang="scss" scoped>
 /*---------------------------------
