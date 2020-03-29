@@ -11,40 +11,40 @@
             </div>
           </li>
           <li>
-            <nuxt-link to="/media/about">NURSE LINEについて</nuxt-link>
+            <a href="/media/about">NURSE LINEについて</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
           <li>
-            <nuxt-link to="/category/event-report">イベントレポート</nuxt-link>
-            <div class="horizon-wrapper">
-              <hr />
-            </div>
-          </li>
-
-          <li>
-            <nuxt-link to="/category/interview">インタビュー</nuxt-link>
+            <a href="/category/event-report">イベントレポート</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
 
           <li>
-            <nuxt-link to="/category/column">コラム</nuxt-link>
+            <a to="/category/interview">インタビュー</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
 
           <li>
-            <nuxt-link to="/media/join-us">運営スタッフ募集</nuxt-link>
+            <a to="/category/column">コラム</a>
+            <div class="horizon-wrapper">
+              <hr />
+            </div>
+          </li>
+
+          <li>
+            <a href="/media/join-us">運営スタッフ募集</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
           <li>
-            <nuxt-link to="/contact">お問い合わせ</nuxt-link>
+            <a href="/contact">お問い合わせ</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
