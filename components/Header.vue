@@ -24,14 +24,14 @@
           </li>
 
           <li>
-            <a to="/category/interview">インタビュー</a>
+            <a href="/category/interview">インタビュー</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
           </li>
 
           <li>
-            <a to="/category/column">コラム</a>
+            <a href="/category/column">コラム</a>
             <div class="horizon-wrapper">
               <hr />
             </div>
