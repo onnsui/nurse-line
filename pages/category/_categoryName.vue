@@ -60,14 +60,8 @@
               </div>
             </div>
             <a href="#">
-              <img src="/recruit.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
+              <img src="/youtube.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
             </a>
-            <p class="recruit-text">経験豊富な看護師達が、あなたにあった働き方を真剣に考えます。</p>
-            <div class="detail-button">
-              <a href="#">
-                <span>詳しく見る</span>
-              </a>
-            </div>
           </div>
         </div>
       </div>
