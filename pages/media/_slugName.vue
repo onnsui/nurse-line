@@ -401,13 +401,11 @@ export default {
   スマホ・タブレット対応のスタイル
 
 ---------------------------------*/
-
   .container {
     width: 100%;
     margin: 0 auto;
     color: #222;
     min-height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -477,94 +475,291 @@ export default {
     }
 
     .article-content {
-      font-size: 1.15rem;
+      font-size: 1.08rem;
       line-height: 2rem;
       text-align: initial;
       letter-spacing: 0;
       margin: 0 0.3rem;
 
-      h1 {
+      /deep/ h1 {
         font-weight: normal;
       }
-      h2 {
+      /deep/ h2 {
         margin: 1.8em 0;
         font-size: 1.3rem;
         letter-spacing: 0.05rem;
       }
-    }
 
-    .index-heading {
-      background-color: #f8f8f8;
-      margin: 2rem auto;
-      padding: 1.3rem 2rem 2rem 2rem;
+      /deep/ .index-heading {
+        background-color: #f8f8f8;
+        margin: 2rem auto;
+        padding: 1.3rem 2rem 2rem 2rem;
 
-      ol {
-        padding: 0;
-      }
+        ol {
+          padding: 0;
+        }
 
-      // 目次の項目に下線を入れる
-      li {
-        border-bottom: 1px solid #cecece;
-        list-style: none;
-        // 最終行には下線を引かない
-        &:last-child {
-          border-bottom: 0;
+        // 目次の項目に下線を入れる
+        li {
+          border-bottom: 1px solid #cecece;
+          list-style: none;
+          // 最終行には下線を引かない
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+
+        a {
+          color: #6e6e6e;
+          font-size: 0.9rem;
+          text-decoration: none;
         }
       }
 
-      a {
-        color: #6e6e6e;
+      /deep/ .index-heading-title {
         font-size: 0.9rem;
-        text-decoration: none;
       }
-    }
 
-    .index-heading-title {
-      font-size: 0.9rem;
-    }
+      /deep/ .wp-block-image > img {
+        width: 100%;
+      }
 
-    .wp-block-image > img {
-      width: 100%;
-    }
+      /deep/ .entry-content {
+        line-height: 1.5;
+      }
 
-    .entry-content {
-      line-height: 1.5;
-    }
+      /deep/ .title {
+        font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
+          BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+          sans-serif;
+        display: block;
+        font-weight: 300;
+        font-size: 100px;
+        color: #35495e;
+        letter-spacing: 1px;
+      }
 
-    .title {
-      font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-        BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-        sans-serif;
-      display: block;
-      font-weight: 300;
-      font-size: 100px;
-      color: #35495e;
-      letter-spacing: 1px;
-    }
+      /deep/ .subtitle {
+        font-weight: 300;
+        font-size: 42px;
+        color: #526488;
+        word-spacing: 5px;
+        padding-bottom: 15px;
+      }
 
-    .subtitle {
-      font-weight: 300;
-      font-size: 42px;
-      color: #526488;
-      word-spacing: 5px;
-      padding-bottom: 15px;
-    }
+      /deep/ .links {
+        padding-top: 15px;
+      }
 
-    .links {
-      padding-top: 15px;
-    }
+      /deep/ blockquote {
+        background-color: #f3f3f3;
+        width: 80%;
+        margin: 0 auto;
+      }
 
-    blockquote {
-      background-color: #f3f3f3;
-      width: 80%;
-      margin: 0 auto;
-    }
+      /deep/ .wp-block-separator {
+        border-width: 1px 0px 0px 0px; /* 太さ */
+        border-style: solid; /* 線種 */
+        border-color: #dad7d7; /* 線色 */
+        margin: 30px 0;
+      }
 
-    .wp-block-separator {
-      border-width: 1px 0px 0px 0px; /* 太さ */
-      border-style: solid; /* 線種 */
-      border-color: #dad7d7; /* 線色 */
-      margin: 30px 0;
+      /deep/ .liquid-speech-balloon-wrap {
+        margin: 2rem auto;
+        flex-direction: row;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+
+        .liquid-speech-balloon-avatar {
+          position: relative;
+          top: 0.5rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          line-height: 1;
+          flex-shrink: 0;
+          background-position: left top;
+          background-repeat: no-repeat;
+          -webkit-background-size: 100% auto;
+          -moz-background-size: 100% auto;
+          -ms-background-size: 100% auto;
+          -o-background-size: 100% auto;
+          background-size: 100% auto;
+
+          &:after {
+            position: absolute;
+            display: block;
+            width: 100%;
+            left: 0;
+            top: 3.5rem;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: bold;
+          }
+        }
+
+        .liquid-speech-balloon-text {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          margin-left: 1rem;
+
+          p {
+            margin: 0 !important;
+            padding: 0 !important;
+            a {
+              color: inherit !important;
+              text-decoration: underline;
+            }
+          }
+
+          &::before {
+            left: 15px !important;
+            top: auto;
+            bottom: -15px;
+          }
+          &::after {
+            left: 20px !important;
+            top: auto;
+            bottom: -22px;
+          }
+        }
+
+        .liquid-speech-balloon-bubble {
+          &::before {
+            content: '.';
+            color: transparent;
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            border: inherit;
+            background-color: inherit;
+            left: -15px;
+            width: 15px;
+            height: 15px;
+            top: 20px;
+          }
+          &::after {
+            content: '.';
+            color: transparent;
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            border: inherit;
+            background-color: inherit;
+            left: -20px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+          }
+        }
+
+        .liquid-speech-balloon-right.liquid-speech-balloon-bubble {
+          &::before {
+            left: auto;
+            right: -15px;
+          }
+          &::after {
+            left: auto;
+            right: -20px;
+          }
+        }
+
+        .liquid-speech-balloon-square {
+          border-radius: 0;
+          border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .liquid-speech-balloon-dashed {
+          border: 2px dashed rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .liquid-speech-balloon-shadow {
+          border-radius: 0;
+          box-shadow: 3px 3px 0 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .liquid-speech-balloon-borderless {
+          border: 0 none;
+          padding: 10px 5px;
+        }
+        .liquid-speech-balloon-borderless .liquid-speech-balloon-arrow {
+          display: none;
+        }
+
+        .liquid-speech-balloon-small p {
+          font-size: 13px;
+          padding: 10px 15px;
+        }
+
+        .liquid-speech-balloon-large,
+        .liquid-speech-balloon-largep {
+          font-size: 36px;
+        }
+
+        .liquid-speech-balloon-short {
+          width: auto;
+        }
+      }
+
+      /deep/ .liquid-speech-balloon-arrow {
+        display: none;
+      }
+      /deep/
+        .liquid-speech-balloon-wrap:not(.liquid-speech-balloon-vertical)
+        .liquid-speech-balloon-arrow {
+        border-top: 7px solid transparent !important;
+        border-bottom: 7px solid transparent !important;
+        border-right: 10px solid rgba(0, 0, 0, 0.2);
+      }
+
+      /deep/ .liquid-speech-balloon-bubble .liquid-speech-balloon-arrow {
+        display: none;
+      }
+
+      /deep/ .liquid-speech-balloon-right {
+        flex-direction: row-reverse;
+        .liquid-speech-balloon-text {
+          margin-left: 0;
+          margin-right: 20px;
+        }
+        .liquid-speech-balloon-arrow {
+          left: auto;
+          right: -18px;
+          border-right: 7px solid transparent !important;
+          border-left: 10px solid rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      /deep/ .liquid-speech-balloon-small .liquid-speech-balloon-avatar {
+        width: 32px;
+        height: 32px;
+        &::after {
+          display: none;
+        }
+      }
+      /deep/ .liquid-speech-balloon-small .liquid-speech-balloon-arrow {
+        top: 7px;
+      }
+
+      /deep/ .liquid-speech-balloon-vertical {
+        flex-direction: column-reverse;
+
+        .liquid-speech-balloon-text {
+          margin: 0 0 1rem 0;
+        }
+
+        .liquid-speech-balloon-arrow {
+          top: auto;
+          bottom: -11px;
+          left: 11px !important;
+          border-top: 10px solid rgba(0, 0, 0, 0.2);
+          border-left: 7px solid transparent !important;
+          border-right: 7px solid transparent !important;
+        }
+      }
     }
 
     .popular-header {
@@ -574,14 +769,6 @@ export default {
     article {
       margin-top: 2rem;
       padding: 0 0.8rem;
-    }
-
-    .article-title {
-      width: 100%;
-    }
-
-    .article-content {
-      font-size: 1.08rem;
     }
 
     .keywords-wrapper {
