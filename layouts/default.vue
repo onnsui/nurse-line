@@ -16,6 +16,11 @@ import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
+  head: function () {
+    return {
+      title: 'NURSE LINE',
+    }
+  },
   components: {
     Header,
     Footer,
