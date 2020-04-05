@@ -43,23 +43,23 @@
               </p>
               <div class="social-icon-area">
                 <div class="sns-line">
-                  <a href="#">
+                  <a href="http://line.me/ti/p/%40182ksrsv" target="_blank">
                     <img src="/line.png" alt="SNS1" loading="lazy" />
                   </a>
                 </div>
                 <div class="sns-twitter">
-                  <a href="#">
-                    <img src="/twitter.png" alt="SNS1" loading="lazy" />
+                  <a href="https://twitter.com/jRrLZVUB09QHuFj" target="_blank">
+                    <img src="/twitter.png" alt="SNS1" loading="lazy"/>
                   </a>
                 </div>
                 <div class="sns-instagram">
-                  <a href="#">
-                    <img src="/instagram.png" alt="SNS1" loading="lazy" />
+                  <a href="https://www.instagram.com/_nurseline_/?hl=ja" target="_blank">
+                    <img src="/instagram.png" alt="SNS1" loading="lazy"/>
                   </a>
                 </div>
               </div>
             </div>
-            <a href="#">
+            <a href="https://www.youtube.com/channel/UC4H23NwI17SQ7tebs9d6JQQ?disable_polymer=true" target="_blank">
               <img src="/youtube.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
             </a>
           </div>

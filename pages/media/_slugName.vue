@@ -4,14 +4,8 @@
       <article>
         <h1 class="article-title">{{fetchedArticle.title.rendered}}</h1>
 
-        <div v-html="articleHTML" class="article-content"></div>
-      </article>
+        <div v-html="articleHTML" class="article-content"></div></article>
 
-      <a href="#" class="detail-button">
-        <div>
-          <span>キャリア相談をする</span>
-        </div>
-      </a>
 
       <h2 class="popular-header">人気の記事</h2>
       <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
