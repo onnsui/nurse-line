@@ -3,11 +3,7 @@
     <Header />
     <nuxt />
     <Footer />
-    <div class="social-icon-area">
-      <img src="http://placehold.jp/50x50.png" />
-      <img src="http://placehold.jp/50x50.png" />
-      <img src="http://placehold.jp/50x50.png" />
-    </div>
+    <div class="social-icon-area"></div>
   </div>
 </template>
 
@@ -16,7 +12,7 @@ import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
-  head: function () {
+  head: function() {
     return {
       title: 'NURSE LINE',
     }
