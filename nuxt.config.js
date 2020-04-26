@@ -64,7 +64,10 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://wp.nurse-line.net',
+    /* 
+    https://wp.nurse-line.net
+     */
+    baseURL: 'https://150.95.132.41',
   },
   router: {
     base: '/',
