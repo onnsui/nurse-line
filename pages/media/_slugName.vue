@@ -709,7 +709,7 @@ export default {
         font-weight: bold;
         text-decoration: none;
         margin: 0.6rem 0.5rem;
-        padding: 0.3rem 0.9rem;
+        padding: 0.2rem 0.9rem;
         width: auto !important;
       }
     }

@@ -12,11 +12,12 @@
             <h1>キーワード</h1>
 
             <div class="keywords-wrapper">
-              <div class="keywords-content">
-                <div class="keyword-content" v-for="(keyword, index) in tags" :key="index">
-                  <a v-bind:href="'/keyword/'+keyword.name" class="keyword-link">#{{ keyword.name }}</a>
-                </div>
-              </div>
+              <a
+                v-for="(tag, index) in tags"
+                :key="index"
+                v-bind:href="'/keyword/'+tag.name"
+                class="keyword-link"
+              >#{{ tag.name }}</a>
             </div>
           </div>
 
@@ -59,7 +60,10 @@
                 </div>
               </div>
             </div>
-            <a href="https://www.youtube.com/channel/UC4H23NwI17SQ7tebs9d6JQQ?disable_polymer=true" target="_blank">
+            <a
+              href="https://www.youtube.com/channel/UC4H23NwI17SQ7tebs9d6JQQ?disable_polymer=true"
+              target="_blank"
+            >
               <img src="/youtube.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
             </a>
           </div>
@@ -349,7 +353,7 @@ a {
     .keyword-name {
       font-size: 1.5rem;
       margin: 0.5rem 0 0.5rem 0.5rem;
-      text-align: left;
+      text-align: center;
     }
 
     .main-wrapper {
@@ -451,7 +455,7 @@ a {
               font-weight: bold;
               text-decoration: none;
               margin: 0.6rem 0.5rem;
-              padding: 0.3rem 0.9rem;
+              padding: 0.2rem 0.9rem;
               width: auto !important;
             }
           }
