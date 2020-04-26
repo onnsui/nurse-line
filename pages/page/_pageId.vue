@@ -26,14 +26,6 @@
           <div v-html="articleHTML" class="article-content"></div>
         </article>
 
-        <a href="#">
-          <div class="detail-button">
-            <a href="#">
-              <span>キャリア相談をする</span>
-            </a>
-          </div>
-        </a>
-
         <div class="keywords-wrapper">
           <a
             v-for="(keyword, index) in article.keywords"

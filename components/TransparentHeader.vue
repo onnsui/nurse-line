@@ -55,13 +55,13 @@
         <social-sharing inline-template>
           <div class="social-icons-wrapper">
             <div class="social-icons">
-              <network network="line">
+              <a href="http://line.me/ti/p/%40182ksrsv" target="_blank">
                 <img src="/line.svg" class="social-icon" />
-              </network>
-              <network network="twitter">
+              </a>
+              <a href="https://twitter.com/jRrLZVUB09QHuFj" target="_blank">
                 <img src="/twitter.svg" class="social-icon" />
-              </network>
-              <a href="https://instagr.am/">
+              </a>
+              <a href="https://www.instagram.com/_nurseline_/?hl=ja" target="_blank">
                 <div class="sns-instagram">
                   <img src="/instagram.svg" class="social-icon" />
                 </div>
