@@ -3,98 +3,97 @@
     <div class="container">
       <article>
         <h1 class="article-title">お問い合わせ</h1>
-
-        <form @submit.prevent method="post" class="wpcf7-form" novalidate="novalidate">
-          <div style="display: none;">
-            <input type="hidden" name="_wpcf7" value="5" />
-            <input type="hidden" name="_wpcf7_version" value="5.1.7" />
-            <input type="hidden" name="_wpcf7_locale" value="ja" />
-            <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f117-o1" />
-            <input type="hidden" name="_wpcf7_container_post" value="0" />
-          </div>
-          <p>
-            <label>
-              お名前 (必須)
-              <br />
-              <span class="wpcf7-form-control-wrap your-name">
-                <input
-                  type="text"
-                  name="your-name"
-                  v-model="form.your_name"
-                  size="40"
-                  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                  aria-required="true"
-                  aria-invalid="false"
-                />
-              </span>
-            </label>
-          </p>
-          <p>
-            <label>
-              フリガナ (必須)
-              <br />
-              <span class="wpcf7-form-control-wrap your-name-ruby">
-                <input
-                  type="text"
-                  v-model="form.your_name_ruby"
-                  name="your-name-ruby"
-                  size="40"
-                  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                  aria-required="true"
-                  aria-invalid="false"
-                />
-              </span>
-            </label>
-          </p>
-          <p>
-            <label>
-              メールアドレス (必須)
-              <br />
-              <span class="wpcf7-form-control-wrap your-email">
-                <input
-                  type="email"
-                  v-model="form.your_email"
-                  name="your-email"
-                  size="40"
-                  class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                  aria-required="true"
-                />
-              </span>
-            </label>
-          </p>
-          <p>
-            <label>
-              題名
-              <br />
-              <span class="wpcf7-form-control-wrap your-subject">
-                <input
-                  type="text"
-                  name="your-subject"
-                  v-model="form.subject"
-                  size="40"
-                  class="wpcf7-form-control wpcf7-text"
-                  aria-invalid="false"
-                />
-              </span>
-            </label>
-          </p>
-          <p>
-            <label>
-              メッセージ本文
-              <br />
-              <span class="wpcf7-form-control-wrap your-message">
-                <textarea
-                  name="your-message"
-                  v-model="form.your_message"
-                  cols="40"
-                  rows="10"
-                  class="wpcf7-form-control wpcf7-textarea"
-                  aria-invalid="false"
-                ></textarea>
-              </span>
-            </label>
-          </p>
-          <template v-if="!finished">
+        <template v-if="!finished">
+          <form @submit.prevent method="post" class="wpcf7-form" novalidate="novalidate">
+            <div style="display: none;">
+              <input type="hidden" name="_wpcf7" value="5" />
+              <input type="hidden" name="_wpcf7_version" value="5.1.7" />
+              <input type="hidden" name="_wpcf7_locale" value="ja" />
+              <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f117-o1" />
+              <input type="hidden" name="_wpcf7_container_post" value="0" />
+            </div>
+            <p>
+              <label>
+                お名前 (必須)
+                <br />
+                <span class="wpcf7-form-control-wrap your-name">
+                  <input
+                    type="text"
+                    name="your-name"
+                    v-model="form.your_name"
+                    size="40"
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                    aria-required="true"
+                    aria-invalid="false"
+                  />
+                </span>
+              </label>
+            </p>
+            <p>
+              <label>
+                フリガナ (必須)
+                <br />
+                <span class="wpcf7-form-control-wrap your-name-ruby">
+                  <input
+                    type="text"
+                    v-model="form.your_name_ruby"
+                    name="your-name-ruby"
+                    size="40"
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                    aria-required="true"
+                    aria-invalid="false"
+                  />
+                </span>
+              </label>
+            </p>
+            <p>
+              <label>
+                メールアドレス (必須)
+                <br />
+                <span class="wpcf7-form-control-wrap your-email">
+                  <input
+                    type="email"
+                    v-model="form.your_email"
+                    name="your-email"
+                    size="40"
+                    class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                    aria-required="true"
+                  />
+                </span>
+              </label>
+            </p>
+            <p>
+              <label>
+                題名
+                <br />
+                <span class="wpcf7-form-control-wrap your-subject">
+                  <input
+                    type="text"
+                    name="your-subject"
+                    v-model="form.subject"
+                    size="40"
+                    class="wpcf7-form-control wpcf7-text"
+                    aria-invalid="false"
+                  />
+                </span>
+              </label>
+            </p>
+            <p>
+              <label>
+                メッセージ本文
+                <br />
+                <span class="wpcf7-form-control-wrap your-message">
+                  <textarea
+                    name="your-message"
+                    v-model="form.your_message"
+                    cols="40"
+                    rows="10"
+                    class="wpcf7-form-control wpcf7-textarea"
+                    aria-invalid="false"
+                  ></textarea>
+                </span>
+              </label>
+            </p>
             <p>
               <input
                 type="submit"
@@ -103,12 +102,12 @@
                 class="wpcf7-form-control wpcf7-submit"
               />
             </p>
-          </template>
-          <template v-else>
-            <p v-text="'お問い合わせ頂きありがとうございました。'" />
-          </template>
-          <div class="wpcf7-response-output wpcf7-display-none"></div>
-        </form>
+            <div class="wpcf7-response-output wpcf7-display-none"></div>
+          </form>
+        </template>
+        <template v-else>
+          <p v-text="'お問い合わせ頂きありがとうございました。'" />
+        </template>
       </article>
     </div>
   </div>
