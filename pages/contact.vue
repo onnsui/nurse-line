@@ -6,7 +6,7 @@
 
         <form @submit.prevent method="post" class="wpcf7-form" novalidate="novalidate">
           <div style="display: none;">
-            <input type="hidden" name="_wpcf7" value="117" />
+            <input type="hidden" name="_wpcf7" value="5" />
             <input type="hidden" name="_wpcf7_version" value="5.1.7" />
             <input type="hidden" name="_wpcf7_locale" value="ja" />
             <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f117-o1" />
@@ -165,7 +165,7 @@ export default {
         header: { 'Content-Type': 'application/x-www-form-urlencoded' },
       }
       const test = await this.$axios.$post(
-        '/wp-json/contact-form-7/v1/contact-forms/117/feedback',
+        '/wp-json/contact-form-7/v1/contact-forms/5/feedback',
         this.encode({
           ...this.form,
         }),
