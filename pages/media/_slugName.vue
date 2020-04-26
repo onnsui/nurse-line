@@ -4,8 +4,8 @@
       <article>
         <h1 class="article-title">{{fetchedArticle.title.rendered}}</h1>
 
-        <div v-html="articleHTML" class="article-content"></div></article>
-
+        <div v-html="articleHTML" class="article-content"></div>
+      </article>
 
       <h2 class="popular-header">人気の記事</h2>
       <ArticleRankingItem :articles="popularArticles"></ArticleRankingItem>
@@ -206,48 +206,6 @@ export default {
     align-items: center;
     text-align: center;
 
-    // 記事のヘッダー(サムネイル部分)のスタイルを定義
-    .article-cover {
-      .cover-browed {
-        height: 250px;
-
-        width: 100%;
-        overflow: hidden;
-        position: absolute;
-        left: 0;
-        background: #000;
-
-        span {
-          display: block;
-          height: 250px;
-          width: 100%;
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          -webkit-filter: blur(5px);
-          -ms-filter: blur(5px);
-          filter: blur(5px);
-          -moz-transform: scale(1.2, 1.2);
-          -ms-transform: scale(1.2, 1.2);
-          -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-          filter: alpha(opacity=70);
-          opacity: 0.7;
-        }
-      }
-
-      .cover-image {
-        position: relative;
-        top: 0;
-
-        img {
-          width: 750px;
-          height: 250px;
-          object-fit: cover;
-        }
-      }
-    }
-
     .article-title {
       font-size: 2rem;
       font-weight: bold;
@@ -281,50 +239,22 @@ export default {
       line-height: 2.4rem;
       text-align: initial;
 
-      h1 {
+      /deep/ h1 {
         font-weight: normal;
       }
 
-      h2 {
+      /deep/ h2 {
         margin: 1.8em 0;
       }
 
-      blockquote {
+      /deep/ blockquote {
         background-color: #f3f3f3;
         width: 80%;
         margin: 0 auto;
       }
 
-      // 記事の目次部分のスタイル定義
-      .index-heading {
-        background-color: #f8f8f8;
-        width: 75%;
-        margin: 2rem auto;
-        padding: 1.3rem 2rem 2rem 2rem;
-
-        ol {
-          padding: 0;
-        }
-
-        // 目次の項目に下線を入れる
-        li {
-          border-bottom: 1px solid #cecece;
-          list-style: none;
-          // 最終行には下線を引かない
-          &:last-child {
-            border-bottom: 0;
-          }
-        }
-
-        a {
-          color: #6e6e6e;
-          font-size: 0.9rem;
-          text-decoration: none;
-        }
-      }
-
       // WordPressから投稿された画像は全幅に
-      .wp-block-image > img {
+      /deep/ .wp-block-image > img {
         width: 100%;
       }
     }
