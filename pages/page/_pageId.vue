@@ -268,6 +268,8 @@ export default {
     // WordPressの記事(HTML)を加工し、目次のHTMLタグを埋め込む。
     article.content = AddIndexHeadingHTML(article.content)
 
+    console.log('d')
+
     return {
       fetchedArticle,
       popularArticles,
@@ -281,8 +283,6 @@ export default {
         title: article.title,
       },
     }
-
-    console.log('d')
   },
   methods: {
     getTagName(id) {
