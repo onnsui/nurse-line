@@ -71,6 +71,7 @@ export default {
     }
   },
   async asyncData({ $axios, params, error }) {
+    console.log('a')
     const pageId = params.pageId
 
     let tags = null
@@ -280,6 +281,8 @@ export default {
         title: article.title,
       },
     }
+
+    console.log('d')
   },
   methods: {
     getTagName(id) {
