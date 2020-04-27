@@ -15,10 +15,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: 'NURSE LINE | 忙しい看護師の仕事とプライベートをもっと輝かせるサイトです。',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
