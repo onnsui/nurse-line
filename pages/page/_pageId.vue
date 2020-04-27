@@ -71,7 +71,6 @@ export default {
     }
   },
   async asyncData({ $axios, params, error }) {
-    console.log('a')
     const pageId = params.pageId
 
     let tags = null
@@ -267,8 +266,6 @@ export default {
 
     // WordPressの記事(HTML)を加工し、目次のHTMLタグを埋め込む。
     article.content = AddIndexHeadingHTML(article.content)
-
-    console.log('d')
 
     return {
       fetchedArticle,
