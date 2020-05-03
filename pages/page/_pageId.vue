@@ -73,10 +73,16 @@ export default {
   async asyncData({ $axios, params, error }) {
     const pageId = params.pageId
 
-    let tags = null
+    let result = null
     try {
-      // WordPressから記事のタグのリストを取得する
-      tags = await $axios.$get('/wp-json/wp/v2/tags')
+      result = await Promise.all([
+        $axios.$get('/wp-json/wp/v2/tags'),
+        $axios.$get('/wp-json/wp/v2/categories'),
+        $axios.$get('/wp-json/wpp/posts'),
+        $axios.$get('/wp-json/wp/v2/posts/' + pageId),
+        $axios.$get('/wp-json/wp/v2/liquid-speech-baloon/style-tag'),
+        $axios.$get('/wp-json/wp/v2/users'),
+      ])
     } catch (e) {
       return error({
         statusCode: e.response.status,
@@ -84,57 +90,18 @@ export default {
       })
     }
 
-    let categories = null
-    try {
-      // WordPressからカテゴリーのリストを取得する
-      categories = await $axios.$get('/wp-json/wp/v2/categories')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-
-    let fetchedWPPopularArticles = null
-    try {
-      // 人気記事をWordPressから取得する
-      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
+    const tags = result[0]
+    const categories = result[1]
+    const fetchedWPPopularArticles = result[2]
+    const fetchedArticle = result[3]
+    const speechStyleTag = result[4]
+    const fetchedUsers = result[5]
 
     // 人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(
       fetchedWPPopularArticles,
       categories,
     )
-
-    let fetchedArticle = null
-    try {
-      // 記事内容を取得
-      fetchedArticle = await $axios.$get('/wp-json/wp/v2/posts/' + pageId)
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-    // 会話の発言者名・アイコン名をスタイルシートのテキストとして取得する
-
-    let speechStyleTag = null
-    try {
-      speechStyleTag = await $axios.$get(
-        '/wp-json/wp/v2/liquid-speech-baloon/style-tag',
-      )
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
 
     try {
       // WordPress Popular Postプラグインでの閲覧数をカウントアップする
@@ -198,16 +165,6 @@ export default {
       tagNames.push(tagName)
     }
 
-    let fetchedUsers = null
-    try {
-      // WordPressのユーザー一覧を取得
-      fetchedUsers = await $axios.$get('/wp-json/wp/v2/users')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
     // 記事の著者情報をWordPressの情報から取得する
     const getAuthorUser = (userId, users) => {
       let userName = ''
