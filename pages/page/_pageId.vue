@@ -73,6 +73,7 @@ export default {
   async asyncData({ $axios, params, error }) {
     const pageId = params.pageId
 
+    // WordPressとAPI通信(非同期処理)
     let result = null
     try {
       result = await Promise.all([
@@ -89,7 +90,6 @@ export default {
         message: e.response.message,
       })
     }
-
     const tags = result[0]
     const categories = result[1]
     const fetchedWPPopularArticles = result[2]
