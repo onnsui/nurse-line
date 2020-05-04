@@ -291,16 +291,12 @@ a {
             font-size: 1.35rem;
             margin-bottom: 0.8rem;
           }
-          .keywords-content {
+
+          .keywords-wrapper {
             display: flex;
             flex-wrap: wrap;
             margin: 0.5rem;
             width: initial;
-          }
-
-          .keywords-content {
-            display: flex;
-            flex-wrap: wrap;
 
             .keyword-link {
               border: 1px solid #b4b2b2;
@@ -309,8 +305,8 @@ a {
               font-size: 0.9rem;
               font-weight: bold;
               text-decoration: none;
-              margin: 0.2rem 0.5rem;
-              padding: 0.5rem 0.9rem;
+              margin: 0.6rem 0.5rem;
+              padding: 0.3rem 0.9rem;
               width: auto !important;
             }
           }
