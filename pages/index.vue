@@ -65,7 +65,10 @@
               </client-only>
             </div>
 
-            <a href="https://www.youtube.com/channel/UC4H23NwI17SQ7tebs9d6JQQ?disable_polymer=true" target="_blank">
+            <a
+              href="https://www.youtube.com/channel/UC4H23NwI17SQ7tebs9d6JQQ?disable_polymer=true"
+              target="_blank"
+            >
               <img src="/youtube.png" alt="看護師がサポート、転職支援" class="sidebar-banner" loading="lazy" />
             </a>
           </div>
@@ -100,57 +103,32 @@ export default {
     }
   },
   async asyncData({ $axios, error }) {
-    let tags = null
-    try {
-      // WordPressから記事のタグのリストを取得する
-      tags = await $axios.$get('/wp-json/wp/v2/tags')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-
-    let categories = null
-    try {
-      // WordPressからカテゴリーの一覧を取得する
-      categories = await $axios.$get('/wp-json/wp/v2/categories')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-    // 最新の記事をWordPressから取得する
+    // 最新の記事等の情報をWordPressから取得する
     const pageNum = 1
-
-    let fetchedWpLatestArticles = null
+    let result = null
     try {
-      fetchedWpLatestArticles = await $axios.$get(
-        '/wp-json/wp/v2/posts?_embed&page=' + pageNum,
-      )
+      result = await Promise.all([
+        $axios.$get('/wp-json/wp/v2/tags'),
+        $axios.$get('/wp-json/wp/v2/categories'),
+        $axios.$get('/wp-json/wpp/posts'),
+        $axios.$get('/wp-json/wp/v2/posts?_embed&page=' + pageNum),
+      ])
     } catch (e) {
       return error({
         statusCode: e.response.status,
         message: e.response.message,
       })
     }
+    const tags = result[0]
+    const categories = result[1]
+    const fetchedWPPopularArticles = result[2]
+    const fetchedWpLatestArticles = result[3]
+
     // 取得した記事を記事表示コンポーネントへ渡すデータに整形
     const latestArticles = GetArticlesForWpAPI(
       fetchedWpLatestArticles,
       categories,
     )
-
-    let fetchedWPPopularArticles = null
-    try {
-      // 人気記事をWordPressから取得する
-      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
 
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(

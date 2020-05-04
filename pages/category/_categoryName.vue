@@ -99,16 +99,21 @@ export default {
   async asyncData({ $axios, params, error }) {
     const categoryName = params.categoryName
 
-    let WpCategories = null
+    // WordPressから各種記事情報取得する
+    let result = null
     try {
-      // WordPressからカテゴリー名の一覧を取得する
-      WpCategories = await $axios.$get('/wp-json/wp/v2/categories')
+      result = await Promise.all([
+        $axios.$get('/wp-json/wp/v2/categories'),
+        $axios.$get('/wp-json/wpp/posts'),
+      ])
     } catch (e) {
       return error({
         statusCode: e.response.status,
         message: e.response.message,
       })
     }
+    const categories = result[0]
+    const fetchedWPPopularArticles = result[1]
 
     // キーワード名からWordPressでのタグIDを取得する関数
     const getCategoryId = (categoryName, categories) => {
@@ -127,20 +132,9 @@ export default {
       return { WpCategoryId, WpCategoryName }
     }
 
-    let categories = null
-    try {
-      // WordPressからタグの一覧を取得する
-      categories = await $axios.$get('/wp-json/wp/v2/categories')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
-
     const { WpCategoryId, WpCategoryName } = getCategoryId(
       categoryName,
-      WpCategories,
+      categories,
     )
 
     let fetchedWpCategoryArticles = null
@@ -161,17 +155,6 @@ export default {
       fetchedWpCategoryArticles,
       categories,
     )
-
-    let fetchedWPPopularArticles = null
-    try {
-      // 人気記事をWordPressから取得する
-      fetchedWPPopularArticles = await $axios.$get('/wp-json/wpp/posts')
-    } catch (e) {
-      return error({
-        statusCode: e.response.status,
-        message: e.response.message,
-      })
-    }
 
     // 取得した人気記事を記事表示コンポーネントへ渡すデータに整形
     const popularArticles = GetArticlesForWpAPI(
